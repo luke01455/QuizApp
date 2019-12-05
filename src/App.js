@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.scss';
 
+import HomePage from './pages/homepage/homepage.component';
+
 const App = () => {
   const questions = [
     {
@@ -17,9 +19,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <div> Quiz App </div>
-      <div> Question </div>
-      <div> Answers </div>
+     <HomePage />
     </div>
   );
 }
