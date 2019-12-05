@@ -1,7 +1,10 @@
 import React from 'react';
 import './App.scss';
 
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
+
 import HomePage from './pages/homepage/homepage.component';
+import PrizeOption from './components/prize-option/prize-option.component';
 
 const App = () => {
   const questions = [
@@ -19,7 +22,12 @@ const App = () => {
 
   return (
     <div className="App">
-     <HomePage />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/car" component={PrizeOption} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
