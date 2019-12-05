@@ -5,6 +5,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import HomePage from './pages/homepage/homepage.component';
 import PrizeOption from './components/prize-option/prize-option.component';
+import QuizModal from './components/quiz-modal/quiz-modal.component';
 
 const App = () => {
   const questions = [
@@ -23,6 +24,7 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
+        <Route path="/" component={QuizModal} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/car" component={PrizeOption} />
