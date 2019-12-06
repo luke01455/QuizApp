@@ -1,13 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './quiz-modal.styles.scss';
 
 const QuizModal = () => {
-    const [question, setQuestion] = useState([])
-    const quizResults = useRef();
+    const [question, setQuestion] = useState([]);
+    const [answers, setAnswers] = useState([]);
 
     const getContent = () => {
-        let allResults = [];
+        
         const url = new URL('https://itunes.apple.com/search');
         const params = { term: 'beyonce', media: 'musicVideo'};
         url.search = new URLSearchParams(params);
@@ -15,26 +15,29 @@ const QuizModal = () => {
             .then(results => results.json())
             .then(data => {
                 let getQuestion = () => {
-                    return ( <div> {data.results[12].trackCensoredName} </div> )
+                    return ( <div> 
+                        <img src={data.results[0].artworkUrl100}></img>
+                    </div> )
                 }
-                // allResults = [
-                // data.results[0].artworkUrl100,
-                // data.results[1].trackCensoredName,
-                // data.results[12].trackCensoredName,
-                // data.results[23].trackCensoredName,
-                // data.results[44].trackCensoredName
-            //];
-            setQuestion(getQuestion)
+
+                let getAnswers = () => {
+                    return (
+                        <div>
+                            <div>{data.results[0].trackCensoredName}</div>
+                            <div>{data.results[12].trackCensoredName}</div>
+                            <div>{data.results[23].trackCensoredName}</div>
+                            <div>{data.results[44].trackCensoredName}</div>
+                        </div>
+                    )
+                }
+            setQuestion(getQuestion);
+            setAnswers(getAnswers);
             })
     };
 
     useEffect(() => {
-        const quizSetUp = getContent();
-        //quizResults.current = quizSetUp;
-        console.log(quizSetUp)
+        getContent();
     }, [])
-
-    
 
     return (
     <div className='styled-modal'>
@@ -42,7 +45,7 @@ const QuizModal = () => {
             <div className='modal-warning'> {question}
             </div>
             <div className='modal-section-wrapper'>
-
+                {answers}
             </div>
         </div>
     </div>
