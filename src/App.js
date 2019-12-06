@@ -55,10 +55,11 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-         <Route path="/quiz" component={QuizPage} />
+         
         <Switch>
+          <Route path="/quiz" component={QuizPage} />
           <Route exact path="/" component={HomePage} />
-          <Route path="/car" component={PrizeOption} />
+          <Route exact path="/beginquiz" component={QuizModal} />
         </Switch>
       </BrowserRouter>
     </div>
