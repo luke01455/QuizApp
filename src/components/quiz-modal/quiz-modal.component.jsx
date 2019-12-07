@@ -8,8 +8,9 @@ const QuizModal = () => {
 
     const getContent = () => {
         
-        const url = new URL('https://itunes.apple.com/search');
-        const params = { term: 'beyonce', media: 'musicVideo'};
+        const url = new URL('https://itunes.apple.com/lookup');
+        //const params = { term: 'beyonce', media: 'musicVideo'};
+        const params = { amgArtistId: 468743 }
         url.search = new URLSearchParams(params);
         fetch(url, { method: 'POST' })
             .then(results => results.json())
