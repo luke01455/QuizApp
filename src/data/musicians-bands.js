@@ -1,4 +1,4 @@
-mAndB = {
+export const musiciansAndBands = {
 1: '1 Of The Girls',
 2: '112',
 3: '2nd Nature',
@@ -37,7 +37,6 @@ mAndB = {
 36: 'B5',
 37: 'Blackstreet',
 38: 'Backstreet Boys',
-38: 'Bell Biv DeVoe',
 39: 'Boyz II Men',
 40: 'Blue Magic',
 41: 'Babyface',
@@ -68,5 +67,6 @@ mAndB = {
 66: 'Cheryl Lynn',
 67: 'Chic',
 68: 'Christion',
-69: 'Ciara'
+69: 'Ciara',
+70: 'Bell Biv DeVoe'
 }
