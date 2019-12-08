@@ -4,23 +4,32 @@ import { musiciansAndBands } from '../../data/musicians-bands'
 import './quiz-modal.styles.scss';
 
 const QuizModal = () => {
+    const url = new URL('https://itunes.apple.com/search');
+
     const [question, setQuestion] = useState([]);
     const [correctAnswer, setCorrectAnswer] = useState([]);
+    const [inccorrectAnswer1, setIncorrectAnswer1] = useState([]);
+    const [inccorrectAnswer2, setIncorrectAnswer2] = useState([]);
+    const [inccorrectAnswer3, setIncorrectAnswer3] = useState([]);
+    
 
-    const getQuestionAndAnswer = () => {
+    const getParams = () => {
         // musicians and bands length - find random artist
         let randomArtist = Math.floor(Math.random() * 69 + 1);
         const url = new URL('https://itunes.apple.com/search');
         // search from a randomly generated artist from the musician and bands object
         const params = { term: `${musiciansAndBands[randomArtist]}`, media: 'musicVideo'};
-        url.search = new URLSearchParams(params);
-        console.log(url)
+        return params
+    }
+    const getQuestionAndAnswer = () => {
+        const newParams = getParams();
+        url.search = new URLSearchParams(newParams);
+
         try {
             fetch(url, { method: 'POST' })
             .then(results => results.json())
             .then(data => {
-                
-                // find a random song from the random artist
+                // find a random song from the random artist - temporary because i dont want to make too many calls
                 let randomTrack = Math.floor(Math.random() * data.results.length + 1);
 
                 // get a still from the random song of the random artist
@@ -37,7 +46,6 @@ const QuizModal = () => {
                         </div>
                     )
                 }
-                
                 if(data.results[randomTrack]) {
                     if (data.results[randomTrack].artworkUrl100) {
                         setQuestion(getQuestion);
@@ -55,16 +63,67 @@ const QuizModal = () => {
         catch(error) {
             console.log('catch', error)
         }
-        
-
     };
 
     const getWrongAnswer = () => {
+        const newParams = getParams();
+        url.search = new URLSearchParams(newParams);
 
+        try {
+            fetch(url, { method: 'POST' })
+            .then(results => results.json())
+            .then(data => {
+                // find a random song from the random artist - temporarily as i dont want to make too many calls
+                let randomTrack1 = Math.floor(Math.random() * data.results.length + 1);
+                let randomTrack2 = Math.floor(Math.random() * data.results.length + 1);
+                let randomTrack3 = Math.floor(Math.random() * data.results.length + 1);
+
+                // get the name of the random song from the random artist aka the correct answer to the question
+                let getIncorrectAnswer1 = () => {
+                    return (
+                        <div>
+                            <div>{data.results[randomTrack1].trackCensoredName}</div>
+                        </div>
+                    )
+                }
+                let getIncorrectAnswer2 = () => {
+                    return (
+                        <div>
+                            <div>{data.results[randomTrack2].trackCensoredName}</div>
+                        </div>
+                    )
+                }
+                let getIncorrectAnswer3 = () => {
+                    return (
+                        <div>
+                            <div>{data.results[randomTrack3].trackCensoredName}</div>
+                        </div>
+                    )
+                }
+
+                if(data.results[randomTrack1]) {
+                    if (data.results[randomTrack1].artworkUrl100) {
+                        setIncorrectAnswer1(getIncorrectAnswer1);
+                        setIncorrectAnswer2(getIncorrectAnswer2);
+                        setIncorrectAnswer3(getIncorrectAnswer3)
+                    } else {
+                        getWrongAnswer();
+                    }
+                    
+                } else {
+                    getWrongAnswer();
+                }
+                
+            })
+        }
+        catch(error) {
+            console.log('catch', error)
+        }
     }
 
     useEffect(() => {
         getQuestionAndAnswer();
+        getWrongAnswer();
     }, [])
 
     return (
