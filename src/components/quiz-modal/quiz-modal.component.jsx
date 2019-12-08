@@ -36,14 +36,14 @@ const QuizModal = () => {
                 // get a still from the random song of the random artist
                 let getQuestion = () => {
                     return ( <div> 
-                        <img src={data.results[randomTrack].artworkUrl100} alt='questionImg'></img>
+                        <img className='question-image' src={data.results[randomTrack].artworkUrl100} alt='questionImg'></img>
                     </div> )
                 }
                 // get the name of the random song from the random artist aka the correct answer to the question
                 let getCorrectAnswer = () => {
                     return (
                         <div>
-                            <div className='correct-answer'>{data.results[randomTrack].trackCensoredName}</div>
+                            <div className='correct-answer'>{data.results[randomTrack].trackCensoredName.toUpperCase()}</div>
                         </div>
                     )
                 }
@@ -83,28 +83,28 @@ const QuizModal = () => {
                 let getIncorrectAnswer1 = () => {
                     return (
                         <div>
-                            <div className='incorrect-answer'>{data.results[randomTrack1].trackCensoredName}</div>
+                            <div className='incorrect-answer'>{data.results[randomTrack1].trackCensoredName.toUpperCase()}</div>
                         </div>
                     )
                 }
                 let getIncorrectAnswer2 = () => {
                     return (
                         <div>
-                            <div className='incorrect-answer'>{data.results[randomTrack2].trackCensoredName}</div>
+                            <div className='incorrect-answer'>{data.results[randomTrack2].trackCensoredName.toUpperCase()}</div>
                         </div>
                     )
                 }
                 let getIncorrectAnswer3 = () => {
                     return (
                         <div>
-                            <div className='incorrect-answer'>{data.results[randomTrack3].trackCensoredName}</div>
+                            <div className='incorrect-answer'>{data.results[randomTrack3].trackCensoredName.toUpperCase()}</div>
                         </div>
                     )
                 }
                 let getIncorrectAnswer4 = () => {
                     return (
                         <div>
-                            <div className='incorrect-answer'>{data.results[randomTrack3].trackCensoredName}</div>
+                            <div className='incorrect-answer'>{data.results[randomTrack3].trackCensoredName.toUpperCase()}</div>
                         </div>
                     )
                 }
