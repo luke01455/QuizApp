@@ -9,6 +9,7 @@ const QuizModal = lazy(() => import('./components/quiz-modal/quiz-modal.componen
 const QuizPage = lazy(() => import('./pages/quiz-page/quiz-page.component'));
 
 const App = () => {
+  
   return (
     <div className="App">
       <BrowserRouter>

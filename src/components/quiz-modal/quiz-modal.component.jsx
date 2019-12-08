@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
 
-import { musiciansAndBands } from '../../data/musicians-bands'
+import { musiciansAndBands } from '../../data/musicians-bands';
+import { Link } from 'react-router-dom'; 
 import './quiz-modal.styles.scss';
 
 const QuizModal = () => {
     const url = new URL('https://itunes.apple.com/search');
-
+    let questionOrder = Math.floor(Math.random() * 4 + 1);
     const [question, setQuestion] = useState([]);
     const [correctAnswer, setCorrectAnswer] = useState([]);
-    const [inccorrectAnswer1, setIncorrectAnswer1] = useState([]);
-    const [inccorrectAnswer2, setIncorrectAnswer2] = useState([]);
-    const [inccorrectAnswer3, setIncorrectAnswer3] = useState([]);
+    const [incorrectAnswer1, setIncorrectAnswer1] = useState([]);
+    const [incorrectAnswer2, setIncorrectAnswer2] = useState([]);
+    const [incorrectAnswer3, setIncorrectAnswer3] = useState([]);
+    const [incorrectAnswer4, setIncorrectAnswer4] = useState([]);
     
 
     const getParams = () => {
         // musicians and bands length - find random artist
         let randomArtist = Math.floor(Math.random() * 69 + 1);
-        const url = new URL('https://itunes.apple.com/search');
         // search from a randomly generated artist from the musician and bands object
         const params = { term: `${musiciansAndBands[randomArtist]}`, media: 'musicVideo'};
         return params
@@ -35,14 +36,14 @@ const QuizModal = () => {
                 // get a still from the random song of the random artist
                 let getQuestion = () => {
                     return ( <div> 
-                        <img src={data.results[randomTrack].artworkUrl100}></img>
+                        <img src={data.results[randomTrack].artworkUrl100} alt='questionImg'></img>
                     </div> )
                 }
                 // get the name of the random song from the random artist aka the correct answer to the question
                 let getCorrectAnswer = () => {
                     return (
                         <div>
-                            <div>{data.results[randomTrack].trackCensoredName}</div>
+                            <div className='correct-answer'>{data.results[randomTrack].trackCensoredName}</div>
                         </div>
                     )
                 }
@@ -82,21 +83,28 @@ const QuizModal = () => {
                 let getIncorrectAnswer1 = () => {
                     return (
                         <div>
-                            <div>{data.results[randomTrack1].trackCensoredName}</div>
+                            <div className='incorrect-answer'>{data.results[randomTrack1].trackCensoredName}</div>
                         </div>
                     )
                 }
                 let getIncorrectAnswer2 = () => {
                     return (
                         <div>
-                            <div>{data.results[randomTrack2].trackCensoredName}</div>
+                            <div className='incorrect-answer'>{data.results[randomTrack2].trackCensoredName}</div>
                         </div>
                     )
                 }
                 let getIncorrectAnswer3 = () => {
                     return (
                         <div>
-                            <div>{data.results[randomTrack3].trackCensoredName}</div>
+                            <div className='incorrect-answer'>{data.results[randomTrack3].trackCensoredName}</div>
+                        </div>
+                    )
+                }
+                let getIncorrectAnswer4 = () => {
+                    return (
+                        <div>
+                            <div className='incorrect-answer'>{data.results[randomTrack3].trackCensoredName}</div>
                         </div>
                     )
                 }
@@ -105,7 +113,8 @@ const QuizModal = () => {
                     if (data.results[randomTrack1].artworkUrl100) {
                         setIncorrectAnswer1(getIncorrectAnswer1);
                         setIncorrectAnswer2(getIncorrectAnswer2);
-                        setIncorrectAnswer3(getIncorrectAnswer3)
+                        setIncorrectAnswer3(getIncorrectAnswer3);
+                        setIncorrectAnswer4(getIncorrectAnswer4);
                     } else {
                         getWrongAnswer();
                     }
@@ -132,8 +141,12 @@ const QuizModal = () => {
             <div className='modal-warning'> {question}
             </div>
             <div className='modal-section-wrapper'>
-                {correctAnswer}
+                {questionOrder === 1 ? correctAnswer : incorrectAnswer1}
+                {questionOrder === 2 ? correctAnswer : incorrectAnswer2}
+                {questionOrder === 3 ? correctAnswer : incorrectAnswer3}
+                {questionOrder === 4 ? correctAnswer : incorrectAnswer4}
             </div>
+            <Link className='next-button'> Next Question </Link>
         </div>
     </div>
 )
