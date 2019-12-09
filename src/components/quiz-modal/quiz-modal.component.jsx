@@ -8,6 +8,7 @@ const QuizModal = () => {
     const url = new URL('https://itunes.apple.com/search');
     let questionOrder = Math.floor(Math.random() * 4 + 1);
     const [question, setQuestion] = useState([]);
+    const [isRadioChecked, setCheckedRadio] = useState('option1');
     const [correctAnswer, setCorrectAnswer] = useState([]);
     const [incorrectAnswer1, setIncorrectAnswer1] = useState([]);
     const [incorrectAnswer2, setIncorrectAnswer2] = useState([]);
@@ -134,27 +135,37 @@ const QuizModal = () => {
     useEffect(() => {
         getQuestionAndAnswer();
         getWrongAnswer();
-    }, [])
+    }, []);
+
 
     return (
-    <div className='styled-modal'>
-        <div className='modal-container'>
-            <div className='question-header'> NAME THE SONG, BASED OFF THIS STILL FROM THE VIDEO </div>
-            <div className='modal-warning'> {question}
+        <div className='styled-modal'>
+            <div className='modal-container'>
+                <div className='question-header'> NAME THE TITLE OF THIS VIDEO </div>
+                <div className='modal-warning'> {question}
+                </div>
+                <div className='modal-section-wrapper'>
+                    <div className='radio-answer'>
+                        <input type="radio" value="1" onChange={() => setCheckedRadio("1")} checked={isRadioChecked === '1'} />
+                        {questionOrder === 1 ? correctAnswer : incorrectAnswer1}
+                    </div>
+                    <div className='radio-answer'>
+                        <input type="radio" value="2" onChange={() => setCheckedRadio("2")} checked={isRadioChecked === '2'}/>
+                        {questionOrder === 2 ? correctAnswer : incorrectAnswer2}
+                    </div>
+                    <div className='radio-answer'>
+                        <input type="radio" value="3" onChange={() => setCheckedRadio("3")} checked={isRadioChecked === '3'}/>
+                        {questionOrder === 3 ? correctAnswer : incorrectAnswer3}
+                    </div>
+                    <div className='radio-answer'>
+                        <input type="radio" value="4" onChange={() => setCheckedRadio("4")} checked={isRadioChecked === '4'}/>
+                        {questionOrder === 4 ? correctAnswer : incorrectAnswer4}
+                    </div>
+
+                </div>
+                <Link className='next-button'> Next Question </Link>
             </div>
-            <div className='modal-section-wrapper'>
-            <input type="radio" value="option3" />
-                {questionOrder === 1 ? correctAnswer : incorrectAnswer1}
-                <input type="radio" value="option3" />
-                {questionOrder === 2 ? correctAnswer : incorrectAnswer2}
-                <input type="radio" value="option3" />
-                {questionOrder === 3 ? correctAnswer : incorrectAnswer3}
-                <input type="radio" value="option3" />
-                {questionOrder === 4 ? correctAnswer : incorrectAnswer4}
-            </div>
-            <Link className='next-button'> Next Question </Link>
         </div>
-    </div>
 )
 }
 

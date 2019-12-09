@@ -81,3 +81,9 @@
   color: white;
   margin-top: 50px;
 }
+
+.radio-answer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
