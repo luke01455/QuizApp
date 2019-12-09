@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 
 import { musiciansAndBands } from '../../data/musicians-bands';
-import { Link } from 'react-router-dom'; 
+
+import { addTenCarTickets } from '../../redux/car-quiz/car-quiz.actions';
+
 import './quiz-modal.styles.scss';
 
-const QuizModal = () => {
+const QuizModal = ({ addTenCarTickets }) => {
     const url = new URL('https://itunes.apple.com/search');
-    let questionOrder = Math.floor(Math.random() * 4 + 1);
     const [question, setQuestion] = useState([]);
     const [isRadioChecked, setCheckedRadio] = useState('option1');
     const [correctAnswer, setCorrectAnswer] = useState([]);
@@ -14,6 +16,7 @@ const QuizModal = () => {
     const [incorrectAnswer2, setIncorrectAnswer2] = useState([]);
     const [incorrectAnswer3, setIncorrectAnswer3] = useState([]);
     const [incorrectAnswer4, setIncorrectAnswer4] = useState([]);
+    const [answerLocation, setAnswerLocation] = useState(1);
     
 
     const getParams = () => {
@@ -24,6 +27,7 @@ const QuizModal = () => {
         return params
     }
     const getQuestionAndAnswer = () => {
+        setAnswerLocation(Math.floor(Math.random() * 4 + 1));
         const newParams = getParams();
         url.search = new URLSearchParams(newParams);
 
@@ -76,10 +80,10 @@ const QuizModal = () => {
             .then(results => results.json())
             .then(data => {
                 // find a random song from the random artist - temporarily as i dont want to make too many calls
-                let randomTrack1 = Math.floor(Math.random() * data.results.length + 1);
-                let randomTrack2 = Math.floor(Math.random() * data.results.length + 1);
-                let randomTrack3 = Math.floor(Math.random() * data.results.length + 1);
-                let randomTrack4 = Math.floor(Math.random() * data.results.length + 1);
+                let randomTrack1 = Math.floor(Math.random() * data.results.length);
+                let randomTrack2 = Math.floor(Math.random() * data.results.length);
+                let randomTrack3 = Math.floor(Math.random() * data.results.length);
+                let randomTrack4 = Math.floor(Math.random() * data.results.length);
 
                 // get the name of the random song from the random artist aka the correct answer to the question
                 let getIncorrectAnswer1 = () => {
@@ -147,27 +151,31 @@ const QuizModal = () => {
                 <div className='modal-section-wrapper'>
                     <div className='radio-answer'>
                         <input type="radio" value="1" onChange={() => setCheckedRadio("1")} checked={isRadioChecked === '1'} />
-                        {questionOrder === 1 ? correctAnswer : incorrectAnswer1}
+                        {answerLocation === 1 ? correctAnswer : incorrectAnswer1}
                     </div>
                     <div className='radio-answer'>
                         <input type="radio" value="2" onChange={() => setCheckedRadio("2")} checked={isRadioChecked === '2'}/>
-                        {questionOrder === 2 ? correctAnswer : incorrectAnswer2}
+                        {answerLocation === 2 ? correctAnswer : incorrectAnswer2}
                     </div>
                     <div className='radio-answer'>
                         <input type="radio" value="3" onChange={() => setCheckedRadio("3")} checked={isRadioChecked === '3'}/>
-                        {questionOrder === 3 ? correctAnswer : incorrectAnswer3}
+                        {answerLocation === 3 ? correctAnswer : incorrectAnswer3}
                     </div>
                     <div className='radio-answer'>
                         <input type="radio" value="4" onChange={() => setCheckedRadio("4")} checked={isRadioChecked === '4'}/>
-                        {questionOrder === 4 ? correctAnswer : incorrectAnswer4}
+                        {answerLocation === 4 ? correctAnswer : incorrectAnswer4}
                     </div>
 
                 </div>
-                <Link className='next-button'> Next Question </Link>
+                <div onClick={addTenCarTickets} className='next-button'> Next Question </div>
             </div>
         </div>
 )
 }
 
+const mapDispatchToProps = dispatch => ({
+    addTenCarTickets: () => dispatch(addTenCarTickets())
+   });
 
-export default QuizModal;
+
+export default connect(null, mapDispatchToProps)(QuizModal);
