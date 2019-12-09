@@ -139,12 +139,17 @@ const QuizModal = () => {
     return (
     <div className='styled-modal'>
         <div className='modal-container'>
+            <div className='question-header'> NAME THE SONG, BASED OFF THIS STILL FROM THE VIDEO </div>
             <div className='modal-warning'> {question}
             </div>
             <div className='modal-section-wrapper'>
+            <input type="radio" value="option3" />
                 {questionOrder === 1 ? correctAnswer : incorrectAnswer1}
+                <input type="radio" value="option3" />
                 {questionOrder === 2 ? correctAnswer : incorrectAnswer2}
+                <input type="radio" value="option3" />
                 {questionOrder === 3 ? correctAnswer : incorrectAnswer3}
+                <input type="radio" value="option3" />
                 {questionOrder === 4 ? correctAnswer : incorrectAnswer4}
             </div>
             <Link className='next-button'> Next Question </Link>
