@@ -1,8 +1,9 @@
 import React,  { lazy, Suspense } from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import './App.scss';
 
 import Spinner from './components/spinner/spinner.component';
+import Header from './components/header/header.component'
 
 const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
 const QuizModal = lazy(() => import('./components/quiz-modal/quiz-modal.component'));
@@ -12,7 +13,7 @@ const App = () => {
   
   return (
     <div className="App">
-      <BrowserRouter>
+        <Header />
         <Switch>
           <Suspense fallback={<Spinner />}>
             <Route path="/quiz" component={QuizPage} />
@@ -20,7 +21,6 @@ const App = () => {
             <Route exact path="/beginquiz" component={QuizModal} />
           </Suspense>
         </Switch>
-      </BrowserRouter>
     </div>
   );
 };
