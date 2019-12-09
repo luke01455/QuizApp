@@ -3,14 +3,15 @@ import { connect } from 'react-redux';
 
 import { musiciansAndBands } from '../../data/musicians-bands';
 
-import { addTenCarTickets } from '../../redux/car-quiz/car-quiz.actions';
+import { addTenCarTickets, addToCount } from '../../redux/car-quiz/car-quiz.actions';
 
 import './quiz-modal.styles.scss';
 
-const QuizModal = ({ addTenCarTickets }) => {
+const QuizModal = ({ addTenCarTickets, addToCount }) => {
+    let count = 1;
     const url = new URL('https://itunes.apple.com/search');
     const [question, setQuestion] = useState([]);
-    const [isRadioChecked, setCheckedRadio] = useState('option1');
+    const [isRadioChecked, setCheckedRadio] = useState('1');
     const [correctAnswer, setCorrectAnswer] = useState([]);
     const [incorrectAnswer1, setIncorrectAnswer1] = useState([]);
     const [incorrectAnswer2, setIncorrectAnswer2] = useState([]);
@@ -136,6 +137,25 @@ const QuizModal = ({ addTenCarTickets }) => {
         }
     }
 
+    const nextQuestion = () => {
+        if(isRadioChecked == answerLocation) {
+            console.log('correct', isRadioChecked,  answerLocation, count);
+            addToCount();
+            addTenCarTickets();
+            getQuestionAndAnswer();
+            getWrongAnswer();
+            
+            
+        } else {
+            console.log('incorrect', isRadioChecked,  answerLocation, count)
+            addToCount();
+            getQuestionAndAnswer();
+            getWrongAnswer();
+            
+        }
+        
+    }
+
     useEffect(() => {
         getQuestionAndAnswer();
         getWrongAnswer();
@@ -167,14 +187,15 @@ const QuizModal = ({ addTenCarTickets }) => {
                     </div>
 
                 </div>
-                <div onClick={addTenCarTickets} className='next-button'> Next Question </div>
+                <div onClick={nextQuestion} className='next-button'> Next Question </div>
             </div>
         </div>
 )
 }
 
 const mapDispatchToProps = dispatch => ({
-    addTenCarTickets: () => dispatch(addTenCarTickets())
+    addTenCarTickets: () => dispatch(addTenCarTickets()),
+    addToCount: () => dispatch(addToCount())
    });
 
 

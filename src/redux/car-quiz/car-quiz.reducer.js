@@ -1,7 +1,8 @@
 import CarQuizTypes from "./car-quiz.types";
 
 const INITIAL_STATE = {
-  carTickets: 1
+  carTickets: 1,
+  quizCount: 0
 };
 
 const ticketsReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ const ticketsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         carTickets: state.carTickets + 10
+      };
+    case CarQuizTypes.ADD_TO_COUNT:
+      return {
+        ...state,
+        quizCount: state.quizCount + 1
       };
     default:
       return state;
