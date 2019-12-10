@@ -65,7 +65,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
     return (
         <div className='styled-modal'>
             {
-               (question && incorrectAnswer1 && correctAnswer === true) ?
+               (questionIsLoading && answerIsLoading) ?
                 ( 
                 <Spinner />
                 ) : 
