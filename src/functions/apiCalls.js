@@ -37,7 +37,6 @@ export const getQuestionAndAnswer = async () => {
             }
             if(data.results[randomTrack]) {
                 if (data.results[randomTrack].artworkUrl100) {
-                    console.log('we are here')
                     finalQuestionAndAnswer[0] = getQuestion();
                     finalQuestionAndAnswer[1] = getCorrectAnswer();
                 } else {
@@ -54,54 +53,35 @@ export const getQuestionAndAnswer = async () => {
 };
 
 
-const getWrongAnswer = () => {
+export const getWrongAnswer = async () => {
     const newParams = getParams();
     url.search = new URLSearchParams(newParams);
 
-    try {
-        return fetch(url, { method: 'POST' })
+        const answersResponse = await fetch(url, { method: 'POST' })
         .then(results => results.json())
         .then(data => {
-            const finalWrongAnswers = ['', '', '', '']
+            let finalWrongAnswers = ['', '', '', '']
             // find a random song from the random artist - temporarily as i dont want to make too many calls
             let randomTrack1 = Math.floor(Math.random() * data.results.length);
             let randomTrack2 = Math.floor(Math.random() * data.results.length);
             let randomTrack3 = Math.floor(Math.random() * data.results.length);
             let randomTrack4 = Math.floor(Math.random() * data.results.length);
-
             // get the name of the random song from the random artist aka the correct answer to the question
-            let getIncorrectAnswer1 = () => {
+            let getIncorrectAnswer = ( randomTrack ) => {
                 return (
                     <div>
-                        <div className='incorrect answer'>{data.results[randomTrack1].trackCensoredName.toUpperCase()}</div>
+                        <div className='incorrect answer'>{data.results[randomTrack].trackCensoredName.toUpperCase()}</div>
                     </div>
                 )
             }
-            let getIncorrectAnswer2 = () => {
-                return (
-                    <div>
-                        <div className='incorrect answer'>{data.results[randomTrack2].trackCensoredName.toUpperCase()}</div>
-                    </div>
-                )
-            }
-            let getIncorrectAnswer3 = () => {
-                return (
-                    <div>
-                        <div className='incorrect answer'>{data.results[randomTrack3].trackCensoredName.toUpperCase()}</div>
-                    </div>
-                )
-            }
-            let getIncorrectAnswer4 = () => {
-                return (
-                    <div>
-                        <div className='incorrect answer'>{data.results[randomTrack4].trackCensoredName.toUpperCase()}</div>
-                    </div>
-                )
-            }
-
             if(data.results[randomTrack1]) {
                 if (data.results[randomTrack1].artworkUrl100) {
-                    finalWrongAnswers = [getIncorrectAnswer1, getIncorrectAnswer2, getIncorrectAnswer3, getIncorrectAnswer4]
+                    finalWrongAnswers = [
+                    getIncorrectAnswer(randomTrack1), 
+                    getIncorrectAnswer(randomTrack2), 
+                    getIncorrectAnswer(randomTrack3),
+                    getIncorrectAnswer(randomTrack4),
+                ]
                 } else {
                     getWrongAnswer();
                 }
@@ -111,8 +91,5 @@ const getWrongAnswer = () => {
             }
             return finalWrongAnswers
         })
-    }
-    catch(error) {
-        console.log('catch', error)
-    }
+    return answersResponse
 }

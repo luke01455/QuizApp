@@ -21,29 +21,31 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
     
 
 
-    // const nextQuestion = () => {
-    //     if(isRadioChecked == answerLocation) {
-    //         console.log('correct', isRadioChecked,  answerLocation, count);
-    //         addToCount();
-    //         addTenCarTickets();
-    //         getQuestionAndAnswer();
-    //         getWrongAnswer();
-            
-            
-    //     } else {
-    //         console.log('incorrect', isRadioChecked,  answerLocation, count)
-    //         addToCount();
-    //         getQuestionAndAnswer();
-    //         getWrongAnswer();
-            
-    //     }
+    const nextQuestion = () => {
+        if(isRadioChecked == answerLocation) {
+            console.log('correct', isRadioChecked,  answerLocation, count);
+            addToCount();
+            addTenCarTickets();
+            getAPICallResponse();
+        } else {
+            console.log('incorrect', isRadioChecked,  answerLocation, count)
+            addToCount();
+            getAPICallResponse();
+        }
         
-    // }
+    }
 
     const getAPICallResponse = async () => {
-        const questionAndAnswer =  await getQuestionAndAnswer();
+
+        const questionAndAnswer = await getQuestionAndAnswer();
         setQuestion(questionAndAnswer[0]);
         setCorrectAnswer(questionAndAnswer[1]);
+
+        const allWrongAnswers = await getWrongAnswer();
+        setIncorrectAnswer1(allWrongAnswers[0]);
+        setIncorrectAnswer2(allWrongAnswers[1]);
+        setIncorrectAnswer3(allWrongAnswers[2]);
+        setIncorrectAnswer4(allWrongAnswers[3]);
     }
 
     useEffect(() => {
@@ -76,7 +78,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
                     </div>
 
                 </div>
-                <div  className='next-button'> Next Question </div>
+                <div className='next-button'> Next Question </div>
             </div>
         </div>
 )
