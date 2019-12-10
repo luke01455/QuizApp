@@ -1,0 +1,118 @@
+import React from 'react';
+import { musiciansAndBands } from '../data/musicians-bands';
+
+const url = new URL('https://itunes.apple.com/search');
+const getParams = () => {
+    // musicians and bands length - find random artist
+    let randomArtist = Math.floor(Math.random() * 69 + 1);
+    // search from a randomly generated artist from the musician and bands object
+    const params = { term: `${musiciansAndBands[randomArtist]}`, media: 'musicVideo'};
+    return params
+}
+export const getQuestionAndAnswer = async () => {
+    
+    // setAnswerLocation(Math.floor(Math.random() * 4 + 1));
+    const newParams = getParams();
+    url.search = new URLSearchParams(newParams);
+
+        const questionResponse = await fetch(url, { method: 'POST' })
+        .then(results => results.json())
+        .then(data => {
+            let finalQuestionAndAnswer = ['', ''];
+            // find a random song from the random artist - temporary because i dont want to make too many calls
+            let randomTrack = Math.floor(Math.random() * data.results.length + 1);
+            // get a still from the random song of the random artist
+            let getQuestion = () => {
+                return ( <div> 
+                    <img className='question-image' src={data.results[randomTrack].artworkUrl100} alt='questionImg'></img>
+                </div> )
+            }
+            // get the name of the random song from the random artist aka the correct answer to the question
+            let getCorrectAnswer = () => {
+                return (
+                    <div>
+                        <div className='correct answer'>{data.results[randomTrack].trackCensoredName.toUpperCase()}</div>
+                    </div>
+                )
+            }
+            if(data.results[randomTrack]) {
+                if (data.results[randomTrack].artworkUrl100) {
+                    console.log('we are here')
+                    finalQuestionAndAnswer[0] = getQuestion();
+                    finalQuestionAndAnswer[1] = getCorrectAnswer();
+                } else {
+                    getQuestionAndAnswer();
+                }
+                
+            } else {
+                getQuestionAndAnswer();
+            }
+            return finalQuestionAndAnswer;
+        })
+    console.log(questionResponse, 'questionResponse')
+    return questionResponse;
+};
+
+
+const getWrongAnswer = () => {
+    const newParams = getParams();
+    url.search = new URLSearchParams(newParams);
+
+    try {
+        return fetch(url, { method: 'POST' })
+        .then(results => results.json())
+        .then(data => {
+            const finalWrongAnswers = ['', '', '', '']
+            // find a random song from the random artist - temporarily as i dont want to make too many calls
+            let randomTrack1 = Math.floor(Math.random() * data.results.length);
+            let randomTrack2 = Math.floor(Math.random() * data.results.length);
+            let randomTrack3 = Math.floor(Math.random() * data.results.length);
+            let randomTrack4 = Math.floor(Math.random() * data.results.length);
+
+            // get the name of the random song from the random artist aka the correct answer to the question
+            let getIncorrectAnswer1 = () => {
+                return (
+                    <div>
+                        <div className='incorrect answer'>{data.results[randomTrack1].trackCensoredName.toUpperCase()}</div>
+                    </div>
+                )
+            }
+            let getIncorrectAnswer2 = () => {
+                return (
+                    <div>
+                        <div className='incorrect answer'>{data.results[randomTrack2].trackCensoredName.toUpperCase()}</div>
+                    </div>
+                )
+            }
+            let getIncorrectAnswer3 = () => {
+                return (
+                    <div>
+                        <div className='incorrect answer'>{data.results[randomTrack3].trackCensoredName.toUpperCase()}</div>
+                    </div>
+                )
+            }
+            let getIncorrectAnswer4 = () => {
+                return (
+                    <div>
+                        <div className='incorrect answer'>{data.results[randomTrack4].trackCensoredName.toUpperCase()}</div>
+                    </div>
+                )
+            }
+
+            if(data.results[randomTrack1]) {
+                if (data.results[randomTrack1].artworkUrl100) {
+                    finalWrongAnswers = [getIncorrectAnswer1, getIncorrectAnswer2, getIncorrectAnswer3, getIncorrectAnswer4]
+                } else {
+                    getWrongAnswer();
+                }
+                
+            } else {
+                getWrongAnswer();
+            }
+            return finalWrongAnswers
+        })
+    }
+    catch(error) {
+        console.log('catch', error)
+    }
+}

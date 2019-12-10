@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import { musiciansAndBands } from '../../data/musicians-bands';
-
+import { getQuestionAndAnswer, getWrongAnswer } from '../../functions/apiCalls'
 import { addTenCarTickets, addToCount } from '../../redux/car-quiz/car-quiz.actions';
 
 import './quiz-modal.styles.scss';
 
 const QuizModal = ({ addTenCarTickets, addToCount }) => {
     let count = 1;
-    const url = new URL('https://itunes.apple.com/search');
     const [question, setQuestion] = useState([]);
     const [isRadioChecked, setCheckedRadio] = useState('1');
     const [correctAnswer, setCorrectAnswer] = useState([]);
@@ -20,145 +18,36 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
     const [answerLocation, setAnswerLocation] = useState(1);
     
 
-    const getParams = () => {
-        // musicians and bands length - find random artist
-        let randomArtist = Math.floor(Math.random() * 69 + 1);
-        // search from a randomly generated artist from the musician and bands object
-        const params = { term: `${musiciansAndBands[randomArtist]}`, media: 'musicVideo'};
-        return params
-    }
-    const getQuestionAndAnswer = () => {
-        setAnswerLocation(Math.floor(Math.random() * 4 + 1));
-        const newParams = getParams();
-        url.search = new URLSearchParams(newParams);
+    
 
-        try {
-            fetch(url, { method: 'POST' })
-            .then(results => results.json())
-            .then(data => {
-                // find a random song from the random artist - temporary because i dont want to make too many calls
-                let randomTrack = Math.floor(Math.random() * data.results.length + 1);
 
-                // get a still from the random song of the random artist
-                let getQuestion = () => {
-                    return ( <div> 
-                        <img className='question-image' src={data.results[randomTrack].artworkUrl100} alt='questionImg'></img>
-                    </div> )
-                }
-                // get the name of the random song from the random artist aka the correct answer to the question
-                let getCorrectAnswer = () => {
-                    return (
-                        <div>
-                            <div className='correct answer'>{data.results[randomTrack].trackCensoredName.toUpperCase()}</div>
-                        </div>
-                    )
-                }
-                if(data.results[randomTrack]) {
-                    if (data.results[randomTrack].artworkUrl100) {
-                        setQuestion(getQuestion);
-                        setCorrectAnswer(getCorrectAnswer);
-                    } else {
-                        getQuestionAndAnswer();
-                    }
-                    
-                } else {
-                    getQuestionAndAnswer();
-                }
-                
-            })
-        }
-        catch(error) {
-            console.log('catch', error)
-        }
-    };
-
-    const getWrongAnswer = () => {
-        const newParams = getParams();
-        url.search = new URLSearchParams(newParams);
-
-        try {
-            fetch(url, { method: 'POST' })
-            .then(results => results.json())
-            .then(data => {
-                // find a random song from the random artist - temporarily as i dont want to make too many calls
-                let randomTrack1 = Math.floor(Math.random() * data.results.length);
-                let randomTrack2 = Math.floor(Math.random() * data.results.length);
-                let randomTrack3 = Math.floor(Math.random() * data.results.length);
-                let randomTrack4 = Math.floor(Math.random() * data.results.length);
-
-                // get the name of the random song from the random artist aka the correct answer to the question
-                let getIncorrectAnswer1 = () => {
-                    return (
-                        <div>
-                            <div className='incorrect answer'>{data.results[randomTrack1].trackCensoredName.toUpperCase()}</div>
-                        </div>
-                    )
-                }
-                let getIncorrectAnswer2 = () => {
-                    return (
-                        <div>
-                            <div className='incorrect answer'>{data.results[randomTrack2].trackCensoredName.toUpperCase()}</div>
-                        </div>
-                    )
-                }
-                let getIncorrectAnswer3 = () => {
-                    return (
-                        <div>
-                            <div className='incorrect answer'>{data.results[randomTrack3].trackCensoredName.toUpperCase()}</div>
-                        </div>
-                    )
-                }
-                let getIncorrectAnswer4 = () => {
-                    return (
-                        <div>
-                            <div className='incorrect answer'>{data.results[randomTrack4].trackCensoredName.toUpperCase()}</div>
-                        </div>
-                    )
-                }
-
-                if(data.results[randomTrack1]) {
-                    if (data.results[randomTrack1].artworkUrl100) {
-                        setIncorrectAnswer1(getIncorrectAnswer1);
-                        setIncorrectAnswer2(getIncorrectAnswer2);
-                        setIncorrectAnswer3(getIncorrectAnswer3);
-                        setIncorrectAnswer4(getIncorrectAnswer4);
-                    } else {
-                        getWrongAnswer();
-                    }
-                    
-                } else {
-                    getWrongAnswer();
-                }
-                
-            })
-        }
-        catch(error) {
-            console.log('catch', error)
-        }
-    }
-
-    const nextQuestion = () => {
-        if(isRadioChecked == answerLocation) {
-            console.log('correct', isRadioChecked,  answerLocation, count);
-            addToCount();
-            addTenCarTickets();
-            getQuestionAndAnswer();
-            getWrongAnswer();
+    // const nextQuestion = () => {
+    //     if(isRadioChecked == answerLocation) {
+    //         console.log('correct', isRadioChecked,  answerLocation, count);
+    //         addToCount();
+    //         addTenCarTickets();
+    //         getQuestionAndAnswer();
+    //         getWrongAnswer();
             
             
-        } else {
-            console.log('incorrect', isRadioChecked,  answerLocation, count)
-            addToCount();
-            getQuestionAndAnswer();
-            getWrongAnswer();
+    //     } else {
+    //         console.log('incorrect', isRadioChecked,  answerLocation, count)
+    //         addToCount();
+    //         getQuestionAndAnswer();
+    //         getWrongAnswer();
             
-        }
+    //     }
         
+    // }
+
+    const getAPICallResponse = async () => {
+        const questionAndAnswer =  await getQuestionAndAnswer();
+        setQuestion(questionAndAnswer[0]);
+        setCorrectAnswer(questionAndAnswer[1]);
     }
 
     useEffect(() => {
-        getQuestionAndAnswer();
-        getWrongAnswer();
+        getAPICallResponse();
     }, []);
 
 
@@ -187,7 +76,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
                     </div>
 
                 </div>
-                <div onClick={nextQuestion} className='next-button'> Next Question </div>
+                <div  className='next-button'> Next Question </div>
             </div>
         </div>
 )
