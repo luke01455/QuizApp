@@ -17,7 +17,7 @@ export const getQuestionAndAnswer = async () => {
         const questionResponse = await fetch(url, { method: 'POST' })
         .then(results => results.json())
         .then(data => {
-            let finalQuestionAndAnswer = ['', ''];
+            let finalQuestionAndAnswer = ['', '', ''];
             // find a random song from the random artist - temporary because i dont want to make too many calls
             let randomTrack = Math.floor(Math.random() * data.results.length + 1);
             // get a still from the random song of the random artist
@@ -38,6 +38,7 @@ export const getQuestionAndAnswer = async () => {
                 if (data.results[randomTrack].artworkUrl100) {
                     finalQuestionAndAnswer[0] = getQuestion();
                     finalQuestionAndAnswer[1] = getCorrectAnswer();
+                    finalQuestionAndAnswer[2] = false;
                 } else {
                     getQuestionAndAnswer();
                 }
@@ -59,7 +60,7 @@ export const getWrongAnswer = async () => {
         const answersResponse = await fetch(url, { method: 'POST' })
         .then(results => results.json())
         .then(data => {
-            let finalWrongAnswers = ['', '', '', '']
+            let finalWrongAnswers = ['', '', '', '', '']
             // find a random song from the random artist - temporarily as i dont want to make too many calls
             let randomTrack1 = Math.floor(Math.random() * data.results.length);
             let randomTrack2 = Math.floor(Math.random() * data.results.length);
@@ -81,6 +82,7 @@ export const getWrongAnswer = async () => {
                     getIncorrectAnswer(randomTrack3),
                     getIncorrectAnswer(randomTrack4),
                 ]
+                finalWrongAnswers[4] = false;
                 } else {
                     getWrongAnswer();
                 }

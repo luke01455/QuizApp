@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
+import Spinner from '../spinner/spinner.component';
+
 import { getQuestionAndAnswer, getWrongAnswer } from '../../functions/apiCalls'
 import { addTenCarTickets, addToCount } from '../../redux/car-quiz/car-quiz.actions';
 
@@ -16,6 +18,8 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
     const [incorrectAnswer3, setIncorrectAnswer3] = useState([]);
     const [incorrectAnswer4, setIncorrectAnswer4] = useState([]);
     const [answerLocation, setAnswerLocation] = useState(1);
+    const [questionIsLoading, setQuestionIsLoading] = useState(true);
+    const [answerIsLoading, setAnswerIsLoading] = useState(true);
     
 
     
@@ -40,12 +44,15 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
         const questionAndAnswer = await getQuestionAndAnswer();
         setQuestion(questionAndAnswer[0]);
         setCorrectAnswer(questionAndAnswer[1]);
+        setQuestionIsLoading(questionAndAnswer[2])
 
         const allWrongAnswers = await getWrongAnswer();
         setIncorrectAnswer1(allWrongAnswers[0]);
         setIncorrectAnswer2(allWrongAnswers[1]);
         setIncorrectAnswer3(allWrongAnswers[2]);
         setIncorrectAnswer4(allWrongAnswers[3]);
+        setAnswerIsLoading(allWrongAnswers[4]);
+
     }
 
     useEffect(() => {
@@ -57,31 +64,42 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
 
     return (
         <div className='styled-modal'>
-            <div className='modal-container'>
-                <div className='question-header'> NAME THE TITLE OF THIS VIDEO </div>
-                <div className='modal-warning'> {question}
-                </div>
-                <div className='modal-section-wrapper'>
-                    <div className='radio-answer'>
-                        <input type="radio" value="1" onChange={() => setCheckedRadio("1")} checked={isRadioChecked === '1'} />
-                        {answerLocation === 1 ? correctAnswer : incorrectAnswer1}
+            {
+               (question && incorrectAnswer1 && correctAnswer === true) ?
+                ( 
+                <Spinner />
+                ) : 
+                (
+                    <div className='modal-container'>
+                    <div className='question-header'> NAME THE TITLE OF THIS VIDEO </div>
+                    <div className='modal-warning'> {question}
                     </div>
-                    <div className='radio-answer'>
-                        <input type="radio" value="2" onChange={() => setCheckedRadio("2")} checked={isRadioChecked === '2'}/>
-                        {answerLocation === 2 ? correctAnswer : incorrectAnswer2}
+                    <div className='modal-section-wrapper'>
+                        <div className='radio-answer'>
+                            <input type="radio" value="1" onChange={() => setCheckedRadio("1")} checked={isRadioChecked === '1'} />
+                            {answerLocation === 1 ? correctAnswer : incorrectAnswer1}
+                        </div>
+                        <div className='radio-answer'>
+                            <input type="radio" value="2" onChange={() => setCheckedRadio("2")} checked={isRadioChecked === '2'}/>
+                            {answerLocation === 2 ? correctAnswer : incorrectAnswer2}
+                        </div>
+                        <div className='radio-answer'>
+                            <input type="radio" value="3" onChange={() => setCheckedRadio("3")} checked={isRadioChecked === '3'}/>
+                            {answerLocation === 3 ? correctAnswer : incorrectAnswer3}
+                        </div>
+                        <div className='radio-answer'>
+                            <input type="radio" value="4" onChange={() => setCheckedRadio("4")} checked={isRadioChecked === '4'}/>
+                            {answerLocation === 4 ? correctAnswer : incorrectAnswer4}
+                        </div>
+    
                     </div>
-                    <div className='radio-answer'>
-                        <input type="radio" value="3" onChange={() => setCheckedRadio("3")} checked={isRadioChecked === '3'}/>
-                        {answerLocation === 3 ? correctAnswer : incorrectAnswer3}
-                    </div>
-                    <div className='radio-answer'>
-                        <input type="radio" value="4" onChange={() => setCheckedRadio("4")} checked={isRadioChecked === '4'}/>
-                        {answerLocation === 4 ? correctAnswer : incorrectAnswer4}
-                    </div>
+                    <div onClick={nextQuestion} className='next-button'> Next Question </div>
+                    </div> 
+                )
+                
+            }
 
-                </div>
-                <div onClick={nextQuestion} className='next-button'> Next Question </div>
-            </div>
+            
         </div>
 )
 }
