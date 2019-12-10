@@ -9,7 +9,7 @@ import './quiz-modal.styles.scss';
 const QuizModal = ({ addTenCarTickets, addToCount }) => {
     let count = 1;
     const [question, setQuestion] = useState([]);
-    const [isRadioChecked, setCheckedRadio] = useState('1');
+    const [isRadioChecked, setCheckedRadio] = useState(Math.floor(Math.random() * 4 + 1).toString());
     const [correctAnswer, setCorrectAnswer] = useState([]);
     const [incorrectAnswer1, setIncorrectAnswer1] = useState([]);
     const [incorrectAnswer2, setIncorrectAnswer2] = useState([]);
@@ -49,7 +49,9 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
     }
 
     useEffect(() => {
+        setAnswerLocation(Math.floor(Math.random() * 4 + 1))
         getAPICallResponse();
+        console.log(isRadioChecked)
     }, []);
 
 
@@ -78,7 +80,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
                     </div>
 
                 </div>
-                <div className='next-button'> Next Question </div>
+                <div onClick={nextQuestion} className='next-button'> Next Question </div>
             </div>
         </div>
 )

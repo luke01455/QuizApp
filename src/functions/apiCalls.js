@@ -2,6 +2,7 @@ import React from 'react';
 import { musiciansAndBands } from '../data/musicians-bands';
 
 const url = new URL('https://itunes.apple.com/search');
+
 const getParams = () => {
     // musicians and bands length - find random artist
     let randomArtist = Math.floor(Math.random() * 69 + 1);
@@ -10,8 +11,6 @@ const getParams = () => {
     return params
 }
 export const getQuestionAndAnswer = async () => {
-    
-    // setAnswerLocation(Math.floor(Math.random() * 4 + 1));
     const newParams = getParams();
     url.search = new URLSearchParams(newParams);
 
@@ -47,8 +46,8 @@ export const getQuestionAndAnswer = async () => {
                 getQuestionAndAnswer();
             }
             return finalQuestionAndAnswer;
-        })
-    console.log(questionResponse, 'questionResponse')
+        });
+    console.log('questionResponse', questionResponse);
     return questionResponse;
 };
 
