@@ -1,13 +1,13 @@
 import React from 'react';
-import { musiciansAndBands } from '../data/musicians-bands';
+import { sportsNames } from '../data/sports-names';
 
 const url = new URL('https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?');
 
 const getParams = () => {
     // musicians and bands length - find random artist
-    //let randomArtist = Math.floor(Math.random() * 69 + 1);
+    let randomName = Math.floor(Math.random() * 99 + 1);
     // search from a randomly generated artist from the musician and bands object
-    const params = { p: 'Glenn_Maxwell'};
+    const params = { p: `${sportsNames[randomName]}`};
     return params
 }
 export const getQuestionAndAnswer = async () => {
@@ -18,6 +18,10 @@ export const getQuestionAndAnswer = async () => {
         .then(results => results.json())
         .then(data => {
             let finalQuestionAndAnswer = ['', '', ''];
+               let randomPerson = Math.floor(Math.random() * data.player.length + 1);
+                    getQuestionAndAnswer();
+                
+            
             let getQuestion = () => {
                 return ( <div> 
                     <img className='question-image' src={data.player[0].strThumb} alt='questionImg'></img>
