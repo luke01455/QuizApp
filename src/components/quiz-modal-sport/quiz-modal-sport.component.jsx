@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import { sportsNames } from '../../data/sports-names';
 
+import Spinner from '../spinner/spinner.component';
+
 import { addTenCarTickets, addToCount } from '../../redux/car-quiz/car-quiz.actions';
 
 import './quiz-modal-sport.styles.scss';
@@ -19,6 +21,8 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
     const [incorrectAnswer3, setIncorrectAnswer3] = useState([]);
     const [incorrectAnswer4, setIncorrectAnswer4] = useState([]);
     const [answerLocation, setAnswerLocation] = useState(1);
+    const [questionIsLoading, setQuestionIsLoading] = useState(true);
+    const [answerIsLoading, setAnswerIsLoading] = useState(true);
     
 
     const getParams = () => {
@@ -58,6 +62,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
                     if (data.player[randomPerson].strThumb) {
                         setQuestion(getQuestion);
                         setCorrectAnswer(getCorrectAnswer);
+                        setQuestionIsLoading(false);
                     } else {
                         getQuestionAndAnswer();
                     }
@@ -123,6 +128,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
                         setIncorrectAnswer2(getIncorrectAnswer2);
                         setIncorrectAnswer3(getIncorrectAnswer3);
                         setIncorrectAnswer4(getIncorrectAnswer4);
+                        setAnswerIsLoading(false);
                     } else {
                         getWrongAnswer();
                     }
@@ -165,33 +171,41 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
 
     return (
         <div className='styled-modal'>
-            <div className='modal-container'>
-                <div className='question-header'> WHO IS THIS SPORTSPERSON? </div>
-                <div className='modal-warning'> {question}
-                </div>
-                <div className='modal-section-wrapper'>
-                    <div className='radio-answer'>
-                        <input type="radio" value="1" onChange={() => setCheckedRadio("1")} checked={isRadioChecked === '1'} />
-                        {answerLocation === 1 ? correctAnswer : incorrectAnswer1}
-                    </div>
-                    <div className='radio-answer'>
-                        <input type="radio" value="2" onChange={() => setCheckedRadio("2")} checked={isRadioChecked === '2'}/>
-                        {answerLocation === 2 ? correctAnswer : incorrectAnswer2}
-                    </div>
-                    <div className='radio-answer'>
-                        <input type="radio" value="3" onChange={() => setCheckedRadio("3")} checked={isRadioChecked === '3'}/>
-                        {answerLocation === 3 ? correctAnswer : incorrectAnswer3}
-                    </div>
-                    <div className='radio-answer'>
-                        <input type="radio" value="4" onChange={() => setCheckedRadio("4")} checked={isRadioChecked === '4'}/>
-                        {answerLocation === 4 ? correctAnswer : incorrectAnswer4}
-                    </div>
+            {
+                (questionIsLoading && answerIsLoading) ?
+                    (
+                        <Spinner />
+                    ) :
+                    (
+                        <div className='modal-container'>
+                            <div className='question-header'> WHO IS THIS SPORTSPERSON? </div>
+                            <div className='modal-warning'> {question}
+                            </div>
+                            <div className='modal-section-wrapper'>
+                                <div className='radio-answer'>
+                                    <input type="radio" value="1" onChange={() => setCheckedRadio("1")} checked={isRadioChecked === '1'} />
+                                    {answerLocation === 1 ? correctAnswer : incorrectAnswer1}
+                                </div>
+                                <div className='radio-answer'>
+                                    <input type="radio" value="2" onChange={() => setCheckedRadio("2")} checked={isRadioChecked === '2'} />
+                                    {answerLocation === 2 ? correctAnswer : incorrectAnswer2}
+                                </div>
+                                <div className='radio-answer'>
+                                    <input type="radio" value="3" onChange={() => setCheckedRadio("3")} checked={isRadioChecked === '3'} />
+                                    {answerLocation === 3 ? correctAnswer : incorrectAnswer3}
+                                </div>
+                                <div className='radio-answer'>
+                                    <input type="radio" value="4" onChange={() => setCheckedRadio("4")} checked={isRadioChecked === '4'} />
+                                    {answerLocation === 4 ? correctAnswer : incorrectAnswer4}
+                                </div>
 
-                </div>
-                <div onClick={nextQuestion} className='next-button'> Next Question </div>
-            </div>
+                            </div>
+                            <div onClick={nextQuestion} className='next-button'> Next Question </div>
+                        </div>
+                    )
+            }
         </div>
-)
+    )
 }
 
 const mapDispatchToProps = dispatch => ({
