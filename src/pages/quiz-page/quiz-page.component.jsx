@@ -4,6 +4,7 @@ import './quiz-page.styles.scss';
 import Spinner from '../../components/spinner/spinner.component';
 
 const QuizModalMusic = lazy(() => import('../../components/quiz-modal-music/quiz-modal-music.component'));
+const QuizModalSport = lazy(() => import('../../components/quiz-modal-sport/quiz-modal-sport.component'));
 
 
 
@@ -17,7 +18,7 @@ const QuizPage = () => {
             <div> Get all the questions right to win the {quizName}</div>
             <button className='start-quiz-button' onClick={() => setModalOnOff(!modalOnOff)}> START QUIZ </button>
             {
-                modalOnOff ? <Suspense fallback={<Spinner />}> <QuizModalMusic /> </Suspense> : <div></div>
+                modalOnOff ? <Suspense fallback={<Spinner />}> {quizName === 'car' ? <QuizModalMusic /> : <QuizModalSport />} </Suspense> : <div></div>
             }
         </div>
     )

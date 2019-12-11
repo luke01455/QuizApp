@@ -1,13 +1,13 @@
 import React from 'react';
 import { musiciansAndBands } from '../data/musicians-bands';
 
-const url = new URL('https://api-football-v1.p.rapidapi.com/v2/teams/search/');
+const url = new URL('https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?');
 
 const getParams = () => {
     // musicians and bands length - find random artist
     //let randomArtist = Math.floor(Math.random() * 69 + 1);
     // search from a randomly generated artist from the musician and bands object
-    const params = 'real_madrid';
+    const params = { p: 'Glenn_Maxwell'};
     return params
 }
 export const getQuestionAndAnswer = async () => {
@@ -17,14 +17,32 @@ export const getQuestionAndAnswer = async () => {
         const questionResponse = await fetch(url, { method: 'POST' })
         .then(results => results.json())
         .then(data => {
-            let finalQuestionAndAnswer = data;
-            // get a still from the random song of the random artist
+            let finalQuestionAndAnswer = ['', '', ''];
             let getQuestion = () => {
                 return ( <div> 
-                    <img className='question-image' src={data.results[randomTrack].artworkUrl100} alt='questionImg'></img>
+                    <img className='question-image' src={data.player[0].strThumb} alt='questionImg'></img>
                 </div> )
             }
-            console.log(data);
+            // get the name of the random song from the random artist aka the correct answer to the question
+            let getCorrectAnswer = () => {
+                return (
+                    <div>
+                        <div className='correct answer'>{data.player[0].strPlayer.toUpperCase()}</div>
+                    </div>
+                )
+            }
+            if(data.player[0]) {
+                if (data.player[0].strThumb) {
+                    finalQuestionAndAnswer[0] = getQuestion();
+                    finalQuestionAndAnswer[1] = getCorrectAnswer();
+                    finalQuestionAndAnswer[2] = false;
+                } else {
+                    getQuestionAndAnswer();
+                }
+                
+            } else {
+                getQuestionAndAnswer();
+            }
             return finalQuestionAndAnswer;
         });
     console.log('questionResponse', questionResponse);

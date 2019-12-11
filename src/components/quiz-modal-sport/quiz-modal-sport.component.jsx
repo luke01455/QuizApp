@@ -6,45 +6,45 @@ import Spinner from '../spinner/spinner.component';
 import { getQuestionAndAnswer, getWrongAnswer } from '../../functions/apiCallsSport'
 import { addTenCarTickets, addToCount } from '../../redux/car-quiz/car-quiz.actions';
 
-import './quiz-modal-music.styles.scss';
+import './quiz-modal-sport.styles.scss';
 
 const QuizModalMusic = ({ addTenCarTickets, addToCount }) => {
     let count = 1;
     const [question, setQuestion] = useState([]);
     // const [isRadioChecked, setCheckedRadio] = useState(Math.floor(Math.random() * 4 + 1).toString());
-    // const [correctAnswer, setCorrectAnswer] = useState([]);
+     const [correctAnswer, setCorrectAnswer] = useState([]);
     // const [incorrectAnswer1, setIncorrectAnswer1] = useState([]);
     // const [incorrectAnswer2, setIncorrectAnswer2] = useState([]);
     // const [incorrectAnswer3, setIncorrectAnswer3] = useState([]);
     // const [incorrectAnswer4, setIncorrectAnswer4] = useState([]);
     // const [answerLocation, setAnswerLocation] = useState(1);
-    // const [questionIsLoading, setQuestionIsLoading] = useState(true);
+     const [questionIsLoading, setQuestionIsLoading] = useState(true);
     // const [answerIsLoading, setAnswerIsLoading] = useState(true);
     
 
     
 
 
-    const nextQuestion = () => {
-        if(isRadioChecked == answerLocation) {
-            console.log('correct', isRadioChecked,  answerLocation, count);
-            addToCount();
-            addTenCarTickets();
-            getAPICallResponse();
-        } else {
-            console.log('incorrect', isRadioChecked,  answerLocation, count)
-            addToCount();
-            getAPICallResponse();
-        }
+    // const nextQuestion = () => {
+    //     if(isRadioChecked == answerLocation) {
+    //         console.log('correct', isRadioChecked,  answerLocation, count);
+    //         addToCount();
+    //         addTenCarTickets();
+    //         getAPICallResponse();
+    //     } else {
+    //         console.log('incorrect', isRadioChecked,  answerLocation, count)
+    //         addToCount();
+    //         getAPICallResponse();
+    //     }
         
-    }
+    // }
 
-    // const getAPICallResponse = async () => {
+    const getAPICallResponse = async () => {
 
-    //     const questionAndAnswer = await getQuestionAndAnswer();
-    //     setQuestion(questionAndAnswer[0]);
-    //     setCorrectAnswer(questionAndAnswer[1]);
-    //     setQuestionIsLoading(questionAndAnswer[2])
+        const questionAndAnswer = await getQuestionAndAnswer();
+        setQuestion(questionAndAnswer);
+        setCorrectAnswer(questionAndAnswer[1]);
+        setQuestionIsLoading(questionAndAnswer[2])
 
     //     const allWrongAnswers = await getWrongAnswer();
     //     setIncorrectAnswer1(allWrongAnswers[0]);
@@ -53,13 +53,12 @@ const QuizModalMusic = ({ addTenCarTickets, addToCount }) => {
     //     setIncorrectAnswer4(allWrongAnswers[3]);
     //     setAnswerIsLoading(allWrongAnswers[4]);
 
-    // }
+    }
 
     useEffect(() => {
        // setAnswerLocation(Math.floor(Math.random() * 4 + 1))
-      //  getAPICallResponse();
+        getAPICallResponse();
         //console.log(isRadioChecked)
-        getQuestionAndAnswer();
     }, []);
 
 
@@ -67,7 +66,7 @@ const QuizModalMusic = ({ addTenCarTickets, addToCount }) => {
         <div className='styled-modal'>
 
                     <div className='modal-container'>
-                    <div className='question-header'> NAME THE TITLE OF THIS VIDEO </div>
+                    <div className='question-header'> WHAT IS THIS PLAYERS NAME </div>
                     <div className='modal-warning'> {question}
                     </div>
                     {/* <div className='modal-section-wrapper'>
