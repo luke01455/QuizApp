@@ -3,23 +3,23 @@ import { connect } from 'react-redux';
 
 import Spinner from '../spinner/spinner.component';
 
-import { getQuestionAndAnswer, getWrongAnswer } from '../../functions/apiCalls'
+import { getQuestionAndAnswer, getWrongAnswer } from '../../functions/apiCallsSport'
 import { addTenCarTickets, addToCount } from '../../redux/car-quiz/car-quiz.actions';
 
-import './quiz-modal.styles.scss';
+import './quiz-modal-music.styles.scss';
 
-const QuizModal = ({ addTenCarTickets, addToCount }) => {
+const QuizModalMusic = ({ addTenCarTickets, addToCount }) => {
     let count = 1;
     const [question, setQuestion] = useState([]);
-    const [isRadioChecked, setCheckedRadio] = useState(Math.floor(Math.random() * 4 + 1).toString());
-    const [correctAnswer, setCorrectAnswer] = useState([]);
-    const [incorrectAnswer1, setIncorrectAnswer1] = useState([]);
-    const [incorrectAnswer2, setIncorrectAnswer2] = useState([]);
-    const [incorrectAnswer3, setIncorrectAnswer3] = useState([]);
-    const [incorrectAnswer4, setIncorrectAnswer4] = useState([]);
-    const [answerLocation, setAnswerLocation] = useState(1);
-    const [questionIsLoading, setQuestionIsLoading] = useState(true);
-    const [answerIsLoading, setAnswerIsLoading] = useState(true);
+    // const [isRadioChecked, setCheckedRadio] = useState(Math.floor(Math.random() * 4 + 1).toString());
+    // const [correctAnswer, setCorrectAnswer] = useState([]);
+    // const [incorrectAnswer1, setIncorrectAnswer1] = useState([]);
+    // const [incorrectAnswer2, setIncorrectAnswer2] = useState([]);
+    // const [incorrectAnswer3, setIncorrectAnswer3] = useState([]);
+    // const [incorrectAnswer4, setIncorrectAnswer4] = useState([]);
+    // const [answerLocation, setAnswerLocation] = useState(1);
+    // const [questionIsLoading, setQuestionIsLoading] = useState(true);
+    // const [answerIsLoading, setAnswerIsLoading] = useState(true);
     
 
     
@@ -39,42 +39,38 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
         
     }
 
-    const getAPICallResponse = async () => {
+    // const getAPICallResponse = async () => {
 
-        const questionAndAnswer = await getQuestionAndAnswer();
-        setQuestion(questionAndAnswer[0]);
-        setCorrectAnswer(questionAndAnswer[1]);
-        setQuestionIsLoading(questionAndAnswer[2])
+    //     const questionAndAnswer = await getQuestionAndAnswer();
+    //     setQuestion(questionAndAnswer[0]);
+    //     setCorrectAnswer(questionAndAnswer[1]);
+    //     setQuestionIsLoading(questionAndAnswer[2])
 
-        const allWrongAnswers = await getWrongAnswer();
-        setIncorrectAnswer1(allWrongAnswers[0]);
-        setIncorrectAnswer2(allWrongAnswers[1]);
-        setIncorrectAnswer3(allWrongAnswers[2]);
-        setIncorrectAnswer4(allWrongAnswers[3]);
-        setAnswerIsLoading(allWrongAnswers[4]);
+    //     const allWrongAnswers = await getWrongAnswer();
+    //     setIncorrectAnswer1(allWrongAnswers[0]);
+    //     setIncorrectAnswer2(allWrongAnswers[1]);
+    //     setIncorrectAnswer3(allWrongAnswers[2]);
+    //     setIncorrectAnswer4(allWrongAnswers[3]);
+    //     setAnswerIsLoading(allWrongAnswers[4]);
 
-    }
+    // }
 
     useEffect(() => {
-        setAnswerLocation(Math.floor(Math.random() * 4 + 1))
-        getAPICallResponse();
-        console.log(isRadioChecked)
+       // setAnswerLocation(Math.floor(Math.random() * 4 + 1))
+      //  getAPICallResponse();
+        //console.log(isRadioChecked)
+        getQuestionAndAnswer();
     }, []);
 
 
     return (
         <div className='styled-modal'>
-            {
-               (questionIsLoading && answerIsLoading) ?
-                ( 
-                <Spinner />
-                ) : 
-                (
+
                     <div className='modal-container'>
                     <div className='question-header'> NAME THE TITLE OF THIS VIDEO </div>
                     <div className='modal-warning'> {question}
                     </div>
-                    <div className='modal-section-wrapper'>
+                    {/* <div className='modal-section-wrapper'>
                         <div className='radio-answer'>
                             <input type="radio" value="1" onChange={() => setCheckedRadio("1")} checked={isRadioChecked === '1'} />
                             {answerLocation === 1 ? correctAnswer : incorrectAnswer1}
@@ -92,12 +88,10 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
                             {answerLocation === 4 ? correctAnswer : incorrectAnswer4}
                         </div>
     
-                    </div>
-                    <div onClick={nextQuestion} className='next-button'> Next Question </div>
+                    </div> */}
+                    <div className='next-button'> Next Question </div>
                     </div> 
-                )
-                
-            }
+
 
             
         </div>
@@ -110,4 +104,4 @@ const mapDispatchToProps = dispatch => ({
    });
 
 
-export default connect(null, mapDispatchToProps)(QuizModal);
+export default connect(null, mapDispatchToProps)(QuizModalMusic);
