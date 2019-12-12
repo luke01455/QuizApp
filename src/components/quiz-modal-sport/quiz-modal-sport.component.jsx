@@ -14,7 +14,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
     let count = 1;
     const url = new URL('https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?');
     const [question, setQuestion] = useState([]);
-    const [isRadioChecked, setCheckedRadio] = useState('1');
+    const [isRadioChecked, setCheckedRadio] = useState(Math.floor(Math.random() * 4 + 1).toString());
     const [correctAnswer, setCorrectAnswer] = useState([]);
     const [incorrectAnswer1, setIncorrectAnswer1] = useState([]);
     const [incorrectAnswer2, setIncorrectAnswer2] = useState([]);
@@ -41,6 +41,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
             fetch(url, { method: 'POST' })
             .then(results => results.json())
             .then(data => {
+            if(data.player){
                 // find a random song from the random artist - temporary because i dont want to make too many calls
                 let randomPerson = Math.floor(Math.random() * data.player.length + 1);
 
@@ -70,7 +71,9 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
                 } else {
                     getQuestionAndAnswer();
                 }
-                
+            } else {
+                getQuestionAndAnswer();
+            }
             })
         }
         catch(error) {
@@ -86,6 +89,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
             fetch(url, { method: 'POST' })
             .then(results => results.json())
             .then(data => {
+            if(data.player){
                 // find a random song from the random artist - temporarily as i dont want to make too many calls
                 let randomPerson1 = Math.floor(Math.random() * data.player.length);
                 let randomPerson2 = Math.floor(Math.random() * data.player.length);
@@ -136,7 +140,9 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
                 } else {
                     getWrongAnswer();
                 }
-                
+            } else {
+                getWrongAnswer();
+            }
             })
         }
         catch(error) {

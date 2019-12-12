@@ -13,7 +13,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
     let count = 1;
     const url = new URL('https://itunes.apple.com/search');
     const [question, setQuestion] = useState([]);
-    const [isRadioChecked, setCheckedRadio] = useState('1');
+    const [isRadioChecked, setCheckedRadio] = useState(Math.floor(Math.random() * 4 + 1).toString());
     const [correctAnswer, setCorrectAnswer] = useState([]);
     const [incorrectAnswer1, setIncorrectAnswer1] = useState([]);
     const [incorrectAnswer2, setIncorrectAnswer2] = useState([]);
@@ -40,6 +40,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
             fetch(url, { method: 'POST' })
             .then(results => results.json())
             .then(data => {
+                if(data.results) {
                 // find a random song from the random artist - temporary because i dont want to make too many calls
                 let randomTrack = Math.floor(Math.random() * data.results.length + 1);
 
@@ -69,7 +70,9 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
                 } else {
                     getQuestionAndAnswer();
                 }
-                
+            } else {
+                getQuestionAndAnswer();
+            } 
             })
         }
         catch(error) {
@@ -85,6 +88,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
             fetch(url, { method: 'POST' })
             .then(results => results.json())
             .then(data => {
+            if(data.results) {
                 // find a random song from the random artist - temporarily as i dont want to make too many calls
                 let randomTrack1 = Math.floor(Math.random() * data.results.length);
                 let randomTrack2 = Math.floor(Math.random() * data.results.length);
@@ -135,6 +139,9 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
                 } else {
                     getWrongAnswer();
                 }
+            } else {
+                getWrongAnswer();
+            }
                 
             })
         }
