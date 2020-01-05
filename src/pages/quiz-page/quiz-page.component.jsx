@@ -14,6 +14,7 @@ const QuizPage = () => {
     const strArr = window.location.href.split("/");
     const arrLength = strArr.length;
     const quizId = strArr[arrLength-1];
+    const quizTitle = strArr[arrLength-2]
     const [modalOnOff, setModalOnOff] = useState(false);
 
     const [beginQuiz] = useMutation(ENTER_QUIZ_MUTATION, {
@@ -26,12 +27,17 @@ const QuizPage = () => {
         }
     })
 
-    return (
+    const onStart = () => {
+        setModalOnOff(!modalOnOff)
+        beginQuiz()
+    }
+
+     return (
         <div className='quiz-page-container'>
             <div> Get all the questions right to win the Prize</div>
-            <button className='start-quiz-button' onClick={() => setModalOnOff(!modalOnOff), beginQuiz}> START QUIZ </button>
+            <button className='start-quiz-button' onClick={() => onStart()}> START QUIZ </button>
             {
-                modalOnOff ? <Suspense fallback={<Spinner />}> {quizId === 'car' ? <QuizModalMusic /> : <QuizModalSport />} </Suspense> : <div></div>
+                modalOnOff ? <Suspense fallback={<Spinner />}> {quizTitle === 'MUSIC' ? <QuizModalMusic /> : <QuizModalSport />} </Suspense> : <div></div>
             }
         </div>
     )

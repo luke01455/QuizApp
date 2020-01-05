@@ -5,7 +5,7 @@ import './prize-option.styles.scss';
 
 const PrizeOption = ({ title, imageUrl, size, history, id }) => (
   <div
-  onClick={() => history.push(`quiz/${id}`)}
+  onClick={() => history.push(`quiz/${title}/${id}`)}
   className={`${size} menu-item`}>
     <div
       className='background-image'
