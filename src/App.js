@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/auth'
 import './App.scss';
+import 'semantic-ui-css/semantic.min.css'
 
 import Spinner from './components/spinner/spinner.component';
 import Header from './components/header/header.component'
