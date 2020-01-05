@@ -153,15 +153,15 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
     const nextQuestion = () => {
         if(isRadioChecked == answerLocation) {
             console.log('correct', isRadioChecked,  answerLocation, count);
-            addToCount();
-            addTenCarTickets();
+            //addToCount();
+            //addTenCarTickets();
             getQuestionAndAnswer();
             getWrongAnswer();
             
             
         } else {
             console.log('incorrect', isRadioChecked,  answerLocation, count)
-            addToCount();
+            //addToCount();
             getQuestionAndAnswer();
             getWrongAnswer();
             
@@ -214,10 +214,12 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
     )
 }
 
-const mapDispatchToProps = dispatch => ({
-    addTenCarTickets: () => dispatch(addTenCarTickets()),
-    addToCount: () => dispatch(addToCount())
-   });
+// const mapDispatchToProps = dispatch => ({
+//     addTenCarTickets: () => dispatch(addTenCarTickets()),
+//     addToCount: () => dispatch(addToCount())
+//    });
 
 
-export default connect(null, mapDispatchToProps)(QuizModal);
+//export default connect(null, mapDispatchToProps)(QuizModal);
+
+export default QuizModal
