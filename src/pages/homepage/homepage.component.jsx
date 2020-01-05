@@ -30,7 +30,7 @@ const HomePage = () => {
                  (
                     quizzes &&
                     quizzes.map((quiz) => (
-                        <PrizeOption key={quiz.id} imageUrl={quiz.type === 'Music' ? sportImg : musicImg} title={quiz.type === 'Music' ? 'MUSIC' : 'SPORT'}/>
+                        <PrizeOption key={quiz.id} imageUrl={quiz.type === 'Music' ? musicImg : sportImg} title={quiz.type === 'Music' ? 'MUSIC' : 'SPORT'}/>
                     ))
             )}
     

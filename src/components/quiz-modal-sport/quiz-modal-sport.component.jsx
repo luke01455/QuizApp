@@ -6,12 +6,9 @@ import { sportsNames } from '../../data/sports-names';
 
 import Spinner from '../spinner/spinner.component';
 
-import { addTenCarTickets, addToCount } from '../../redux/car-quiz/car-quiz.actions';
-
 import './quiz-modal-sport.styles.scss';
 
-const QuizModal = ({ addTenCarTickets, addToCount }) => {
-    let count = 1;
+const QuizModal = () => {
     const url = new URL('https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?');
     const [question, setQuestion] = useState([]);
     const [isRadioChecked, setCheckedRadio] = useState(Math.floor(Math.random() * 4 + 1).toString());
@@ -23,6 +20,8 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
     const [answerLocation, setAnswerLocation] = useState(1);
     const [questionIsLoading, setQuestionIsLoading] = useState(true);
     const [answerIsLoading, setAnswerIsLoading] = useState(true);
+    let [count, setCount] = useState(1)
+    let [score, setScore] = useState(1)
     
 
     const getParams = () => {
@@ -152,21 +151,27 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
 
     const nextQuestion = () => {
         if(isRadioChecked == answerLocation) {
-            console.log('correct', isRadioChecked,  answerLocation, count);
-            //addToCount();
-            //addTenCarTickets();
+            
+            setCount(count + 1)
+            setScore(score + 1)
             getQuestionAndAnswer();
             getWrongAnswer();
+            console.log('correct', count, score);
             
             
         } else {
-            console.log('incorrect', isRadioChecked,  answerLocation, count)
-            //addToCount();
+            
+            setCount(count + 1)
             getQuestionAndAnswer();
             getWrongAnswer();
+            console.log('incorrect', count, score)
             
         }
         
+    }
+
+    const endQuiz = () => {
+        console.log('quiz ends', count, score)
     }
 
     useEffect(() => {
@@ -206,7 +211,7 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
                                 </div>
 
                             </div>
-                            <div onClick={nextQuestion} className='next-button'> Next Question </div>
+                            <div onClick={ count < 5 ? nextQuestion : endQuiz} className='next-button'> Next Question </div>
                         </div>
                     )
             }
@@ -214,11 +219,5 @@ const QuizModal = ({ addTenCarTickets, addToCount }) => {
     )
 }
 
-// const mapDispatchToProps = dispatch => ({
-//     addTenCarTickets: () => dispatch(addTenCarTickets()),
-//     addToCount: () => dispatch(addToCount())
-//    });
 
-
-//export default connect(null, mapDispatchToProps)(QuizModal);
 export default QuizModal
