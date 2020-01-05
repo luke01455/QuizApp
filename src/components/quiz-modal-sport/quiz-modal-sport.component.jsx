@@ -1,6 +1,5 @@
-  
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import gql from 'graphql-tag'
 
 import { sportsNames } from '../../data/sports-names';
 
@@ -12,16 +11,23 @@ const QuizModal = () => {
     const url = new URL('https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?');
     const [question, setQuestion] = useState([]);
     const [isRadioChecked, setCheckedRadio] = useState(Math.floor(Math.random() * 4 + 1).toString());
+
     const [correctAnswer, setCorrectAnswer] = useState([]);
     const [incorrectAnswer1, setIncorrectAnswer1] = useState([]);
     const [incorrectAnswer2, setIncorrectAnswer2] = useState([]);
     const [incorrectAnswer3, setIncorrectAnswer3] = useState([]);
     const [incorrectAnswer4, setIncorrectAnswer4] = useState([]);
     const [answerLocation, setAnswerLocation] = useState(1);
+
     const [questionIsLoading, setQuestionIsLoading] = useState(true);
     const [answerIsLoading, setAnswerIsLoading] = useState(true);
+
     let [count, setCount] = useState(1)
     let [score, setScore] = useState(1)
+
+    const strArr = window.location.href.split("/");
+    const arrLength = strArr.length;
+    const quizId = strArr[arrLength-1];
     
 
     const getParams = () => {
@@ -151,7 +157,6 @@ const QuizModal = () => {
 
     const nextQuestion = () => {
         if(isRadioChecked == answerLocation) {
-            
             setCount(count + 1)
             setScore(score + 1)
             getQuestionAndAnswer();
@@ -218,6 +223,5 @@ const QuizModal = () => {
         </div>
     )
 }
-
 
 export default QuizModal

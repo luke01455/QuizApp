@@ -3,9 +3,9 @@ import { withRouter } from 'react-router-dom';
 
 import './prize-option.styles.scss';
 
-const PrizeOption = ({ title, imageUrl, size, history }) => (
+const PrizeOption = ({ title, imageUrl, size, history, id }) => (
   <div
-  onClick={() => history.push(`quiz/${title}`)}
+  onClick={() => history.push(`quiz/${id}`)}
   className={`${size} menu-item`}>
     <div
       className='background-image'
