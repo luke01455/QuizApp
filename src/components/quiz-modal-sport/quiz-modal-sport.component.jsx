@@ -7,7 +7,7 @@ import Spinner from '../spinner/spinner.component';
 
 import './quiz-modal-sport.styles.scss';
 
-const QuizModal = () => {
+const QuizModal = ({ scoreData }) => {
     const url = new URL('https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?');
     const [question, setQuestion] = useState([]);
     const [isRadioChecked, setCheckedRadio] = useState(Math.floor(Math.random() * 4 + 1).toString());
@@ -27,9 +27,8 @@ const QuizModal = () => {
 
     const strArr = window.location.href.split("/");
     const arrLength = strArr.length;
-    const quizId = strArr[arrLength-1];
-
-    let scoreId = 'no'
+    const quizId = strArr[arrLength-2];
+    const scoreId = strArr[arrLength-1];
     
 
     const getParams = () => {
@@ -164,6 +163,8 @@ const QuizModal = () => {
             getQuestionAndAnswer();
             getWrongAnswer();
             console.log('correct', count, score);
+            console.log(scoreData)
+            
             
             
         } else {
@@ -178,9 +179,7 @@ const QuizModal = () => {
     }
 
     const [endQuiz] = useMutation(QUIZ_END_MUTATION, {
-        update(proxy, { data }) {
-            console.log(data)
-                scoreId = data.updateScore.id
+        update() {
         },
         variables: {
             quizId,
@@ -196,6 +195,7 @@ const QuizModal = () => {
     useEffect(() => {
         getQuestionAndAnswer();
         getWrongAnswer();
+        console.log(quizId, scoreId)
     }, []);
 
 

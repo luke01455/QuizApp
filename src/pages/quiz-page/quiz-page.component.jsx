@@ -10,16 +10,16 @@ const QuizModalSport = lazy(() => import('../../components/quiz-modal-sport/quiz
 
 
 
-const QuizPage = () => {
+const QuizPage = (props) => {
     const strArr = window.location.href.split("/");
     const arrLength = strArr.length;
-    const quizId = strArr[arrLength-1];
+    const quizId = strArr[arrLength-2];
     const quizTitle = strArr[arrLength-2]
     const [modalOnOff, setModalOnOff] = useState(false);
 
     const [beginQuiz] = useMutation(ENTER_QUIZ_MUTATION, {
-        update() {
-    
+        update(proxy, { data }) {
+            props.history.push(`/quiz/${quizTitle}/${quizId}/${data.createScore.usersScores[0].id}`)  
         },
         variables: {
             quizId,
