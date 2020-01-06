@@ -28,8 +28,8 @@ const QuizPage = () => {
     })
 
     const onStart = () => {
-        setModalOnOff(!modalOnOff)
         beginQuiz()
+        setModalOnOff(!modalOnOff)
     }
 
      return (

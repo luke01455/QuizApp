@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import gql from 'graphql-tag'
 
 import { sportsNames } from '../../data/sports-names';
-
+import { useMutation } from '@apollo/react-hooks'
 import Spinner from '../spinner/spinner.component';
 
 import './quiz-modal-sport.styles.scss';
@@ -28,6 +28,8 @@ const QuizModal = () => {
     const strArr = window.location.href.split("/");
     const arrLength = strArr.length;
     const quizId = strArr[arrLength-1];
+
+    const scoreId = 'no'
     
 
     const getParams = () => {
@@ -175,9 +177,20 @@ const QuizModal = () => {
         
     }
 
-    const endQuiz = () => {
-        console.log('quiz ends', count, score)
-    }
+    const [endQuiz] = useMutation(QUIZ_END_MUTATION, {
+        update(proxy, { data: { usersScores }}) {
+            scoreId = usersScores.id
+        },
+        variables: {
+            quizId,
+            score,
+            scoreId
+        }
+    })
+
+    // const endQuiz = () => (
+    //     console.log(quizId, score, scoreId)
+    // )
 
     useEffect(() => {
         getQuestionAndAnswer();
@@ -216,12 +229,25 @@ const QuizModal = () => {
                                 </div>
 
                             </div>
-                            <div onClick={ count < 5 ? nextQuestion : endQuiz} className='next-button'> Next Question </div>
+                            <div onClick={ count !== 5 ? nextQuestion : endQuiz} className='next-button'> Next Question </div>
                         </div>
                     )
             }
         </div>
     )
 }
+
+const QUIZ_END_MUTATION = gql`
+mutation updateScore($quizId: String!, $score: Int!, $scoreId: String!){
+    updateScore(quizId: $quizId, score: $score, scoreId: $scoreId){
+        id
+        usersScores {
+            id
+            score
+            createdAt
+        }
+    }
+}
+`
 
 export default QuizModal
