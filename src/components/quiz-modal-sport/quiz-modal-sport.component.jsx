@@ -29,7 +29,7 @@ const QuizModal = () => {
     const arrLength = strArr.length;
     const quizId = strArr[arrLength-1];
 
-    const scoreId = 'no'
+    let scoreId = 'no'
     
 
     const getParams = () => {
@@ -178,8 +178,9 @@ const QuizModal = () => {
     }
 
     const [endQuiz] = useMutation(QUIZ_END_MUTATION, {
-        update(proxy, { data: { usersScores }}) {
-            scoreId = usersScores.id
+        update(proxy, { data }) {
+            console.log(data)
+                scoreId = data.updateScore.id
         },
         variables: {
             quizId,
