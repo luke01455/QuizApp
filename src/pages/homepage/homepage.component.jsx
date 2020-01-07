@@ -34,7 +34,7 @@ const HomePage = () => {
                  (
                     quizzes &&
                     quizzes.map((quiz) => (
-                        <PrizeOption key={quiz.id} id={quiz.id} imageUrl={quiz.type === 'Music' ? midthird : topthird} title={quiz.type === 'Music' ? 'MUSIC' : 'SPORT'}/>
+                        <PrizeOption size='large' key={quiz.id} userCount={quiz.userCount} maxUsers={quiz.maxUsers} id={quiz.id} imageUrl={quiz.type === 'Music' ? midthird : topthird} title={quiz.type === 'Music' ? 'MUSIC' : 'SPORT'}/>
                     ))
             )}
     

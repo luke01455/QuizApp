@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import './prize-option.styles.scss';
 
-const PrizeOption = ({ title, imageUrl, size, history, id }) => (
+const PrizeOption = ({ title, imageUrl, size, history, id, userCount, maxUsers }) => (
   <div
   onClick={() => history.push(`quiz/${title}/${id}`)}
   className={`${size} menu-item`}>
@@ -14,7 +14,7 @@ const PrizeOption = ({ title, imageUrl, size, history, id }) => (
     />
     <div className='content'>
       <h1 className='title'>{title.toUpperCase()}</h1>
-      <span className='subtitle'>ENTER NOW</span>
+      <span className='subtitle'> {userCount} / {maxUsers} </span>
     </div>
   </div>
 );
