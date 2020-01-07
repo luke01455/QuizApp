@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
 import './prize-option.styles.scss';
 
 const PrizeOption = ({ title, imageUrl, size, history, id }) => (
