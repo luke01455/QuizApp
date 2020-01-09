@@ -5,6 +5,10 @@
     justify-content: space-between;
     margin-bottom: 55px;
 
+    @media (max-width: 700px) { 
+      position: absolute;
+    }
+
     .logo-container {
       height: 100%;
       width: 70px;
@@ -26,6 +30,10 @@
         text-decoration: none;
         padding: 10px 15px;
         cursor: pointer;
+
+        @media (max-width: 700px) { 
+          color: white;
+        }
       }
     }
   }

@@ -8,6 +8,10 @@
     border: 1px solid black;
     margin: 0 7.5px 15px;
     overflow: hidden;
+    
+
+
+
 
     @media (max-width: 700px) { 
       margin: 0;
@@ -53,7 +57,32 @@
       height: 100%;
       background-size: cover;
       background-position: center;
+
+
+      .quiz-title-top {
+        width: 300px;
+        height: 100px;
+        color: white;
+        padding: 28px 0px;
+        font-size: 1.5em;
+        
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 300px 150px;
+      }
+
+      .quiz-title-bottom {
+        width: 300px;
+        height: 100px;
+        color: white;
+        padding: 33px 0px;
+        font-size: 1.5em;
+        margin-top: 180px;
+      }
+
     }
+
+
   
     .content {
       height: 90px;
@@ -80,3 +109,5 @@
       }
     }
   }
+
+ 
