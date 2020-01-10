@@ -17,8 +17,10 @@ const PrizeOption = ({ title, imageUrl, size, history, id, userCount, maxUsers }
     <div className='quiz-title-top'style={{
       //  backgroundImage: `url(https://imgs.bigtop40.com/images/31596?crop=16_9&width=660&relax=1&signature=lxbxcRTWQtjzftEU7eZBZ05Bqwo=)`
       }}> WIN A £250 AMAZON GIFT CARD! </div>
+      <div className="bottom-title-container">
       <div className='quiz-title-bottom'> {title} </div>
       <div className='quiz-price'> £2.99 </div>
+      </div>
     </div>
 
 
