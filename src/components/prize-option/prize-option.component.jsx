@@ -13,10 +13,12 @@ const PrizeOption = ({ title, imageUrl, size, history, id, userCount, maxUsers }
         backgroundImage: `url(${imageUrl})`
       }}
     >
-      <div className='quiz-title-top'       style={{
-        backgroundImage: `url(https://www.listenmoneymatters.com/wp-content/uploads/2018/10/FREE-Gift-Box-or-Card.jpg)`
-      }}> £250 AMAZON GIFT CARD </div>
-      <div className='quiz-title-bottom'> {title.toUpperCase()} </div>
+      
+    <div className='quiz-title-top'style={{
+      //  backgroundImage: `url(https://imgs.bigtop40.com/images/31596?crop=16_9&width=660&relax=1&signature=lxbxcRTWQtjzftEU7eZBZ05Bqwo=)`
+      }}> WIN A £250 AMAZON GIFT CARD! </div>
+      <div className='quiz-title-bottom'> {title} </div>
+      <div className='quiz-price'> £2.99 </div>
     </div>
 
 
@@ -25,8 +27,9 @@ const PrizeOption = ({ title, imageUrl, size, history, id, userCount, maxUsers }
       <span className='subtitle'> {userCount} / {maxUsers} </span>
     </div>
 
-
   </div>
+
+
 );
 
 export default withRouter(PrizeOption);
