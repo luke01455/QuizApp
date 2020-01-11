@@ -25,6 +25,10 @@
       & .content {
         opacity: 0.9;
       }
+
+      & .bottom-title-container {
+        opacity: 0.55;
+      }
     }
   
     &.large {
@@ -60,39 +64,12 @@
         width: 100%;
         text-align: center;
         height: 100px;
-        padding-top: 50px;
+        padding-top: 75px;
         color: white;
         font-size: 1.5em;
         background-repeat: no-repeat;
         background-size: 300px 150px;
         font-family: 'Public Sans', sans-serif;
-      }
-
-      .bottom-title-container {
-        display: flex;
-        justify-content: space-around;
-
-        .quiz-title-bottom {
-          width: 300px;
-          height: 100px;
-          color: white;
-          padding: 66px 0px;
-          font-size: 2.5em;
-          margin-top: 120px;
-          font-weight: bold;
-          font-family: 'Public Sans', sans-serif;
-        }
-  
-        .quiz-price {
-          font-family: 'Public Sans', sans-serif;
-          width: 300px;
-          height: 100px;
-          margin-top: 185px;
-          color: white;
-          font-weight: bold;
-          font-size: 1.5em;
-        }
-
       }
 
 
@@ -123,6 +100,41 @@
         font-size: 16px;
       }
     }
+  }
+
+  .bottom-title-container {
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    margin-top: 174px;
+    position: relative;
+    background-color: white;
+    opacity: 0.5;
+    border: 1px solid black;
+
+
+
+    .quiz-title-bottom {
+      width: 300px;
+      height: 100px;
+      color: #4a4a4a;
+      padding: 66px 0px;
+      margin-top: -30px;
+      font-size: 2.5em;
+      font-weight: bold;
+      font-family: 'Public Sans', sans-serif;
+    }
+
+    .quiz-price {
+      font-family: 'Public Sans', sans-serif;
+      width: 300px;
+      height: 100px;
+      color: #4a4a4a;
+      margin-top: 36px;
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
   }
 
  
