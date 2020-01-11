@@ -1,12 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks'
-import './homepage.styles.scss';
+import './homepage.styles.scss'
 
 import Spinner from '../../components/spinner/spinner.component'
 import { AuthContext } from '../../context/auth'
 import { FETCH_QUIZZES_QUERY } from '../../util/graphql'
-import PrizeOption from '../../components/prize-option/prize-option.component';
-import MidSection from '../../components/mid-section/mid-section.component';
+import PrizeOption from '../../components/prize-option/prize-option.component'
+import MidSection from '../../components/mid-section/mid-section.component'
+import ControllCarousel from '../../components/carousel/carousel'
 
 import midthird from '../../assets/midthird.png'
 import topthird from '../../assets/topthird.png'
@@ -41,7 +42,7 @@ const HomePage = () => {
             </div>
 
 
-            <MidSection />
+            <ControllCarousel />
         </div>
     )
 }

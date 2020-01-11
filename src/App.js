@@ -1,17 +1,18 @@
-import React,  { lazy, Suspense } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React,  { lazy, Suspense } from 'react'
+import { Switch, Route } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/auth'
-import './App.scss';
+import './App.scss'
 import 'semantic-ui-css/semantic.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-import Spinner from './components/spinner/spinner.component';
+import Spinner from './components/spinner/spinner.component'
 import Header from './components/header/header.component'
 import Login from './pages/login'
 import Register from './pages/register'
 
-const HomePage = lazy(() => import('./pages/homepage/homepage.component'));
-const QuizPage = lazy(() => import('./pages/quiz-page/quiz-page.component'));
+const HomePage = lazy(() => import('./pages/homepage/homepage.component'))
+const QuizPage = lazy(() => import('./pages/quiz-page/quiz-page.component'))
 
 const App = () => {
   
