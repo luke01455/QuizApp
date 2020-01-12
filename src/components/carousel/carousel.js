@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
+import carouselimg1 from '../../assets/carouselslide1.png'
+import carouselimg2 from '../../assets/carouselslide2.png'
+import carouselimg3 from '../../assets/carouselslide3.png'
 
 import './carousel.scss'
 
@@ -17,7 +20,7 @@ const ControlledCarousel = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://s1.ibtimes.com/sites/www.ibtimes.com/files/styles/embed/public/2019/10/23/apple-watches.jpg"
+            src={carouselimg1}
             alt="First slide"
           />
           <Carousel.Caption>
@@ -25,12 +28,17 @@ const ControlledCarousel = () => {
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item className='carousel-item-container'>
-          <img
-            src="https://s1.ibtimes.com/sites/www.ibtimes.com/files/styles/embed/public/2019/10/23/apple-watches.jpg"
-            alt="Second slide"
-          />
+        <Carousel.Item>
+          {/* <div className='carousel-container'>
+          <div className='bground'> LEft side </div>
+          </div> */}
   
+        <img
+            className="d-block w-100"
+            src={carouselimg2}
+            alt="2nd slide"
+          />
+
           <Carousel.Caption>
             <h3>Second slide label</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -38,8 +46,8 @@ const ControlledCarousel = () => {
         </Carousel.Item>
         <Carousel.Item >
           <img
-            className="d-block w-100"
-            src="https://s1.ibtimes.com/sites/www.ibtimes.com/files/styles/embed/public/2019/10/23/apple-watches.jpg"
+            className="d-block w-99"
+            src={carouselimg3}
             alt="Third slide"
           />
   

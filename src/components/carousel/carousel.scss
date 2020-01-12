@@ -1,4 +1,13 @@
-.carousel-item-container {
-    width: 90vw;
-    height: 450px;
+.carousel-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 50px;
+
+    .bground {
+        width: 90vw;
+        height: 555px;
+        background-color: red;
+        border: 1px solid black;
+    }
 }

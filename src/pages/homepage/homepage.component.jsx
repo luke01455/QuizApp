@@ -29,6 +29,7 @@ const HomePage = () => {
 
     return (
         <div className='homepage-container'>
+            <ControllCarousel />
             <div className='prize-option-container'>
                 {loading ? 
                 (<Spinner />) :
@@ -42,7 +43,7 @@ const HomePage = () => {
             </div>
 
 
-            <ControllCarousel />
+            
         </div>
     )
 }
