@@ -23,6 +23,10 @@ const ControlledCarousel = () => {
             src={carouselimg1}
             alt="First slide"
           />
+                    <div className="carousel-text-container"> 
+          <h1> Could you be our next winner? </h1>
+          <a> Thousands of dollars in prizes to be won daily </a> 
+          </div>
         </Carousel.Item>
         <Carousel.Item>
         <img
@@ -30,6 +34,10 @@ const ControlledCarousel = () => {
             src={carouselimg2}
             alt="First slide"
           />
+                    <div className="carousel-text-container"> 
+          <h1> Could you be our next winner? </h1>
+          <a> Thousands of dollars in prizes to be won daily </a> 
+          </div>
         </Carousel.Item>
         <Carousel.Item >
         <img
@@ -37,6 +45,10 @@ const ControlledCarousel = () => {
             src={carouselimg3}
             alt="First slide"
           />
+          <div className="carousel-text-container"> 
+          <h1> Could you be our next winner? </h1>
+          <a> Thousands of dollars in prizes to be won daily </a> 
+          </div>
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
