@@ -5,9 +5,16 @@
     margin-bottom: 50px;
 
     .bground {
-        width: 90vw;
+        width: 80vw;
         height: 555px;
-        background-color: red;
-        border: 1px solid black;
+        background-image: url("../../assets/carouselslide2.png");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
     }
+}
+
+.testingitem {
+    height: 500px;
+    margin-bottom: -50px;
 }
