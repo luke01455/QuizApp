@@ -8,6 +8,7 @@ import { FETCH_QUIZZES_QUERY } from '../../util/graphql'
 import PrizeOption from '../../components/prize-option/prize-option.component'
 import { BrowserView } from 'react-device-detect'
 import ControllCarousel from '../../components/carousel/carousel'
+import Footer from '../../components/footer/footer.component'
 
 import midthird from '../../assets/midthird.png'
 import topthird from '../../assets/topthird.png'
@@ -45,7 +46,7 @@ const HomePage = () => {
             </div>
 
 
-            
+            <Footer />
         </div>
     )
 }

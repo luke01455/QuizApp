@@ -16,7 +16,7 @@ const QuizPage = (props) => {
     const { user } = useContext(AuthContext);
     const strArr = window.location.href.split("/");
     const arrLength = strArr.length;
-    const quizId = strArr[arrLength-2];
+    const quizId = strArr[arrLength-1];
     const quizTitle = strArr[arrLength-2]
     const [modalOnOff, setModalOnOff] = useState(false);
 
