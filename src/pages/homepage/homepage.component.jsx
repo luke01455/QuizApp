@@ -6,7 +6,7 @@ import Spinner from '../../components/spinner/spinner.component'
 import { AuthContext } from '../../context/auth'
 import { FETCH_QUIZZES_QUERY } from '../../util/graphql'
 import PrizeOption from '../../components/prize-option/prize-option.component'
-import MidSection from '../../components/mid-section/mid-section.component'
+import { BrowserView } from 'react-device-detect'
 import ControllCarousel from '../../components/carousel/carousel'
 
 import midthird from '../../assets/midthird.png'
@@ -29,7 +29,9 @@ const HomePage = () => {
 
     return (
         <div className='homepage-container'>
+            <BrowserView>
             <ControllCarousel />
+            </BrowserView>
             <div className='prize-option-container'>
                 {loading ? 
                 (<Spinner />) :
