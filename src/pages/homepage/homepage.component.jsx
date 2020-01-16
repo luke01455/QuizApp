@@ -38,9 +38,20 @@ const HomePage = () => {
                 (<Spinner />) :
                  (
                     quizzes &&
-                    quizzes.map((quiz) => (
-                        <PrizeOption size='large' key={quiz.id} userCount={quiz.userCount} maxUsers={quiz.maxUsers} id={quiz.id} imageUrl={quiz.type === 'Music' ? midthird : topthird} title={quiz.type === 'Music' ? 'Music' : 'Sport'}/>
-                    ))
+                    quizzes.map(quiz => {
+                        return quiz.isActive === true ?
+                        ( 
+                        <PrizeOption 
+                        size='large' 
+                        key={quiz.id} 
+                        userCount={quiz.userCount} 
+                        maxUsers={quiz.maxUsers} id={quiz.id} 
+                        imageUrl={quiz.type === 'Music' ? midthird : topthird} 
+                        title={quiz.type === 'Music' ? 'Music' : 'Sport'}/>
+                        ) : (
+                            <div> </div>
+                            )
+                    })
             )}
     
             </div>
