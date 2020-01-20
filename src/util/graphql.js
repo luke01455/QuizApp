@@ -19,3 +19,5 @@ export const FETCH_QUIZZES_QUERY = gql`
 }
 `
 
+
+

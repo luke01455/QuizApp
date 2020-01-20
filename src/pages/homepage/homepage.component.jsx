@@ -22,6 +22,7 @@ const HomePage = () => {
     // const sportImg = 'https://www.proprofs.com/quiz-school/topic_images/p18lq7ediepl816p6s04171vo23.jpg'
     // const musicImg = 'https://www.holmfirthevents.co.uk/wp-content/uploads/2016/03/993564_10156503496795467_8252929934433432258_n.jpg'
 
+
     useEffect(() => {
         if (data) {
             setQuizzes(data.getQuiz);
