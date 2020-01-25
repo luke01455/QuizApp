@@ -25,7 +25,7 @@ const ControlledCarousel = () => {
           />
                     <div className="carousel-text-container"> 
           <h1> Could you be our next winner? </h1>
-          <a> Thousands of dollars in prizes to be won daily </a> 
+          <p> Thousands of dollars in prizes to be won daily </p> 
           </div>
         </Carousel.Item>
         <Carousel.Item>
@@ -36,7 +36,7 @@ const ControlledCarousel = () => {
           />
                     <div className="carousel-text-container"> 
           <h1> Could you be our next winner? </h1>
-          <a> Thousands of dollars in prizes to be won daily </a> 
+          <p> Thousands of dollars in prizes to be won daily </p> 
           </div>
         </Carousel.Item>
         <Carousel.Item >
@@ -47,7 +47,7 @@ const ControlledCarousel = () => {
           />
           <div className="carousel-text-container"> 
           <h1> Could you be our next winner? </h1>
-          <a> Thousands of dollars in prizes to be won daily </a> 
+          <p> Thousands of dollars in prizes to be won daily </p> 
           </div>
           <Carousel.Caption>
           </Carousel.Caption>

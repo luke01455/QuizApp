@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 
 import { musiciansAndBands } from '../../data/musicians-bands';
 
 import Spinner from '../spinner/spinner.component';
 
-import { addTenCarTickets, addToCount } from '../../redux/car-quiz/car-quiz.actions';
-
 import './quiz-modal-music.styles.scss';
 
-const QuizModal = ({ addTenCarTickets, addToCount }) => {
+const QuizModal = () => {
     let count = 1;
     const url = new URL('https://itunes.apple.com/search');
     const [question, setQuestion] = useState([]);

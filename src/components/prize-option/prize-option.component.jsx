@@ -6,7 +6,7 @@ import './prize-option.styles.scss';
 
 const PrizeOption = ({ title, imageUrl, size, history, id, userCount, maxUsers }) => {
 
-  const drawWinner = useMutation(DRAW_WINNER_MUTATION)
+  const [drawWinner] = useMutation(DRAW_WINNER_MUTATION)
 
   const openQuiz = () => {
     history.push(`quiz/${title}/${id}`)
@@ -48,7 +48,7 @@ const PrizeOption = ({ title, imageUrl, size, history, id, userCount, maxUsers }
 const DRAW_WINNER_MUTATION = gql`
 mutation drawWinner{
     drawWinner{  
-        username
+        id
     }
 }
 `
