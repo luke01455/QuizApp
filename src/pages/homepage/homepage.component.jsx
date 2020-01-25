@@ -3,7 +3,6 @@ import { useQuery } from '@apollo/react-hooks'
 import './homepage.styles.scss'
 
 import Spinner from '../../components/spinner/spinner.component'
-import { AuthContext } from '../../context/auth'
 import { FETCH_QUIZZES_QUERY } from '../../util/graphql'
 import PrizeOption from '../../components/prize-option/prize-option.component'
 import { BrowserView } from 'react-device-detect'
@@ -16,12 +15,12 @@ import topthird from '../../assets/topthird.png'
 
 const HomePage = () => {
     const [quizzes, setQuizzes] = useState([]);
-    const { user } = useContext(AuthContext)
     const { loading, data } = useQuery(FETCH_QUIZZES_QUERY)
 
     // const sportImg = 'https://www.proprofs.com/quiz-school/topic_images/p18lq7ediepl816p6s04171vo23.jpg'
     // const musicImg = 'https://www.holmfirthevents.co.uk/wp-content/uploads/2016/03/993564_10156503496795467_8252929934433432258_n.jpg'
 
+    
 
     useEffect(() => {
         if (data) {
@@ -40,7 +39,7 @@ const HomePage = () => {
                  (
                     quizzes &&
                     quizzes.map(quiz => {
-                        return quiz.isActive === true ?
+                        return quiz.isActive === 'filling' &&
                         ( 
                         <PrizeOption 
                         size='large' 
@@ -49,9 +48,7 @@ const HomePage = () => {
                         maxUsers={quiz.maxUsers} id={quiz.id} 
                         imageUrl={quiz.type === 'Music' ? midthird : topthird} 
                         title={quiz.type === 'Music' ? 'Music' : 'Sport'}/>
-                        ) : (
-                            <div> </div>
-                            )
+                        ) 
                     })
             )}
     
@@ -62,6 +59,8 @@ const HomePage = () => {
         </div>
     )
 }
+
+
 
 // 
 export default HomePage;

@@ -1,12 +1,10 @@
 import React, { lazy, Suspense, useState, useContext, useEffect } from 'react'
 import './quiz-page.styles.scss'
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, useMutation } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
-import { useMutation } from "@apollo/react-hooks"
 import { AuthContext } from "../../context/auth"
 import { Link } from 'react-router-dom'
 import { Table } from 'semantic-ui-react'
-import PrizeOption from '../../components/prize-option/prize-option.component'
 
 import Spinner from '../../components/spinner/spinner.component'
 
@@ -28,12 +26,17 @@ const QuizPage = (props) => {
         variables: { quizId }
     })
 
-
     useEffect(() => {
         if (data) {
             setThisQuiz(data.getThisQuiz.usersScores)
         }
     }, [data]);
+
+    // useEffect(() => {
+    //     if (winnerData) {
+    //         console.log('winner mutation ran')
+    //     }
+    // }, [winnerData]);
 
 
     const [beginQuiz] = useMutation(ENTER_QUIZ_MUTATION, {
@@ -53,7 +56,9 @@ const QuizPage = (props) => {
 
     return (
         <div className='quiz-page-container'>
+            
             <div> Get all the questions right to win the Prize</div>
+            <div> Winner </div>
             <Table celled>
                 <Table.Header>
                     <Table.Row>
@@ -76,8 +81,8 @@ const QuizPage = (props) => {
                                 (
                                     <Table.Row key={userScore.id}>
                                         <Table.Cell>{userScore.username}</Table.Cell>
-                                        <Table.Cell><a href='#'>{userScore.score}</a></Table.Cell>
-                                        <Table.Cell>{userScore.ticketsLow} / {userScore.ticketsHigh}</Table.Cell>
+                                        <Table.Cell color='green'>{userScore.score}</Table.Cell>
+                                        <Table.Cell>{userScore.ticketsLow} - {userScore.ticketsHigh}</Table.Cell>
                                     </Table.Row>
                                 )
                             ))
@@ -112,6 +117,8 @@ mutation createScore($quizId: String!, $score: Int!){
     }
 }
 `
+
+
 const FETCH_QUIZ_QUERY = gql`
 query getThisQuiz($quizId: String!)
 {
