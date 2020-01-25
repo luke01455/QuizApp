@@ -28,7 +28,7 @@ const QuizPage = (props) => {
 
     useEffect(() => {
         if (data) {
-            setThisQuiz(data.getThisQuiz.usersScores)
+            setThisQuiz(data.getThisQuiz)
         }
     }, [data]);
 
@@ -39,6 +39,7 @@ const QuizPage = (props) => {
     // }, [winnerData]);
 
 
+    const quizScores = thisQuiz.usersScores
     const [beginQuiz] = useMutation(ENTER_QUIZ_MUTATION, {
         update(proxy, { data }) {
             props.history.push(`/quiz/${quizTitle}/${quizId}/${data.createScore.usersScores[0].id}`)
@@ -58,7 +59,11 @@ const QuizPage = (props) => {
         <div className='quiz-page-container'>
             
             <div> Get all the questions right to win the Prize</div>
-            <div> Winner </div>
+            {
+                loading ? <div> loading... </div> : <div> {thisQuiz.isActive === 'filling' ? 'The winner will be drawn once the quiz is full' : 
+                thisQuiz.isActive === 'filled' ? `the winner will be drawn in around 30 minutes` : `the winner is ${thisQuiz.winner}`} </div>
+            }
+            
             <Table celled>
                 <Table.Header>
                     <Table.Row>
@@ -76,8 +81,8 @@ const QuizPage = (props) => {
                         </Table.Row>
                         ) :
                         (
-                            thisQuiz &&
-                            thisQuiz.map(userScore => (
+                            quizScores &&
+                            quizScores.map(userScore => (
                                 (
                                     <Table.Row key={userScore.id}>
                                         <Table.Cell>{userScore.username}</Table.Cell>
@@ -128,6 +133,7 @@ query getThisQuiz($quizId: String!)
     userCount
     isActive
     type
+    winner
     usersScores {
       id
       username
