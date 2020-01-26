@@ -16,7 +16,7 @@ const Header = () => {
                 </Link>
                 <div className='options'>
                     <Link className='option' to='/about'> ABOUT</Link>
-                    <Link className='option' to='/signup'>{context.user.username.toUpperCase()}</Link>
+                    <Link className='option' to='/account'>{context.user.username.toUpperCase()}</Link>
                     <div className='option' to='/signin' onClick={context.logout}> SIGN OUT </div>
                 </div>
             </div>
