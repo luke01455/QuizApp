@@ -14,7 +14,7 @@ const QuizModalSport = lazy(() => import('../../components/quiz-modal-sport/quiz
 
 
 const QuizPage = (props) => {
-    const { user } = useContext(AuthContext)
+    const context = useContext(AuthContext)
     const strArr = window.location.href.split("/")
     const arrLength = strArr.length
     const quizId = strArr[arrLength - 1]
@@ -52,7 +52,7 @@ const QuizPage = (props) => {
 
     const onStart = () => {
         beginQuiz()
-        setModalOnOff(!modalOnOff)
+        context.modalToggle()
     }
 
     return (
@@ -99,12 +99,12 @@ const QuizPage = (props) => {
 
 
             {
-                user ? (<button className='start-quiz-button' onClick={() => onStart()}> START QUIZ </button>) :
+                context.user ? (<button className='start-quiz-button' onClick={() => onStart()}> START QUIZ </button>) :
                     (<Link className='start-quiz-button' to='/signin'> START QUIZ </Link>)
             }
 
             {
-                modalOnOff ? <Suspense fallback={<Spinner />}> {quizTitle === 'MUSIC' ? <QuizModalMusic /> : <QuizModalSport />} </Suspense> : <div></div>
+                context.modal ? <Suspense fallback={<Spinner />}> {quizTitle === 'MUSIC' ? <QuizModalMusic /> : <QuizModalSport />} </Suspense> : <div></div>
             }
         </div>
     )

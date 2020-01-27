@@ -2,8 +2,10 @@ import React, { useReducer, createContext } from 'react'
 import jwtDecode from 'jwt-decode'
 
 const initialState = {
-    user: null
+    user: null,
+    modal: false
 }
+
 if(localStorage.getItem('jwtToken')){
     const decodedToken = jwtDecode(localStorage.getItem('jwtToken'))
     // exp is expiration time
@@ -22,6 +24,11 @@ const AuthContext = createContext({
     logout: () => {}
 })
 
+const modalContext = createContext({
+    modal: false,
+    modalToggle: () => {}
+})
+
 function authReducer(state, action){
     switch(action.type){
         case 'LOGIN':
@@ -33,6 +40,11 @@ function authReducer(state, action){
             return{
                 ...state,
                 user: null
+            }
+        case 'MODAL_TOGGLE':
+            return{
+                ...state,
+                modal: !state.modal
             }
         default: 
             return state
@@ -57,12 +69,16 @@ function AuthProvider(props){
         dispatch({ type: 'LOGOUT'})
     }
 
+    const modalToggle = () => {
+        dispatch({ type: 'MODAL_TOGGLE'})
+    }
+
     return (
         <AuthContext.Provider
-            value={{ user: state.user, login, logout}}
+            value={{ user: state.user, login, logout, modal: state.modal, modalToggle}}
             {...props}
             />
     )
 }
 
-export { AuthContext, AuthProvider }
+export { AuthContext, AuthProvider, modalContext }
