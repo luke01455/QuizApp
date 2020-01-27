@@ -29,6 +29,8 @@ export const MY_SCORES_QUERY = gql`
     ticketsLow
     ticketsHigh
     userId
+    quizType
+    price
   }
 }
 `
