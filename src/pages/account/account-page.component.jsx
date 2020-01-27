@@ -6,15 +6,16 @@ import './account-page.styles.scss';
 
 const AccountPage = () => {
 
-    const [quizzes, setQuizzes] = useState([]);
+    const [myScores, setMyScores] = useState([]);
     const { loading, data } = useQuery(MY_SCORES_QUERY)
 
     useEffect(() => {
         if (data) {
-            setQuizzes(data.getQuiz);
+            setMyScores(data.getMyScores);
         }
     }, [data]);
 
+    
     return (
         <div>
             <p> Username</p>
@@ -28,11 +29,24 @@ const AccountPage = () => {
                     </Table.Row>
                 </Table.Header>
                 <Table.Body>
-                    <Table.Row key={1}>
-                        <Table.Cell></Table.Cell>
-                        <Table.Cell color='green'></Table.Cell>
-                        <Table.Cell></Table.Cell>
-                    </Table.Row>
+                {loading ?
+                        (
+                        <Table.Row>
+                        <Table.Cell> Loading... </Table.Cell>
+                        </Table.Row>
+                        ) :
+                        (
+                            myScores &&
+                            myScores.map(userScore => (
+                                (
+                                    <Table.Row key={userScore.id}>
+                                        <Table.Cell>{userScore.username}</Table.Cell>
+                                        <Table.Cell color='green'>{userScore.score}</Table.Cell>
+                                        <Table.Cell>{userScore.ticketsLow} - {userScore.ticketsHigh}</Table.Cell>
+                                    </Table.Row>
+                                )
+                            ))
+                        )}
                 </Table.Body>
             </Table>
 
