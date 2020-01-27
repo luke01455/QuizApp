@@ -19,5 +19,20 @@ export const FETCH_QUIZZES_QUERY = gql`
 }
 `
 
+export const MY_SCORES_QUERY = gql`
+{
+  getMyScores {
+    id
+    username
+    score
+    quiz
+    ticketsLow
+    ticketsHigh
+    userId
+  }
+}
+`
+
+
 
 

@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useQuery } from '@apollo/react-hooks'
 import { Table } from 'semantic-ui-react'
+import { MY_SCORES_QUERY } from '../../util/graphql'
 import './account-page.styles.scss';
 
 const AccountPage = () => {
+
+    const [quizzes, setQuizzes] = useState([]);
+    const { loading, data } = useQuery(MY_SCORES_QUERY)
+
+    useEffect(() => {
+        if (data) {
+            setQuizzes(data.getQuiz);
+        }
+    }, [data]);
 
     return (
         <div>
