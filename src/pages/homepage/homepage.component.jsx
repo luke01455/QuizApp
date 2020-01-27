@@ -46,8 +46,8 @@ const HomePage = () => {
                         key={quiz.id} 
                         userCount={quiz.userCount} 
                         maxUsers={quiz.maxUsers} id={quiz.id} 
-                        imageUrl={quiz.type === 'Music' ? midthird : topthird} 
-                        title={quiz.type === 'Music' ? 'Music' : 'Sport'}/>
+                        imageUrl={quiz.quizType === 'Music' ? midthird : topthird} 
+                        title={quiz.quizType === 'Music' ? 'Music' : 'Sport'}/>
                         ) 
                     })
             )}

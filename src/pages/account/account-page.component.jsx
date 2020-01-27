@@ -40,7 +40,7 @@ const AccountPage = () => {
                             myScores.map(userScore => (
                                 (
                                     <Table.Row key={userScore.id}>
-                                        <Table.Cell>{userScore.username}</Table.Cell>
+                                        <Table.Cell>{userScore.quiz}</Table.Cell>
                                         <Table.Cell color='green'>{userScore.score}</Table.Cell>
                                         <Table.Cell>{userScore.ticketsLow} - {userScore.ticketsHigh}</Table.Cell>
                                     </Table.Row>

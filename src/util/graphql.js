@@ -7,7 +7,7 @@ export const FETCH_QUIZZES_QUERY = gql`
     maxUsers
     userCount
     isActive
-    type
+    quizType
     usersScores {
       id
       username

@@ -132,7 +132,7 @@ query getThisQuiz($quizId: String!)
     maxUsers
     userCount
     isActive
-    type
+    quizType
     winner
     usersScores {
       id
