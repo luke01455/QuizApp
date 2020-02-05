@@ -10,10 +10,9 @@ import Spinner from './components/spinner/spinner.component'
 import Header from './components/header/header.component'
 import Login from './pages/login'
 import Register from './pages/register'
-
-const HomePage = lazy(() => import('./pages/homepage/homepage.component'))
-const QuizPage = lazy(() => import('./pages/quiz-page/quiz-page.component'))
-const AccountPage = lazy(() => import('./pages/account/account-page.component'))
+import HomePage from './pages/homepage/homepage.component'
+import QuizPage from './pages/quiz-page/quiz-page.component'
+import AccountPage from './pages/account/account-page.component'
 
 const App = () => {
   
