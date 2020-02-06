@@ -8,7 +8,7 @@ import Spinner from '../spinner/spinner.component'
 
 import './quiz-modal-sport.styles.scss'
 
-const QuizModal = ({ scoreData }) => {
+const QuizModalSport = ({ scoreData }) => {
     const url = new URL('https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?')
     const context = useContext(AuthContext)
 
@@ -213,23 +213,23 @@ const QuizModal = ({ scoreData }) => {
                     (
                         <div className='modal-container'>
                             <div className='question-header'> WHO IS THIS SPORTSPERSON? </div>
-                            <div className='modal-warning'> {question}
+                            <div className='modal-question'> {question}
                             </div>
                             <div className='modal-section-wrapper'>
                                 <div className='radio-answer'>
-                                    <input type="radio" value="1" onChange={() => setCheckedRadio("1")} checked={isRadioChecked === '1'} />
+                                    <input className="radio-input" type="radio" value="1" onChange={() => setCheckedRadio("1")} checked={isRadioChecked === '1'} />
                                     {answerLocation === 1 ? correctAnswer : incorrectAnswer1}
                                 </div>
                                 <div className='radio-answer'>
-                                    <input type="radio" value="2" onChange={() => setCheckedRadio("2")} checked={isRadioChecked === '2'} />
+                                    <input className="radio-input" type="radio" value="2" onChange={() => setCheckedRadio("2")} checked={isRadioChecked === '2'} />
                                     {answerLocation === 2 ? correctAnswer : incorrectAnswer2}
                                 </div>
                                 <div className='radio-answer'>
-                                    <input type="radio" value="3" onChange={() => setCheckedRadio("3")} checked={isRadioChecked === '3'} />
+                                    <input className="radio-input" type="radio" value="3" onChange={() => setCheckedRadio("3")} checked={isRadioChecked === '3'} />
                                     {answerLocation === 3 ? correctAnswer : incorrectAnswer3}
                                 </div>
                                 <div className='radio-answer'>
-                                    <input type="radio" value="4" onChange={() => setCheckedRadio("4")} checked={isRadioChecked === '4'} />
+                                    <input className="radio-input" type="radio" value="4" onChange={() => setCheckedRadio("4")} checked={isRadioChecked === '4'} />
                                     {answerLocation === 4 ? correctAnswer : incorrectAnswer4}
                                 </div>
 
@@ -255,4 +255,4 @@ mutation updateScore($quizId: String!, $score: Int!, $scoreId: String!){
 }
 `
 
-export default QuizModal
+export default QuizModalSport

@@ -1,6 +1,5 @@
 .styled-modal { 
     background: #3D3D5B;
-    
       position: relative;
       height: 70vh;
       text-align: left;
@@ -22,16 +21,17 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 15px;
+        margin-top: 12px;
   
       .modal-section-wrapper {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
+        justify-content: space-between;
+        margin-right: 20px;
+        text-align: left;
       }
   
-        .modal-warning {
+        .modal-question {
           text-align: center;
           width: 200px;
           font-size: 18px;
@@ -44,7 +44,11 @@
     }
 }
 .answer {
-  margin: 10px;
+  width: 300px;
+  padding-left: 20px;
+  
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .correct{
   color: white;
@@ -83,7 +87,12 @@
 }
 
 .radio-answer {
+  margin: 0 26%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.radio-input {
+  margin-top: 11px;
 }

@@ -4,7 +4,7 @@ import { musiciansAndBands } from '../../data/musicians-bands';
 
 import Spinner from '../spinner/spinner.component';
 
-import './quiz-modal-music.styles.scss';
+//import './quiz-modal-sport.styles.scss';
 
 const QuizModal = () => {
     let count = 1;
