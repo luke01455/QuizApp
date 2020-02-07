@@ -12,7 +12,7 @@ const Header = () => {
         context.user ? (
             <div className='header'>
                 <Link className='logo-container' to='/'>
-                    <Logo className='logo' />
+                    <h1 className='header-logo'> Sport Bounty </h1>
                 </Link>
                 <div className='options'>
                     <Link className='option' to='/about'> ABOUT</Link>
@@ -23,7 +23,7 @@ const Header = () => {
         ) : (
             <div className='header'>
                 <Link className='logo-container' to='/'>
-                    <Logo className='logo' />
+                <h1 className='header-logo'> Sport Bounty </h1>
                 </Link>
                 <div className='options'>
                     <Link className='option' to='/about'> ABOUT </Link>
