@@ -13,6 +13,7 @@ import Register from './pages/register'
 import HomePage from './pages/homepage/homepage.component'
 import QuizPage from './pages/quiz-page/quiz-page.component'
 import AccountPage from './pages/account/account-page.component'
+import HomeScreen from './components/homescreen/homescreen.component'
 
 const App = () => {
   
@@ -24,6 +25,7 @@ const App = () => {
         <Switch>
           <Suspense fallback={<Spinner />}>
             <Route path="/quiz" component={QuizPage} />
+            <Route exact path="/" component={HomeScreen} />
             <Route exact path="/" component={HomePage} />
             <Route exact path="/signin" component={Login} />
             <Route exact path="/signup" component={Register} />

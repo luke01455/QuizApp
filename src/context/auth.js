@@ -3,7 +3,7 @@ import jwtDecode from 'jwt-decode'
 
 const initialState = {
     user: null,
-    modal: true
+    modal: false
 }
 
 if(localStorage.getItem('jwtToken')){
