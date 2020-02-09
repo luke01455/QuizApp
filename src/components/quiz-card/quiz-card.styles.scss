@@ -26,5 +26,28 @@
         border-radius: 25px;
         background-color: white;
         border: 1px solid black;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        font-weight: bold;
+
+        .top-text-container { 
+            margin-top: 10px;
+            font-family: 'Russo One', sans-serif;
+            border-bottom: 1px solid #edf0ee;
+            width: 100%;
+            padding-bottom: 15px;
+        }
+        .lower-text-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            font-weight: normal;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
     }
 }
