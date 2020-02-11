@@ -1,9 +1,9 @@
 import React from 'react';
 import './quiz-card.styles.scss';
 
-const QuizCard = () => {
+const QuizCard = ({ size }) => {
     return (
-        <div className='card-container'>
+        <div className={`card-container ${size}`}>
            <div className='prize-picture-container'></div>
            <div className='info-container'>
                 <h3 className='top-text-container'> Apple Watch 3</h3>

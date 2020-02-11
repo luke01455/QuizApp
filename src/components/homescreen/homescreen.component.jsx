@@ -16,6 +16,7 @@ const HomeScreen = () => {
                 <div className='instruction-section'>
                     <h1> 1 </h1>
                     <h3> Pick a quiz with a prize you'd like to win </h3>
+                    <QuizCard size='example'/>
                 </div>
                 <div className='instruction-section'>
                     <h1> 2 </h1>
@@ -26,6 +27,7 @@ const HomeScreen = () => {
                     <h3> Each correct answer earns you an extra ticket increasing your chance to win </h3>
                 </div>
             </div>
+
         </div>
     )
 }

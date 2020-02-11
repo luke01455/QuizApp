@@ -6,6 +6,8 @@
     flex-direction: column;
     align-items: center;
 
+
+
     .prize-picture-container {
         background-color: black;
         border-radius: 25px;
@@ -50,4 +52,10 @@
             margin-bottom: 10px;
         }
     }
+}
+
+.example {
+    margin: 0 auto;
+    width: 50%;
+    height: 80%;
 }
