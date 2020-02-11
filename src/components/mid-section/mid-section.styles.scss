@@ -1,0 +1,31 @@
+.mid-section-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: grey;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+
+    
+    .instruction-container {
+        margin: 0 auto;
+        display: flex;
+
+        .instruction-section {
+            width: 28vw;
+            height: 400px;
+            border: 1px solid white;
+            display: flex;
+            flex-direction: column;
+
+            h3 {
+                font-size: 1.2em;
+            }
+        }
+    }
+    
+    
+
+}
