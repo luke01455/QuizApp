@@ -8,7 +8,10 @@ const HomeScreen = () => {
     return (
         <div className='homescreen-container'>
             <div className='text-container'>
-                <h1> Earn cash with your sport knowledge </h1>
+                <h1> 
+                    {/* EARN CASH WITH YOUR SPORT KNOWLEDGE */}
+                    Earn cash with your sport knowledge
+                     </h1>
             </div>
             {/* <button className=''> Find out more </button> */}
             <div className='cta-container'>
