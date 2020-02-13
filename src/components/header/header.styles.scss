@@ -34,7 +34,7 @@
       align-items: center;
       justify-content: flex-end;
       font-size: 1.18em;
-      
+      text-align: center;
 
   
       .option {
@@ -42,11 +42,17 @@
         color: white;
         text-decoration: none;
         padding: 10px 15px;
+        width: 110px;
         cursor: pointer;
+        
 
         @media (max-width: 700px) { 
           color: white;
         }
+      }
+
+      .option:hover {
+        letter-spacing: 1px;
       }
 
       .option:last-child {

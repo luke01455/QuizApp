@@ -15,6 +15,7 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
+    border-radius: 5px;
   
     &:hover {
       background-color: white;
@@ -33,7 +34,10 @@
     }
   
     &.inverted {
-      background-color: white;
+      background: url("../../assets/opaquewhite.png") no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
       color: black;
       border: 1px solid black;
   

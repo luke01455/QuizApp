@@ -1,8 +1,8 @@
 .mid-section-container {
     width: 100vw;
     height: 100vh;
-    background-color: grey;
-    color: white;
+    background-color: white;
+    color: black;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -11,12 +11,13 @@
     
     .instruction-container {
         margin: 0 auto;
+        background-color: red;
         display: flex;
 
         .instruction-section {
             width: 28vw;
             height: 400px;
-            border: 1px solid white;
+            border: 1px solid black;
             display: flex;
             flex-direction: column;
 

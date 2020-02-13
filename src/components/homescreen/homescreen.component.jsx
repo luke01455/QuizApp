@@ -15,9 +15,10 @@ const HomeScreen = () => {
             </div>
             {/* <button className=''> Find out more </button> */}
             <div className='cta-container'>
-                <CTAButton inverted='inverted'> Start Playing </CTAButton>
+                <CTAButton> Start Playing </CTAButton>
             </div>
             
+            <button> V </button>
 
         </div>
     )
