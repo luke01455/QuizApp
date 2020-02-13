@@ -1,6 +1,9 @@
 import React from 'react';
 import './homescreen.styles.scss';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+
 import CTAButton from '../cta-button/cta-button.component'
 import QuizCard from '../quiz-card/quiz-card.component'
 
@@ -18,7 +21,7 @@ const HomeScreen = () => {
                 <CTAButton> Start Playing </CTAButton>
             </div>
             
-            <button> V </button>
+            <button className='page-down-btn'> <FontAwesomeIcon icon={faChevronDown} /> </button>
 
         </div>
     )
