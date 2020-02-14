@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../context/auth'
@@ -7,28 +7,52 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 import './header.styles.scss';
 
 const Header = () => {
+    const [headerColour, setHeaderColour] = useState('white')
+    
+    const [scrolling, setScrolling] = useState(false);
+    const [scrollTop, setScrollTop] = useState(0);
+  
+    const onScroll = (e) => {
+      setScrollTop(e.target.documentElement.scrollTop);
+      setScrolling(e.target.documentElement.scrollTop > scrollTop);
+    }
+  
+    useEffect(() => {
+      window.addEventListener('scroll', onScroll);
+    },[]);
+  
+    useEffect(() => {
+      if(scrollTop > 872) {
+          setHeaderColour('black')
+      } else {
+          setHeaderColour('white')
+      }
+    }, [scrollTop])
+
+
+
     const context = useContext(AuthContext)
     return (
         context.user ? (
-            <div className='header'>
-                <Link className='logo-container' to='/'>
+            <div className={`header ${headerColour}`}>
+                <Link className={`logo-container ${headerColour}`} to='/'>
                     <h1 className='header-logo'> Sport Bounty </h1>
                 </Link>
                 <div className='options'>
-                    <Link className='option' to='/about'> ABOUT</Link>
-                    <Link className='option' to='/account'>{context.user.username.toUpperCase()}</Link>
-                    <div className='option' to='/signin' onClick={context.logout}> SIGN OUT </div>
+                    <Link className={`option ${headerColour}`} to='/about'> ABOUT</Link>
+                    <Link className={`option ${headerColour}`} to='/account'>{context.user.username.toUpperCase()}</Link>
+                    <div className={`option ${headerColour}`} to='/signin' onClick={context.logout}> SIGN OUT </div>
                 </div>
             </div>
         ) : (
-            <div className='header'>
-                <Link className='logo-container' to='/'>
+            <div className={`header ${headerColour}`}>
+                <Link className={`logo-container ${headerColour}`} to='/'>
                 <h1 className='header-logo'> Sport Bounty </h1>
                 </Link>
                 <div className='options'>
-                    <Link className='option' to='/about'> ABOUT </Link>
-                    <Link className='option' to='/signup'>SIGN UP</Link>
-                    <Link className='option' to='/signin'>SIGN IN</Link>
+                    <Link className={`option ${headerColour}`} to='/about'> ABOUT </Link>
+                    <Link className={`option ${headerColour}`} to='/signup'>SIGN UP</Link>
+                    <Link className={`option ${headerColour}`} to='/signin'>SIGN IN</Link>
                 </div>
             </div>
             )

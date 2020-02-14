@@ -10,6 +10,7 @@
     position: fixed;
     border-bottom: 1px solid white;
 
+
     @media (max-width: 700px) { 
       position: absolute;
     }
@@ -26,6 +27,9 @@
         font-family: 'Faster One', cursive;
       }
     }
+    
+
+
   
     .options {
       width: 50%;
@@ -44,11 +48,12 @@
         padding: 10px 15px;
         width: 110px;
         cursor: pointer;
+
+        .black{
+          color: black;
+        }
         
 
-        @media (max-width: 700px) { 
-          color: white;
-        }
       }
 
       .option:hover {
@@ -60,3 +65,16 @@
       }
     }
   }
+
+  .logo-container.black {
+    display: none;
+  }
+
+  .option.black {
+    display: none;
+  }
+
+  .header.black {
+    display: none;
+  }
+
