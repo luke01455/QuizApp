@@ -10,7 +10,7 @@ const MidSection = () => {
             <div className='instruction-container'>
                 <div className='instruction-section'>
                     <h1> 1 </h1>
-                    <h3> Pick a quiz with a prize you'd like to win </h3>
+                    <h3> To enter, pick a quiz with a prize you'd like to win </h3>
                     <QuizCard size='example' />
                 </div>
                 <div className='instruction-section'>

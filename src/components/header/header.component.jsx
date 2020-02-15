@@ -9,6 +9,8 @@ import './header.styles.scss';
 const Header = () => {
     const [headerColour, setHeaderColour] = useState('white')
     
+    const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
     const [scrolling, setScrolling] = useState(false);
     const [scrollTop, setScrollTop] = useState(0);
   
@@ -22,7 +24,7 @@ const Header = () => {
     },[]);
   
     useEffect(() => {
-      if(scrollTop > 872) {
+      if(scrollTop > vh) {
           setHeaderColour('black')
       } else {
           setHeaderColour('white')
