@@ -24,7 +24,7 @@ const Header = () => {
     },[]);
   
     useEffect(() => {
-      if(scrollTop > vh) {
+      if(scrollTop > vh - 50) {
           setHeaderColour('black')
       } else {
           setHeaderColour('white')

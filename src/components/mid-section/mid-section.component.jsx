@@ -1,6 +1,8 @@
 import React from 'react';
 import './mid-section.styles.scss';
 
+import quizImg from '../../assets/quizq.png'
+import cheerImg from '../../assets/cheeringimg.jpg'
 import QuizCard from '../quiz-card/quiz-card.component';
 
 const MidSection = () => {
@@ -16,10 +18,17 @@ const MidSection = () => {
                 <div className='instruction-section'>
                     <h1> 2 </h1>
                     <h3> Answer 5 simple questions like this </h3>
+                    <div className='quiz-image-container'>
+                        <img  src={quizImg}></img>
+                    </div>
+                    
                 </div>
                 <div className='instruction-section'>
                     <h1> 3 </h1>
                     <h3> Each correct answer earns you an extra chance to win </h3>
+                    <div className='quiz-image-container'>
+                        <img  src={cheerImg}></img>
+                    </div>
                 </div>
             </div>
         </div>
