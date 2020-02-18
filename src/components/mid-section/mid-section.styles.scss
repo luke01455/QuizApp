@@ -9,8 +9,13 @@
     background-color: #E8DEDE;
     color: black;
 
+    @media (max-width: 1200px) {
+        height: 105%;
+    }
+
     h2 {
-        margin-top: 75px;
+        font-family: 'Russo One', sans-serif;
+        margin-top: 125px;
     }
 
     .instruction-container {
@@ -21,6 +26,13 @@
         margin-top: 75px;
         color: white;
 
+        @media (max-width: 1200px) {
+            flex-direction: column;
+            width: 90%;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
         .instruction-section {
             width: 28vw;
             height: 550px;
@@ -29,10 +41,12 @@
             flex-direction: column;
             padding: 20px;
             align-items: center;
+            
 
             h3 {
                 font-size: 1.2em;
                 margin-bottom: 30px;
+                font-family: 'Quicksand', cursive;
             }
 
             .quiz-image-container {
