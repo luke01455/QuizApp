@@ -7,7 +7,7 @@ import './account-page.styles.scss';
 
 const AccountPage = () => {
 
-    const [myScores, setMyScores] = useState([]);
+    const [myScores, setMyScores] = useState([])
     const { loading, data } = useQuery(MY_SCORES_QUERY)
 
     useEffect(() => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import './homescreen.styles.scss';
 
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
@@ -18,7 +19,7 @@ const HomeScreen = () => {
             </div>
             {/* <button className=''> Find out more </button> */}
             <div className='cta-container'>
-                <CTAButton> Start Playing </CTAButton>
+                <Link to='/signin'><CTAButton> Start Playing </CTAButton></Link>
             </div>
             
             <button className='page-down-btn'> <FontAwesomeIcon icon={faChevronDown} /> </button>

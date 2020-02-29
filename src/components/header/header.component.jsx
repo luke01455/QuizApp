@@ -6,7 +6,7 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './header.styles.scss';
 
-const Header = () => {
+const Header = ({transparency}) => {
     const [headerColour, setHeaderColour] = useState('white')
     
     const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -31,12 +31,12 @@ const Header = () => {
       }
     }, [scrollTop])
 
-
+    
 
     const context = useContext(AuthContext)
     return (
         context.user ? (
-            <div className={`header ${headerColour}`}>
+            <div className={`header ${transparency} ${headerColour}`}>
                 <Link className={`logo-container ${headerColour}`} to='/'>
                     <h1 className='header-logo'> Sport Bounty </h1>
                 </Link>
@@ -47,7 +47,7 @@ const Header = () => {
                 </div>
             </div>
         ) : (
-            <div className={`header ${headerColour}`}>
+            <div className={`header ${transparency} ${headerColour}`}>
                 <Link className={`logo-container ${headerColour}`} to='/'>
                 <h1 className='header-logo'> Sport Bounty </h1>
                 </Link>

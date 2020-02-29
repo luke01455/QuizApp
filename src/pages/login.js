@@ -6,6 +6,8 @@ import gql from "graphql-tag";
 import { AuthContext } from '../context/auth'
 import { useForm } from "../util/hooks";
 
+import Header from '../components/header/header.component'
+
 const Login = props => {
     const context = useContext(AuthContext)
   const [errors, setErrors] = useState({});
@@ -33,6 +35,7 @@ const Login = props => {
 
   return (
     <div className="form-container">
+      <Header transparency='transparent'/>
       <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
         <h1> Login </h1>
         <Form.Input
