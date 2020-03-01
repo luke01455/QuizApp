@@ -79,8 +79,8 @@
     display: none;
   }
 
-  .header.transparent {
+  .header.nontransparent {
     position: static;
-    background-color: red;
+    background: rgba(196, 63, 63, 0.8);
     margin-bottom: 20px;
   }

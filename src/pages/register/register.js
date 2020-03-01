@@ -2,9 +2,12 @@ import React, { useState, useContext } from "react";
 import { Form, Button } from "semantic-ui-react";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
+import './register.styles.scss'
 
-import { AuthContext } from '../context/auth'
-import { useForm } from "../util/hooks";
+import Header from '../../components/header/header.component'
+
+import { AuthContext } from '../../context/auth'
+import { useForm } from "../../util/hooks";
 
 const Register = props => {
   const context = useContext(AuthContext)
@@ -35,8 +38,11 @@ const Register = props => {
   }
 
   return (
+    <div>
+    <Header transparency='nontransparent'/>
     <div className="form-container">
-      <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
+      
+      <Form className='register-form' onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
         <h1> Register </h1>
         <Form.Input
           label="Username"
@@ -87,6 +93,7 @@ const Register = props => {
           </ul>
         </div>
       )}
+    </div>
     </div>
   );
 };
