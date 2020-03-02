@@ -1,6 +1,6 @@
 .footer-container {
     width: 100%;
-    height: 200px;
+    height: 300px;
     background: url("../../assets/footerbground.png") no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -9,4 +9,21 @@
     justify-content: space-around;
     flex-direction: column;
     color: white;
+    font-family: Cabin, sans-serif;
+    font-size: 1.2em;
+
+    .top-footer-section {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .socials-footer {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .lower-footer-section {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
 }

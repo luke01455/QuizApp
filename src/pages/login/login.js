@@ -6,6 +6,7 @@ import gql from "graphql-tag";
 import { AuthContext } from '../../context/auth'
 import { useForm } from "../../util/hooks";
 
+import './login.styles.scss'
 import Header from '../../components/header/header.component'
 
 const Login = props => {
@@ -34,41 +35,43 @@ const Login = props => {
   }
 
   return (
-    <div className="form-container">
+    <div>
       <Header transparency='nontransparent'/>
-      <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
-        <h1> Login </h1>
-        <Form.Input
-          label="Username"
-          placeholder="Username.."
-          name="username"
-          type="text"
-          value={values.username}
-          error={errors.username ? true : false}
-          onChange={onChange}
-        />
-        <Form.Input
-          label="Password"
-          placeholder="Password.."
-          name="password"
-          type="password"
-          value={values.password}
-          error={errors.password ? true : false}
-          onChange={onChange}
-        />
-        <Button type="submit" primary>
-          Login
-        </Button>
-      </Form>
-      {Object.keys(errors).length > 0 && (
-        <div className="ui error message">
-          <ul className="list">
-            {Object.values(errors).map(value => (
-              <li key={value}>{value}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="form-container">
+        <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
+          <h1> Login </h1>
+          <Form.Input
+            label="Username"
+            placeholder="Username.."
+            name="username"
+            type="text"
+            value={values.username}
+            error={errors.username ? true : false}
+            onChange={onChange}
+          />
+          <Form.Input
+            label="Password"
+            placeholder="Password.."
+            name="password"
+            type="password"
+            value={values.password}
+            error={errors.password ? true : false}
+            onChange={onChange}
+          />
+          <Button type="submit" primary>
+            Login
+          </Button>
+        </Form>
+        {Object.keys(errors).length > 0 && (
+          <div className="ui error message">
+            <ul className="list">
+              {Object.values(errors).map(value => (
+                <li key={value}>{value}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
