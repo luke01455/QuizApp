@@ -12,6 +12,7 @@ import Login from './pages/login/login'
 import Register from './pages/register/register'
 import HomePage from './pages/homepage/homepage.component'
 import QuizPage from './pages/quiz-page/quiz-page.component'
+import QuizSelect from './pages/quiz-select/quiz-select.component'
 import AccountPage from './pages/account/account-page.component'
 import HomeScreen from './components/homescreen/homescreen.component'
 import MidSection from './components/mid-section/mid-section.component'
@@ -27,6 +28,7 @@ const App = () => {
           <Suspense fallback={<Spinner />}>
             <Route exact path="/" component={Header} />
             <Route path="/quiz" component={QuizPage} />
+            <Route path="/quizselect" component={QuizSelect} />
             <Route exact path="/" component={HomeScreen} />
             <Route exact path="/" component={MidSection} />
             <Route exact path="/" component={HomePage} />
