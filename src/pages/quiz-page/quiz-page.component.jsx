@@ -6,8 +6,9 @@ import { AuthContext } from "../../context/auth"
 import { Link } from 'react-router-dom'
 import { Table } from 'semantic-ui-react'
 
-import Spinner from '../../components/spinner/spinner.component'
 
+import Spinner from '../../components/spinner/spinner.component'
+import Header from '../../components/header/header.component'
 import QuizModalSport from '../../components/quiz-modal-sport/quiz-modal-sport.component'
 import QuizModalMusic from '../../components/quiz-modal-music/quiz-modal-music.component'
 
@@ -56,9 +57,11 @@ const QuizPage = (props) => {
     }
 
     return (
+        <div>
+        <Header transparency='nontransparent'/>
         <div className='quiz-page-container'>
             
-            <div> Get all the questions right to win the Prize</div>
+            <div className='quiz-description'> Get all the questions right to win the Prize</div>
             {
                 loading ? <div> loading... </div> : <div> {thisQuiz.isActive === 'filling' ? 'The winner will be drawn once the quiz is full' : 
                 thisQuiz.isActive === 'filled' ? `the winner will be drawn in around 30 minutes` : `the winner is ${thisQuiz.winner}`} </div>
@@ -106,6 +109,7 @@ const QuizPage = (props) => {
             {
                 context.modal ? <Suspense fallback={<Spinner />}> {quizTitle === 'MUSIC' ? <QuizModalMusic /> : <QuizModalSport />} </Suspense> : <div></div>
             }
+        </div>
         </div>
     )
 }

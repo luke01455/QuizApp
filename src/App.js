@@ -22,9 +22,10 @@ const App = () => {
     <div className="App">
       <AuthProvider>
         <BrowserRouter>
-        <Header />
+        
         <Switch>
           <Suspense fallback={<Spinner />}>
+            <Route exact path="/" component={Header} />
             <Route path="/quiz" component={QuizPage} />
             <Route exact path="/" component={HomeScreen} />
             <Route exact path="/" component={MidSection} />
