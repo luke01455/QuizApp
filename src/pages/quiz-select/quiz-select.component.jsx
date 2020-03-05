@@ -11,8 +11,13 @@ const QuizSelect = () => {
                         <Header transparency='nontransparent'/>
                         <div className='quiz-selection-carousel'>
                                 <QuizCard size='large'/>
-                                <QuizCard />
-                                <QuizCard />
+                                <QuizCard size='large'/>
+                                <QuizCard size='large'/>
+                        </div>
+                        <div className='quiz-selection-carousel'>
+                                <QuizCard size='large'/>
+                                <QuizCard size='large'/>
+                                <QuizCard size='large'/>
                         </div>
                         
                 </div>

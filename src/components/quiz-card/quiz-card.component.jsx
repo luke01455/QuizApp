@@ -1,7 +1,7 @@
 import React from 'react';
 import './quiz-card.styles.scss';
 
-const QuizCard = ({ size }) => {
+const QuizCard = ({ size, title, minEntries, maxEntries, price }) => {
     return (
         <div className={`card-container ${size}`}>
            <div className='prize-picture-container'></div>
