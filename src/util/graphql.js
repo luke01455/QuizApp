@@ -8,6 +8,7 @@ export const FETCH_QUIZZES_QUERY = gql`
     userCount
     isActive
     quizType
+    price
     usersScores {
       id
       username
