@@ -2,6 +2,16 @@
     height: auto;
     background-color: black;
 
+    .quiz-select-title {
+        height: 200px;
+        h1 {
+            font-family: 'Russo One', sans-serif;
+            padding-top: 150px;
+            color: white;
+        }
+    }
+
+
     .quiz-selection-carousel {
         height: 700px;
         padding-top: 100px;

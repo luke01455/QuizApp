@@ -10,6 +10,7 @@ const QuizCard = ({ size, title, userCount, maxUsers, price }) => {
                 <div className='lower-text-container'>
                     <p> {price} </p> <p> {userCount}/{maxUsers} </p>
                 </div>
+                <button className='enter-quiz-button'> See Details </button>
            </div>
         </div>
     )

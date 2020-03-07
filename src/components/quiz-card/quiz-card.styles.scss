@@ -35,6 +35,13 @@
         justify-content: space-around;
         font-weight: bold;
 
+        .enter-quiz-button {
+            width: 100px;
+            background-color: black;
+            color: white;
+            border: none;
+        }
+
         .top-text-container { 
             margin-top: 10px;
             font-family: 'Russo One', sans-serif;

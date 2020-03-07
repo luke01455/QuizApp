@@ -22,7 +22,7 @@ const Login = props => {
     update(proxy, { data: { login: userData}}) {
       // on successful result of added user
       context.login(userData)
-      props.history.push("/");
+      props.history.push("/quizselect");
     },
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
