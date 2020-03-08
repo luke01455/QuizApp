@@ -41,6 +41,7 @@ const QuizSelect = () => {
                                         userCount={quiz.userCount}
                                         maxUsers={quiz.maxUsers} id={quiz.id}
                                         price={quiz.price}
+                                        id={quiz.id}
                                     />
                                 )
                         })

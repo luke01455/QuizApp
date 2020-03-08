@@ -36,10 +36,22 @@
         font-weight: bold;
 
         .enter-quiz-button {
-            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 130px;
+            height: 35px;
             background-color: black;
             color: white;
             border: none;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+        
+        .enter-quiz-button:hover {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
         }
 
         .top-text-container { 
