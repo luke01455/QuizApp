@@ -27,7 +27,7 @@ const HomeScreen = () => {
                 </div>
                 {/* <button className=''> Find out more </button> */}
                 <div className='cta-container'>
-                    <Link to={`${user ? '/quizselect' : '/signin'}`}><CTAButton> Start Playing </CTAButton></Link>
+                    <Link className='underline-remove' to={`${user ? '/quizselect' : '/signin'}`}><CTAButton> Start Playing </CTAButton></Link>
                 </div>
                 
                 <button   className='page-down-btn' onClick={executeScroll}> <FontAwesomeIcon icon={faChevronDown} /> </button>

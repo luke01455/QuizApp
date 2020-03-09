@@ -31,9 +31,9 @@ const HomePage = () => {
     return (
         <div className='homepage-container'>
             <BrowserView>
-            <ControllCarousel />
+            {/* <ControllCarousel /> */}
             </BrowserView>
-            <div className='prize-option-container'>
+            {/* <div className='prize-option-container'>
                 {loading ? 
                 (<Spinner />) :
                  (
@@ -52,7 +52,7 @@ const HomePage = () => {
                     })
             )}
     
-            </div>
+            </div> */}
 
 
             <Footer />

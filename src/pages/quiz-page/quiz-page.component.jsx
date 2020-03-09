@@ -57,7 +57,7 @@ const QuizPage = (props) => {
     }
 
     return (
-        <div>
+        <div className='quiz-page-wrapper'>
         <Header transparency='nontransparent'/>
         <div className='quiz-page-container'>
             
