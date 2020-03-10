@@ -234,7 +234,7 @@ const QuizModalSport = ({ scoreData }) => {
                                 </div>
 
                             </div>
-                            <div onClick={ count !== 5 ? nextQuestion : endQuiz} className='next-button'> Next Question </div>
+                            <button onClick={ count !== 5 ? nextQuestion : endQuiz} className='next-button'> Next Question </button>
                         </div>
                     )
             }
