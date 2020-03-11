@@ -2,11 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../context/auth'
-import { ReactComponent as Logo } from '../../assets/crown.svg';
 
 import './header.styles.scss';
 
 const Header = ({transparency}) => {
+    const context = useContext(AuthContext)
+    
     const [headerColour, setHeaderColour] = useState('white')
     
     const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -30,10 +31,7 @@ const Header = ({transparency}) => {
           setHeaderColour('white')
       }
     }, [scrollTop])
-
     
-
-    const context = useContext(AuthContext)
     return (
         context.user ? (
             <div className={`header ${transparency} ${headerColour}`}>

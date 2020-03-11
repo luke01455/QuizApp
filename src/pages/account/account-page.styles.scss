@@ -1,0 +1,14 @@
+.account-page-container {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+
+    .account-page-wrapper {
+        width: 90%;
+        
+        .username-display {
+            padding-top: 5%;
+        }
+    }
+
+}
