@@ -13,9 +13,11 @@ import Register from './pages/register/register'
 import HomePage from './pages/homepage/homepage.component'
 import QuizPage from './pages/quiz-page/quiz-page.component'
 import QuizSelect from './pages/quiz-select/quiz-select.component'
+import FaqPage from './pages/faq/faq-page.component'
 import AccountPage from './pages/account/account-page.component'
 import HomeScreen from './components/homescreen/homescreen.component'
 import MidSection from './components/mid-section/mid-section.component'
+
 
 const App = () => {
   
@@ -35,6 +37,7 @@ const App = () => {
             <Route exact path="/signin" component={Login} />
             <Route exact path="/signup" component={Register} />
             <Route exact path="/account" component={AccountPage} />
+            <Route exact path="/faqs" component={FaqPage} />
           </Suspense>
         </Switch>
         </BrowserRouter>

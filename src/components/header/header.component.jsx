@@ -39,7 +39,7 @@ const Header = ({transparency}) => {
                     <h1 className='header-logo'> Sport Bounty </h1>
                 </Link>
                 <div className='options'>
-                    <Link className={`option ${headerColour}`} to='/about'> ABOUT</Link>
+                    <Link className={`option ${headerColour}`} to='/faqs'> FAQ'S </Link>
                     <Link className={`option ${headerColour}`} to='/account'>{context.user.username.toUpperCase()}</Link>
                     <div className={`option ${headerColour}`} to='/signin' onClick={context.logout}> SIGN OUT </div>
                 </div>
