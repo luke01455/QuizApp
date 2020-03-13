@@ -39,7 +39,7 @@ const QuizSelect = () => {
                                         key={quiz.id}
                                         title={quiz.quizType === 'Music' ? 'Music' : 'Sport'}
                                         userCount={quiz.userCount}
-                                        maxUsers={quiz.maxUsers} id={quiz.id}
+                                        maxUsers={quiz.maxUsers}
                                         price={quiz.price}
                                         id={quiz.id}
                                     />

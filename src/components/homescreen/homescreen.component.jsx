@@ -7,7 +7,6 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { AuthContext } from '../../context/auth'
 
 import CTAButton from '../cta-button/cta-button.component'
-import QuizCard from '../quiz-card/quiz-card.component'
 
 const HomeScreen = () => {
     const { user } = useContext(AuthContext)

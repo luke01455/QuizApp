@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import './quiz-card.styles.scss';
 
 const QuizCard = ({ size, title, userCount, maxUsers, price, id, history }) => {
-    const openQuiz = () => {
-      }
 
     return (
         <div className={`card-container ${size}`} >

@@ -19,7 +19,7 @@ const MidSection = () => {
                     <h1> 2 </h1>
                     <h3> Answer 5 simple questions like this </h3>
                     <div className='quiz-image-container'>
-                        <img  src={quizImg}></img>
+                        <img src={quizImg} alt='quizexample'></img>
                     </div>
                     
                 </div>
@@ -27,7 +27,7 @@ const MidSection = () => {
                     <h1> 3 </h1>
                     <h3> Each correct answer earns you an extra chance to win </h3>
                     <div className='quiz-image-container'>
-                        <img  src={cheerImg}></img>
+                        <img  src={cheerImg} alt='cheering'></img>
                     </div>
                 </div>
             </div>

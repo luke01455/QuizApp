@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState, useContext, useEffect } from 'react'
+import React, { Suspense, useState, useContext, useEffect } from 'react'
 import './quiz-page.styles.scss'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
@@ -20,7 +20,6 @@ const QuizPage = (props) => {
     const arrLength = strArr.length
     const quizId = strArr[arrLength - 1]
     const quizTitle = strArr[arrLength - 2]
-    const [modalOnOff, setModalOnOff] = useState(false)
 
     const [thisQuiz, setThisQuiz] = useState([]);
     const { loading, data } = useQuery(FETCH_QUIZ_QUERY, {

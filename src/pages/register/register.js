@@ -41,7 +41,7 @@ const Register = props => {
     <Header transparency='nontransparent'/>
     <div className="form-container">
       
-      <Form className='register-form' onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
+      <Form onSubmit={onSubmit} noValidate className={loading ? "loading register-form" : ""}>
         <h1> Register </h1>
         <Form.Input
           label="Username"

@@ -12,12 +12,10 @@ const Header = ({transparency}) => {
     
     const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-    const [scrolling, setScrolling] = useState(false);
     const [scrollTop, setScrollTop] = useState(0);
   
     const onScroll = (e) => {
       setScrollTop(e.target.documentElement.scrollTop);
-      setScrolling(e.target.documentElement.scrollTop > scrollTop);
     }
   
     useEffect(() => {
@@ -50,7 +48,7 @@ const Header = ({transparency}) => {
                 <h1 className='header-logo'> Sport Bounty </h1>
                 </Link>
                 <div className='options'>
-                    <Link className={`option ${headerColour}`} to='/about'> ABOUT </Link>
+                    <Link className={`option ${headerColour}`} to='/faqs'> FAQ'S </Link>
                     <Link className={`option ${headerColour}`} to='/signup'>SIGN UP</Link>
                     <Link className={`option ${headerColour}`} to='/signin'>SIGN IN</Link>
                 </div>
