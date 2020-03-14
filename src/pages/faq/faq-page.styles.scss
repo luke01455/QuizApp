@@ -1,7 +1,23 @@
 .faq-page-wrapper {
+    padding-left: 25%;
     padding-top: 10%;
+    text-align: left;
 
+    .faq-option {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    
     h1 {
-        padding-bottom: 30px;
+        padding-bottom: 15px;
+    }
+
+    p {
+        padding-bottom: 55px;
+    }
+    h3 {
+        padding: 20px;
+        padding-left: 15px;
     }
 }
