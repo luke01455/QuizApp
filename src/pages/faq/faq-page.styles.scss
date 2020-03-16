@@ -1,3 +1,6 @@
+.faq-page-container {
+    height: 800px;
+    
 .faq-page-wrapper {
     padding-left: 25%;
     padding-top: 10%;
@@ -6,18 +9,42 @@
     .faq-option {
         display: flex;
         align-items: center;
+        width: 40%;
         cursor: pointer;
+        
+    }
+
+    .faq-question {
     }
     
     h1 {
         padding-bottom: 15px;
     }
 
-    p {
-        padding-bottom: 55px;
-    }
     h3 {
         padding: 20px;
         padding-left: 15px;
     }
+
+    .transition-paragraph {
+        margin-bottom: 30px;
+    }
+    .transition-paragraph.hide {
+        display: none;
+    }
+
+    .transition-paragraph.show {
+        animation-name: modalFade;
+        animation-duration: 0.5s;
+    }
 }
+}
+
+
+
+@keyframes modalFade {
+    from {transform: translateY(-50%);opacity: 0;}
+    to {transform: translateY(0);opacity: 1;}
+  }
+
+
