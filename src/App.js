@@ -6,17 +6,20 @@ import './App.scss'
 import 'semantic-ui-css/semantic.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import Spinner from './components/spinner/spinner.component'
-import Header from './components/header/header.component'
+
 import Login from './pages/login/login'
 import Register from './pages/register/register'
 import HomePage from './pages/homepage/homepage.component'
 import QuizPage from './pages/quiz-page/quiz-page.component'
 import QuizSelect from './pages/quiz-select/quiz-select.component'
 import FaqPage from './pages/faq/faq-page.component'
+import ContactPage from './pages/contact/contact.component'
 import AccountPage from './pages/account/account-page.component'
+import Spinner from './components/spinner/spinner.component'
+import Header from './components/header/header.component'
 import HomeScreen from './components/homescreen/homescreen.component'
 import MidSection from './components/mid-section/mid-section.component'
+
 
 
 const App = () => {
@@ -38,6 +41,7 @@ const App = () => {
             <Route exact path="/signup" component={Register} />
             <Route exact path="/account" component={AccountPage} />
             <Route exact path="/faqs" component={FaqPage} />
+            <Route exact path="/contact" component={ContactPage} />
           </Suspense>
         </Switch>
         </BrowserRouter>
