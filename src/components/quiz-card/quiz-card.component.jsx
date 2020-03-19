@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import './quiz-card.styles.scss';
 
-const QuizCard = ({ size, title, userCount, maxUsers, price, id, history }) => {
+const QuizCard = ({ size, title, userCount, maxUsers, price, id, prize, history }) => {
 
     return (
         <div className={`card-container ${size}`} >
-           <div className='prize-picture-container'></div>
+           <div className='prize-picture-container'>
+               <div className='quiz-prize-name'> {prize ? prize : 'unknown'}  </div>
+           </div>
            <div className='info-container'>
                 <h3 className='top-text-container'> {title} </h3>
                 <div className='lower-text-container'>
