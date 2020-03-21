@@ -11,19 +11,53 @@
     color: white;
     font-family: Cabin, sans-serif;
     font-size: 1.2em;
+    color: white;
 
     .top-footer-section {
         margin-top: 20px;
         margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
     }
 
     .socials-footer {
         margin-top: 10px;
         margin-bottom: 20px;
+        width: 100%;
+        height: 40px;
+
+        .footer-socials-link {
+            // width: 155px;
+            // height: 155px;
+            // background-color: black;
+            z-index: 10;
+            cursor: pointer;
+
+            .social-icon {
+                height: 35px;
+                width: auto;
+                cursor: pointer;
+                filter: invert(0.99) sepia(1);
+                z-index: -1;
+            }
+        }
+
     }
 
     .lower-footer-section {
         margin-top: 10px;
         margin-bottom: 20px;
+
+        .upper-footer-link-container {
+            display: flex;
+            flex-direction: column;
+        }
     }
+
+    .footer-link {
+        color: white;
+        text-decoration: none;
+    }
+
 }
+
