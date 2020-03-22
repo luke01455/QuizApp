@@ -8,6 +8,7 @@ import { useForm } from "../../util/hooks";
 
 import './login.styles.scss'
 import Header from '../../components/header/header.component'
+import Footer from '../../components/footer/footer.component'
 
 const Login = props => {
     const context = useContext(AuthContext)
@@ -35,7 +36,7 @@ const Login = props => {
   }
 
   return (
-    <div>
+    <div className='login-container'>
       <Header transparency='nontransparent'/>
       <div className="form-container">
         <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
@@ -72,7 +73,9 @@ const Login = props => {
           </div>
         )}
       </div>
+      <Footer />
     </div>
+    
   );
 };
 

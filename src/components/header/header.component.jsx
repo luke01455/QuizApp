@@ -2,64 +2,63 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../context/auth'
+import Register from '../../pages/register/register'
 
 import './header.styles.scss';
 
-const Header = ({transparency}) => {
+const Header = ({ transparency }) => {
     const context = useContext(AuthContext)
-    
+
     const [headerColour, setHeaderColour] = useState('white')
-    
+
     const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
     const [scrollTop, setScrollTop] = useState(0);
-  
+
     const onScroll = (e) => {
-      setScrollTop(e.target.documentElement.scrollTop);
+        setScrollTop(e.target.documentElement.scrollTop);
     }
-  
+
+    const [loginModal, setLoginModal] = useState(false)
+    const [signUpModal, setSignUpModal] = useState(false)
+
     useEffect(() => {
-      window.addEventListener('scroll', onScroll);
-    },[]);
-  
+        window.addEventListener('scroll', onScroll);
+    }, []);
+
     useEffect(() => {
-      if(scrollTop > vh - 50) {
-          setHeaderColour('black')
-      } else {
-          setHeaderColour('white')
-      }
+        if (scrollTop > vh - 50) {
+            setHeaderColour('black')
+        } else {
+            setHeaderColour('white')
+        }
     }, [scrollTop])
-    
+
     return (
-        context.user ? (
-            <div className={`header ${transparency} ${headerColour}`}>
-                <Link className={`logo-container ${headerColour}`} to='/'>
-                    <h1 className='header-logo'> Sport Bounty </h1>
-                </Link>
-                <div className='options'>
-                    <Link className={`option ${headerColour}`} to='/contact'> CONTACT </Link>
-                    <Link className={`option ${headerColour}`} to='/faqs'> FAQ'S </Link>
-                    <Link className={`option ${headerColour}`} to='/account'>{context.user.username.toUpperCase()}</Link>
-                    <div className={`option ${headerColour}`} to='/signin' onClick={context.logout}> SIGN OUT </div>
-                </div>
-            </div>
-        ) : (
-            <div className={`header ${transparency} ${headerColour}`}>
-                <Link className={`logo-container ${headerColour}`} to='/'>
+        <div>
+        <div className={`header ${transparency} ${headerColour}`}>
+            <Link className={`logo-container ${headerColour}`} to='/'>
                 <h1 className='header-logo'> Sport Bounty </h1>
-                </Link>
-                <div className='options'>
-                    <Link className={`option ${headerColour}`} to='/contact'> CONTACT </Link>
-                    <Link className={`option ${headerColour}`} to='/faqs'> FAQ'S </Link>
-                    <Link className={`option ${headerColour}`} to='/signup'>SIGN UP</Link>
+            </Link>
+            <div className='options'>
+                <Link className={`option ${headerColour}`} to='/contact'> CONTACT </Link>
+                <Link className={`option ${headerColour}`} to='/faqs'> FAQ'S </Link>
+                {context.user ?
+                    <Link className={`option ${headerColour}`} to='/account'>{context.user.username.toUpperCase()}</Link>
+                    :
                     <Link className={`option ${headerColour}`} to='/signin'>SIGN IN</Link>
-                </div>
+                }
+                {context.user ?
+                    <div className={`option ${headerColour}`} to='/signin' onClick={context.logout}> SIGN OUT </div>
+                    :
+                    <div className={`option ${headerColour}`} onClick={() => setSignUpModal(true)}>SIGN UP</div>
+                }
             </div>
-            )
-
-
+        </div>
+        {signUpModal === true && <Register />}
+        </div>
     )
-};
 
 
+}
 export default Header;

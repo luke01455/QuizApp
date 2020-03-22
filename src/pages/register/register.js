@@ -37,7 +37,7 @@ const Register = props => {
   }
 
   return (
-    <div>
+    <div className='register-container'>
     <Header transparency='nontransparent'/>
     <div className="form-container">
       
