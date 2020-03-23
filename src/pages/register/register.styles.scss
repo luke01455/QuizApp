@@ -1,7 +1,19 @@
+.register-container {
+position: absolute;
+width: 80%;
+height: 80%;
+background-color: white;
+left: 0;
+right: 0;
+margin: auto;
+margin-top: 135px;
+border-radius: 15px;
+border: 1px solid black;
 
 .form-container { 
-
     width: 70%;
+    background-color: white;
     margin: 0 auto;
     margin-top: 150px;
+}
 }
