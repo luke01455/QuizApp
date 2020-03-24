@@ -8,7 +8,7 @@ import './register.styles.scss'
 import { AuthContext } from '../../context/auth'
 import { useForm } from "../../util/hooks";
 
-const Register = props => {
+const Register = (props, isHidden) => {
   const context = useContext(AuthContext)
   const [errors, setErrors] = useState({});
 
@@ -37,10 +37,8 @@ const Register = props => {
   }
 
   return (
-    <div className='register-container'>
-    <Header transparency='nontransparent'/>
+    <div className={`register-container ${!isHidden && 'closed'}`}>
     <div className="form-container">
-      
       <Form onSubmit={onSubmit} noValidate className={loading ? "loading register-form" : ""}>
         <h1> Register </h1>
         <Form.Input

@@ -10,7 +10,7 @@ import './login.styles.scss'
 import Header from '../../components/header/header.component'
 import Footer from '../../components/footer/footer.component'
 
-const Login = props => {
+const Login = (props, isHidden) => {
     const context = useContext(AuthContext)
   const [errors, setErrors] = useState({});
 
@@ -36,8 +36,7 @@ const Login = props => {
   }
 
   return (
-    <div className='login-container'>
-      <Header transparency='nontransparent'/>
+    <div className={`login-container ${!isHidden && 'closed'}`}>
       <div className="form-container">
         <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
           <h1> Login </h1>
@@ -73,7 +72,6 @@ const Login = props => {
           </div>
         )}
       </div>
-      <Footer />
     </div>
     
   );

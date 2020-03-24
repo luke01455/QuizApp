@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../context/auth'
 import Register from '../../pages/register/register'
+import Login from '../../pages/login/login'
 
 import './header.styles.scss';
 
@@ -34,6 +35,7 @@ const Header = ({ transparency }) => {
         }
     }, [scrollTop])
 
+
     return (
         <div>
         <div className={`header ${transparency} ${headerColour}`}>
@@ -46,16 +48,17 @@ const Header = ({ transparency }) => {
                 {context.user ?
                     <Link className={`option ${headerColour}`} to='/account'>{context.user.username.toUpperCase()}</Link>
                     :
-                    <Link className={`option ${headerColour}`} to='/signin'>SIGN IN</Link>
+                    <div className={`option ${headerColour}`} onClick={() => setLoginModal(!loginModal)}>SIGN IN</div>
                 }
                 {context.user ?
                     <div className={`option ${headerColour}`} to='/signin' onClick={context.logout}> SIGN OUT </div>
                     :
-                    <div className={`option ${headerColour}`} onClick={() => setSignUpModal(true)}>SIGN UP</div>
+                    <div className={`option ${headerColour}`} onClick={() => setSignUpModal(!signUpModal)}>SIGN UP</div>
                 }
             </div>
         </div>
-        {signUpModal === true && <Register />}
+        {signUpModal && <Register isHidden={signUpModal}/> }
+        {loginModal && <Login isHidden={loginModal}/> }
         </div>
     )
 

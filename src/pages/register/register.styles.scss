@@ -17,3 +17,8 @@ border: 1px solid black;
     margin-top: 150px;
 }
 }
+
+.closed {
+    transform: translateY(-100vh);
+    opacity: 0;
+}
