@@ -37,7 +37,7 @@ const ContactPage = () => {
 
 					<div className="container-contact2-form-btn">
 						<div className="wrap-contact2-form-btn">
-							<div class="contact2-form-bgbtn"></div>
+							<div className="contact2-form-bgbtn"></div>
 							<button className="contact2-form-btn">
 								Send Your Message
 							</button>

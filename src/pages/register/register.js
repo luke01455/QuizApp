@@ -3,7 +3,6 @@ import { Form, Button } from "semantic-ui-react";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
-import Header from '../../components/header/header.component'
 import './register.styles.scss'
 import { AuthContext } from '../../context/auth'
 import { useForm } from "../../util/hooks";
@@ -25,6 +24,7 @@ const Register = (props, isHidden) => {
       // on successful result of added user
       context.login(userData)
       props.history.push("/");
+      context.registerModalToggle()
     },
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
@@ -33,7 +33,7 @@ const Register = (props, isHidden) => {
   });
 
   function registerUser(){
-      addUser();
+      addUser()
   }
 
   return (

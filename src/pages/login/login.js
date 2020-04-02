@@ -7,11 +7,9 @@ import { AuthContext } from '../../context/auth'
 import { useForm } from "../../util/hooks";
 
 import './login.styles.scss'
-import Header from '../../components/header/header.component'
-import Footer from '../../components/footer/footer.component'
 
 const Login = (props, isHidden) => {
-    const context = useContext(AuthContext)
+  const context = useContext(AuthContext)
   const [errors, setErrors] = useState({});
 
   const { onChange, onSubmit, values } = useForm(loginUserCallback, {
@@ -21,9 +19,10 @@ const Login = (props, isHidden) => {
 
   const [loginUser, { loading }] = useMutation(LOGIN_USER, {
     update(proxy, { data: { login: userData}}) {
-      // on successful result of added user
+      // on successful result of login
       context.login(userData)
       props.history.push("/quizselect");
+      context.loginModalToggle()
     },
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.exception.errors);
@@ -32,7 +31,8 @@ const Login = (props, isHidden) => {
   });
 
   function loginUserCallback(){
-      loginUser();
+      loginUser()
+      
   }
 
   return (

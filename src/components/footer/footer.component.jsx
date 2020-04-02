@@ -17,10 +17,10 @@ const Footer = () => {
                 <Link to='/contact' className='footer-link'> INFO </Link>
             </div>
             <div className='socials-footer'>
-                <Link className='footer-socials-link' to='/'> <img className='social-icon' src={twitterIcon}/> </Link>
-                <Link className='footer-socials-link' to='/'> <img className='social-icon' src={facebookIcon}/> </Link>
-                <Link className='footer-socials-link' to='/'> <img className='social-icon' src={githubIcon}/> </Link>
-                <Link className='footer-socials-link' to='/'> <img className='social-icon' src={instaIcon}/> </Link>
+                <Link className='footer-socials-link' to='/'> <img className='social-icon' src={twitterIcon} alt='twitter'/> </Link>
+                <Link className='footer-socials-link' to='/'> <img className='social-icon' src={facebookIcon} alt='fb'/> </Link>
+                <Link className='footer-socials-link' to='/'> <img className='social-icon' src={githubIcon} alt='gh'/> </Link>
+                <Link className='footer-socials-link' to='/'> <img className='social-icon' src={instaIcon} alt='insta'/> </Link>
             </div>
             <div className='lower-footer-section'>
                 <div className='upper-footer-link-container'>

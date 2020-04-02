@@ -65,7 +65,7 @@ function authReducer(state, action){
         case 'REGISTER_MODAL_TOGGLE':
             return{
                 ...state,
-                registermodal: !state.registerModal
+                registerModal: !state.registerModal
             }
         default: 
             return state
@@ -96,10 +96,12 @@ function AuthProvider(props){
 
     const loginModalToggle = () => {
         dispatch({ type: 'LOGIN_MODAL_TOGGLE'})
+        console.log(state.loginModal)
     }
 
     const registerModalToggle = () => {
         dispatch({ type: 'REGISTER_MODAL_TOGGLE'})
+        console.log(state.registerModal)
     }
 
     return (

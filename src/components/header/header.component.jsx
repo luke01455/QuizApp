@@ -20,8 +20,6 @@ const Header = ({ transparency }) => {
         setScrollTop(e.target.documentElement.scrollTop);
     }
 
-    const [loginModal, setLoginModal] = useState(false)
-    const [signUpModal, setSignUpModal] = useState(false)
 
     useEffect(() => {
         window.addEventListener('scroll', onScroll);
@@ -48,17 +46,17 @@ const Header = ({ transparency }) => {
                 {context.user ?
                     <Link className={`option ${headerColour}`} to='/account'>{context.user.username.toUpperCase()}</Link>
                     :
-                    <div className={`option ${headerColour}`} onClick={() => setLoginModal(!loginModal)}>SIGN IN</div>
+                    <div className={`option ${headerColour}`} onClick={() => context.loginModalToggle()}>SIGN IN</div>
                 }
                 {context.user ?
                     <div className={`option ${headerColour}`} to='/signin' onClick={context.logout}> SIGN OUT </div>
                     :
-                    <div className={`option ${headerColour}`} onClick={() => setSignUpModal(!signUpModal)}>SIGN UP</div>
+                    <div className={`option ${headerColour}`} onClick={() => context.registerModalToggle()}>SIGN UP</div>
                 }
             </div>
         </div>
-        {signUpModal && <Register isHidden={signUpModal}/> }
-        {loginModal && <Login isHidden={loginModal}/> }
+        {context.registerModal && <Register /> }
+        {context.loginModal && <Login /> }
         </div>
     )
 
