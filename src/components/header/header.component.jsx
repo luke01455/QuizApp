@@ -33,6 +33,23 @@ const Header = ({ transparency }) => {
         }
     }, [scrollTop])
 
+    const closeLoginOpenSignUp = () => {
+        context.registerModalToggle()
+
+        if(context.loginModal) {
+            context.loginModalToggle()
+        }
+        
+    }
+
+    const closeSignUpOpenLogin = () => {
+        context.loginModalToggle()
+
+        if (context.loginModal) {
+            context.registerModalToggle()
+        }
+
+    }
 
     return (
         <div>
@@ -46,12 +63,12 @@ const Header = ({ transparency }) => {
                 {context.user ?
                     <Link className={`option ${headerColour}`} to='/account'>{context.user.username.toUpperCase()}</Link>
                     :
-                    <div className={`option ${headerColour}`} onClick={() => context.loginModalToggle()}>SIGN IN</div>
+                    <div className={`option ${headerColour}`} onClick={() => closeSignUpOpenLogin()}>SIGN IN</div>
                 }
                 {context.user ?
                     <div className={`option ${headerColour}`} to='/signin' onClick={context.logout}> SIGN OUT </div>
                     :
-                    <div className={`option ${headerColour}`} onClick={() => context.registerModalToggle()}>SIGN UP</div>
+                    <div className={`option ${headerColour}`} onClick={() => closeLoginOpenSignUp()}>SIGN UP</div>
                 }
             </div>
         </div>

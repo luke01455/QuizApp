@@ -5,6 +5,7 @@ import gql from "graphql-tag";
 
 import { AuthContext } from '../../context/auth'
 import { useForm } from "../../util/hooks";
+import exitIcon from '../../assets/icons/exiticon.png'
 
 import './login.styles.scss'
 
@@ -21,7 +22,7 @@ const Login = (props, isHidden) => {
     update(proxy, { data: { login: userData}}) {
       // on successful result of login
       context.login(userData)
-      props.history.push("/quizselect");
+      //props.history.push("/quizselect");
       context.loginModalToggle()
     },
     onError(err) {
@@ -37,6 +38,7 @@ const Login = (props, isHidden) => {
 
   return (
     <div className={`login-container ${!isHidden && 'closed'}`}>
+      <img onClick={() => context.loginModalToggle()} src={exitIcon} className='close-icon' alt='icon'/>
       <div className="form-container">
         <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
           <h1> Login </h1>
