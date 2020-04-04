@@ -1,11 +1,12 @@
-import React, { useState, useContext } from "react";
-import { Form, Button } from "semantic-ui-react";
-import { useMutation } from "@apollo/react-hooks";
-import gql from "graphql-tag";
+import React, { useState, useContext } from "react"
+import { Form, Button } from "semantic-ui-react"
+import { useMutation } from "@apollo/react-hooks"
+import gql from "graphql-tag"
 
 import './register.styles.scss'
 import { AuthContext } from '../../context/auth'
-import { useForm } from "../../util/hooks";
+import { useForm } from "../../util/hooks"
+import exitIcon from '../../assets/icons/exiticon.png'
 
 const Register = (props, isHidden) => {
   const context = useContext(AuthContext)
@@ -38,6 +39,7 @@ const Register = (props, isHidden) => {
 
   return (
     <div className={`register-container ${!isHidden && 'closed'}`}>
+    <img onClick={() => context.registerModalToggle()} src={exitIcon} className='close-icon' alt='icon'/>
     <div className="form-container">
       <Form onSubmit={onSubmit} noValidate className={loading ? "loading register-form" : ""}>
         <h1> Register </h1>

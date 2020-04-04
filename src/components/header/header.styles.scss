@@ -10,8 +10,6 @@
     position: fixed;
     border-bottom: 1px solid white;
 
-
-
     @media (max-width: 700px) { 
       position: absolute;
     }
@@ -62,7 +60,8 @@
       }
 
       .option:last-child {
-        margin-right: 40px;
+        margin-right: 55px;
+        width: 150px;
       }
     }
   }

@@ -11,6 +11,7 @@ import CTAButton from '../cta-button/cta-button.component'
 const HomeScreen = () => {
     const { user } = useContext(AuthContext)
     const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
+    const context = useContext(AuthContext)
 
     const myRef = useRef(null)
     const executeScroll = () => scrollToRef(myRef)
@@ -26,7 +27,12 @@ const HomeScreen = () => {
                 </div>
                 {/* <button className=''> Find out more </button> */}
                 <div className='cta-container'>
-                    <Link className='underline-remove' to={`${user ? '/quizselect' : '/signin'}`}><CTAButton> Start Playing </CTAButton></Link>
+                    {
+                        user ? <Link className='underline-remove' to='/quizselect'><CTAButton> Start Playing </CTAButton></Link> :
+                        <Link className='underline-remove' onClick={() => context.loginModalToggle()}><CTAButton> Start Playing </CTAButton></Link>
+                    }
+                    
+                    
                 </div>
                 
                 <button   className='page-down-btn' onClick={executeScroll}> <FontAwesomeIcon icon={faChevronDown} /> </button>
