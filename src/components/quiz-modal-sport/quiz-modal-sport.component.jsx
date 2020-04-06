@@ -202,45 +202,17 @@ const QuizModalSport = ({ scoreData }) => {
         console.log(quizId, scoreId)
     }, []);
 
+//////////////////////////// timer vv /////////////////////////////
+const [counter, setCounter] = React.useState(60);
 
-        const calculateTimeLeft = () => {
-          const difference = +new Date("2021-01-01") - +new Date();
-          let timeLeft = {};
-      
-          if (difference > 0) {
-            timeLeft = {
-              days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-              hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-              minutes: Math.floor((difference / 1000 / 60) % 60),
-              seconds: Math.floor((difference / 1000) % 60)
-            };
-          }
-      
-          return timeLeft;
-        };
 
-        const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
-        useEffect(() => {
-          setTimeout(() => {
-            setTimeLeft(calculateTimeLeft());
-          }, 1000);
-        });
-      
-        const timerComponents = [];
-      
-        Object.keys(timeLeft).forEach(interval => {
-          if (!timeLeft[interval]) {
-            return;
-          }
-      
-          timerComponents.push(
-            <span>
-              {timeLeft[interval]} {interval}{" "}
-            </span>
-          );
-        });
-
+React.useEffect(() => {
+  const timer =
+    counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+  return () => clearInterval(timer);
+}, [counter]);
+        
+///////////////////////////// timer ^^ ////////////////////////////////////////////
     return (
         <div className='styled-modal'>
             {
@@ -250,7 +222,7 @@ const QuizModalSport = ({ scoreData }) => {
                     ) :
                     (
                         <div className='modal-container'>
-                            {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+                            <div>Countdown: {counter}</div>
                             <div className='question-header'> WHO IS THIS SPORTSPERSON? </div>
                             <div className='modal-question'> {question}
                             </div>
