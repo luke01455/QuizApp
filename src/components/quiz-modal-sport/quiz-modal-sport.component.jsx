@@ -191,6 +191,7 @@ const QuizModalSport = ({ scoreData }) => {
         }
     })
 
+    //////////// TODO: THIS DOESNT TAKE FINAL ANSWER INTO ACCOUNT /// 
     const endQuiz = () => {
         endQuizMutation()
         context.modalToggle()
@@ -203,7 +204,7 @@ const QuizModalSport = ({ scoreData }) => {
     }, []);
 
 //////////////////////////// timer vv /////////////////////////////
-const [counter, setCounter] = React.useState(60);
+const [counter, setCounter] = useState(5);
 
 
 React.useEffect(() => {
@@ -211,6 +212,19 @@ React.useEffect(() => {
     counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
   return () => clearInterval(timer);
 }, [counter]);
+
+if (counter <= 0) {
+    if (count === 5) {
+        console.log('end')
+        endQuiz()
+        setCounter(5)
+    }
+    else {
+        nextQuestion()
+        setCounter(5)
+    }
+
+}
         
 ///////////////////////////// timer ^^ ////////////////////////////////////////////
     return (
