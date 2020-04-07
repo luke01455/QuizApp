@@ -191,10 +191,25 @@ const QuizModalSport = ({ scoreData }) => {
         }
     })
 
-    //////////// TODO: THIS DOESNT TAKE FINAL ANSWER INTO ACCOUNT /// 
+    //////////// sorted this but keep an eye on it or may cause a bug by giving too many score points ?  /// 
     const endQuiz = () => {
-        endQuizMutation()
-        context.modalToggle()
+        if(isRadioChecked == answerLocation) {
+            setCount(count + 1)
+            setScore(score + 1)
+            console.log('correct', count, score)
+            console.log(scoreData)
+            endQuizMutation()
+            context.modalToggle()
+            
+            
+        } else {
+            
+            setCount(count + 1)
+            console.log('incorrect', count, score)
+            endQuizMutation()
+            context.modalToggle()
+        }
+
     }
     
     useEffect(() => {
@@ -215,7 +230,6 @@ React.useEffect(() => {
 
 if (counter <= 0) {
     if (count === 5) {
-        console.log('end')
         endQuiz()
         setCounter(5)
     }
@@ -227,6 +241,17 @@ if (counter <= 0) {
 }
         
 ///////////////////////////// timer ^^ ////////////////////////////////////////////
+
+const nextQuestionClicked = () => {
+    if (count === 5) {
+        endQuiz()
+        setCounter(5)
+    }
+    else {
+        nextQuestion()
+        setCounter(5)
+    }
+}
     return (
         <div className='styled-modal'>
             {
@@ -259,7 +284,7 @@ if (counter <= 0) {
                                 </div>
 
                             </div>
-                            <button onClick={ count !== 5 ? nextQuestion : endQuiz} className='next-button'> Next Question </button>
+                            <button onClick={() => nextQuestionClicked()} className='next-button'> Next Question </button>
                         </div>
                     )
             }
