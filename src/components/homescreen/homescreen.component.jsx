@@ -22,14 +22,15 @@ const HomeScreen = () => {
                 <div className='text-container'>
                     <h1> 
                         {/* EARN CASH WITH YOUR SPORT KNOWLEDGE */}
-                        Earn cash with your sport knowledge
+                        EARN CASH WITH YOUR 
                         </h1>
+                        <h1> SPORT KNOWLEDGE </h1>
                 </div>
                 {/* <button className=''> Find out more </button> */}
                 <div className='cta-container'>
                     {
                         user ? <Link className='underline-remove' to='/quizselect'><CTAButton> Start Playing </CTAButton></Link> :
-                        <Link className='underline-remove' onClick={() => context.loginModalToggle()}><CTAButton> Start Playing </CTAButton></Link>
+                        <Link className='underline-remove' onClick={() => context.loginModalToggle()}><CTAButton> PLAY NOW </CTAButton></Link>
                     }
                     
                     

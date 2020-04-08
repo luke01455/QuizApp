@@ -55,7 +55,7 @@ const Header = ({ transparency }) => {
         <div>
         <div className={`header ${transparency} ${headerColour}`}>
             <Link className={`logo-container ${headerColour}`} to='/'>
-                <h1 className='header-logo'> Sport Bounty </h1>
+                <h1 className='header-logo'> SPORT BOUNTY </h1>
             </Link>
             <div className='options'>
                 <Link className={`option ${headerColour}`} to='/contact'> CONTACT </Link>
