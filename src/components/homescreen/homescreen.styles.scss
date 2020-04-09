@@ -1,10 +1,10 @@
 .homescreen-container {
      height: 100vh;
      width: 100vw;
-    //  background: url("../../assets/background.png") no-repeat center center;
-    //  -webkit-background-size: cover;
-    //  -moz-background-size: cover;
-    //  -o-background-size: cover;
+     background: url("../../assets/homepagebground.png") no-repeat center center;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
     background-color: green;
      color: white;
      display: flex;
@@ -13,7 +13,7 @@
 
      .cta-container {
          margin-left: 8%;
-        padding-top: 120px;
+        padding-top: 30px;
         
 
         .underline-remove {
@@ -26,12 +26,12 @@
          margin-left: 5%;
          text-align: left;
          padding: 50px;
-         padding-top: 280px;
+         padding-top: 200px;
 
          h1 {
-             font-size: 4.5em;
+             font-size: 5em;
              font-family: 'Roboto', sans-serif;
-             font-weight: 700;
+             font-weight: 1000;
          }
      }
      .page-down-btn {
