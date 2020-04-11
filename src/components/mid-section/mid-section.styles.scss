@@ -1,11 +1,15 @@
 .mid-section-container {
     width: 100vw;
-    height: 100vh;
+    height: 75vh;
     color: black;
     display: flex;
     flex-direction: column;
     align-content: center;
     color: black;
+    background: url("../../assets/instructionbackground.png") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 
     @media (max-width: 1200px) {
         height: 105%;

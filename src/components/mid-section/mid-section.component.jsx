@@ -15,9 +15,9 @@ const MidSection = () => {
                     <h3> To enter, pick a quiz with a prize you'd like to win </h3>
                     <QuizCard size='example' />
                 </div> */}
-                <InstructionCard/>
-                <InstructionCard/>
-                <InstructionCard/>
+                <InstructionCard icon='trophy'/>
+                <InstructionCard icon='check'/>
+                <InstructionCard icon='dice'/>
             </div>
         </div>
     )
