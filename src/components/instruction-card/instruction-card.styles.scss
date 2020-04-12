@@ -5,4 +5,26 @@
     margin: 20px;
     border-radius: 20px;
     color: black;
+    -webkit-box-shadow: 0px 0px 42px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 42px -9px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 42px -9px rgba(0,0,0,0.75);
+
+.instruction-icon-container {
+    width: 85%;
+    height: 50%;
+    margin: 0 auto;
+    padding-top: 50px;
+
+
+    .instruction-icon {
+        max-height: 100%;
+        max-width: 100%;
+    }
+}
+
+.instruction-text-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
 }
