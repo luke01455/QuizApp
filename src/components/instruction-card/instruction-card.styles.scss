@@ -13,7 +13,7 @@
     width: 85%;
     height: 50%;
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 65px;
 
 
     .instruction-icon {
@@ -25,6 +25,20 @@
 .instruction-text-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 60px;
+    width: 95%;
+    margin-left: 20px;
+
+
+    h1 {
+        font-size: 4em;
+        color: #5F5F5F;
+    }
+
+    h3 {
+        font-size: 1.6em;
+        color: #7E7E7E;
+        margin: 10px 20px 15px 15px;
+    }
 }
 }
