@@ -1,6 +1,6 @@
 .mid-section-container {
     width: 100vw;
-    height: 75vh;
+    height: 70vh;
     color: black;
     display: flex;
     flex-direction: column;
@@ -20,14 +20,14 @@
         color: #575757;
         margin-top: 75px;
         font-weight: bolder;
-        font-size: 2.5em;
+        font-size: 3.5em;
     }
 
     .instruction-container {
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
-        margin-top: 75px;
+        margin-top: 25px;
         color: white;
 
         @media (max-width: 1200px) {

@@ -45,7 +45,7 @@ const Header = ({ transparency }) => {
     const closeSignUpOpenLogin = () => {
         context.loginModalToggle()
 
-        if (context.loginModal) {
+        if (context.registerModal) {
             context.registerModalToggle()
         }
 
