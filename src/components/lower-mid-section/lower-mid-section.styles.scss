@@ -1,0 +1,9 @@
+.lower-mid-container {
+    height: 700px;
+    .quiz-card-container {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
