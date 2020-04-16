@@ -1,8 +1,27 @@
 .lower-mid-container {
-    height: 700px;
+    height: auto;
+    background-color: #F7F7F7;
+    padding-bottom: 55px;
+
+    h2 {
+        padding-top: 35px;
+        font-family: 'Roboto', sans-serif;
+        color: #575757;
+        margin-top: 75px;
+        font-weight: bolder;
+        font-size: 3.5em;
+    }
+
     .quiz-card-container {
+        margin-top: 60px; 
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+    }
+
+    .lower-mid-cta {
+        padding-top: 45px;
+        width: 165px;
+        margin: 0 auto;
     }
 }
