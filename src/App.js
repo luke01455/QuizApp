@@ -20,6 +20,7 @@ import Header from './components/header/header.component'
 import HomeScreen from './components/homescreen/homescreen.component'
 import MidSection from './components/mid-section/mid-section.component'
 import LowerMidSection from './components/lower-mid-section/lower-mid-section.component'
+import BottomLanding from './components/bottom-landing-section/bottom-landing-page.component'
 
 
 
@@ -38,6 +39,7 @@ const App = () => {
             <Route exact path="/" component={HomeScreen} />
             <Route exact path="/" component={MidSection} />
             <Route exact path="/" component={LowerMidSection} />
+            <Route exact path="/" component={BottomLanding} />
             <Route exact path="/" component={HomePage} />
             <Route exact path="/signin" component={Login} />
             <Route exact path="/signup" component={Register} />
