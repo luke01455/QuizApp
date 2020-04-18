@@ -9,9 +9,12 @@ const BottomLanding = () => {
         <div className='bottom-landing-container'>
             <div className='bottom-landing-text'>
                 <h1> TEST YOUR KNOWLEDGE </h1>
-                <h3> GET QUESTIONS RIGHT TO WIN THE PRIZE </h3>
+                <h3> GET YOUR QUESTIONS  <br/> RIGHT TO WIN THE PRIZE </h3>
             </div>
-            <CTAButton> Try It Now </CTAButton>
+            <div className='bottom-landing-cta'>
+                <CTAButton> Try It Now </CTAButton>
+            </div>
+            
         </div>
     )
 }

@@ -1,3 +1,34 @@
 .bottom-landing-container {
     height: 500px;
+    background: url("../../assets/lowlandingbground.png") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+
+    .bottom-landing-text {
+        padding: 120px 0px 0px 350px;
+        color: grey;
+        text-align: left;
+    }
+
+        
+    h1 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 3.5em;
+        font-weight: 1000;
+    }
+
+    h3 {
+        padding-top: 20px;
+        font-size: 2em;
+    }
+
+    .bottom-landing-cta {
+        padding-top: 45px;
+        width: 165px;
+        margin-left: 350px;
+    }
+
 }
+
+
