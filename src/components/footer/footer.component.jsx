@@ -13,8 +13,13 @@ const Footer = () => {
         <div className='footer-container'>
             <div className='top-footer-section'>
                 <Link to='/faqs' className='footer-link'> FAQ's </Link>
-                <Link to='/' className='footer-link'> NEWSLETTER </Link>
-                <Link to='/contact' className='footer-link'> INFO </Link>
+                <Link to='/' className='footer-link'> Newsletter </Link>
+                <Link to='/contact' className='footer-link'> Info </Link>
+            </div>
+            <div className='lower-footer-section'>
+                <div className='upper-footer-link-container'>
+                    <Link to='/' className='footer-link'> Copyright © 2020 </Link>
+                </div>
             </div>
             <div className='socials-footer'>
                 <Link className='footer-socials-link' to='/'> <img className='social-icon' src={twitterIcon} alt='twitter'/> </Link>
@@ -22,16 +27,7 @@ const Footer = () => {
                 <Link className='footer-socials-link' to='/'> <img className='social-icon' src={githubIcon} alt='gh'/> </Link>
                 <Link className='footer-socials-link' to='/'> <img className='social-icon' src={instaIcon} alt='insta'/> </Link>
             </div>
-            <div className='lower-footer-section'>
-                <div className='upper-footer-link-container'>
-                    <Link to='/' className='footer-link'> SITE INFO BLA </Link>
-                    <Link to='/' className='footer-link'> COPYRIGHT BLA BLA </Link>
-                </div>
-                <div className='lower-footer-link-container'> 
-                <Link to='/' className='footer-link'> TERMS AND CONDITIONS </Link> |  
-                <Link to='/' className='footer-link'> PRIVACY </Link> | 
-                <Link to='/' className='footer-link'> LEGAL NOTICE</Link> </div>
-            </div>
+
         </div>
     );
 };
