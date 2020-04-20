@@ -1,5 +1,4 @@
 .register-container {
-position: absolute;
 width: 80%;
 height: 80%;
 background-color: white;
@@ -8,7 +7,9 @@ right: 0;
 margin: auto;
 margin-top: 135px;
 border-radius: 15px;
-border: 1px solid black;
+border: 2px solid grey;
+bottom: 10%;
+position: fixed;
 
 .form-container { 
     width: 70%;
