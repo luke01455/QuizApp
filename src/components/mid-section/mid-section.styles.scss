@@ -15,6 +15,17 @@
         height: 105%;
     }
 
+    .circle-decoration {
+        position: absolute;
+        right: -25px;
+        bottom: -85px;
+        width: 160px;
+        height: 160px;
+        border: 16px solid #4CB31B;
+        border-radius: 100px;
+    }
+
+
     h2 {
         font-family: 'Roboto', sans-serif;
         color: #575757;

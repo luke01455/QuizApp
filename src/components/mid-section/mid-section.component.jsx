@@ -7,6 +7,7 @@ import InstructionCard from '../instruction-card/instruction-card.component'
 const MidSection = () => {
     return (
         <div className='mid-section-container'>
+            <div className='circle-decoration'></div>
             {/* <h2> All of those days sitting on the couch watching BT Sport can finally be put to use. </h2> */}
             <h2> Follow these steps: </h2>
             <div className='instruction-container'>
