@@ -66,7 +66,7 @@ const QuizPage = (props) => {
                 thisQuiz.isActive === 'filled' ? `the winner will be drawn in around 30 minutes` : `the winner is ${thisQuiz.winner}`} </div>
             }
             
-            <Table celled>
+            <Table color={'orange'} inverted celled>
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>Username</Table.HeaderCell>
@@ -86,7 +86,7 @@ const QuizPage = (props) => {
                             quizScores &&
                             quizScores.map(userScore => (
                                 (
-                                    <Table.Row key={userScore.id}>
+                                    <Table.Row active color={'white'} key={userScore.id}>
                                         <Table.Cell>{userScore.username}</Table.Cell>
                                         <Table.Cell color='green'>{userScore.score}</Table.Cell>
                                         <Table.Cell>{userScore.ticketsLow} - {userScore.ticketsHigh}</Table.Cell>
@@ -102,7 +102,7 @@ const QuizPage = (props) => {
 
             {
                 context.user ? (<button className='start-quiz-button' onClick={() => onStart()}> START QUIZ </button>) :
-                    (<Link className='start-quiz-button' to='/signin'> START QUIZ </Link>)
+                    (<Link className='start-quiz-button' to='/signin'> Start Quiz </Link>)
             }
 
             {
