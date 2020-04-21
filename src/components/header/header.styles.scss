@@ -69,20 +69,30 @@
   }
 
   .logo-container.black {
-    display: none;
+   // display: none;
   }
 
   .option.black {
-    display: none;
+   // display: none;
   }
 
   .header.black {
-    display: none;
+   // display: none;
   }
 
   .header.nontransparent {
     //position: static;
-    background: rgba(196, 63, 63, 0.8);
+    // background: rgba(196, 63, 63, 0.8);
+    background-color: white;
     margin-bottom: 20px;
 
+  }
+
+  .header-logo.nontransparent {
+    color: black;
+  }
+
+
+  .option.nontransparent {
+    color: black !important; 
   }

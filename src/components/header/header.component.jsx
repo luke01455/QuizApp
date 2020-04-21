@@ -55,20 +55,20 @@ const Header = ({ transparency }) => {
         <div>
         <div className={`header ${transparency} ${headerColour}`}>
             <Link className={`logo-container ${headerColour}`} to='/'>
-                <h1 className='header-logo'> SPORT BOUNTY </h1>
+                <h1 className={`header-logo ${transparency}`}> SPORT BOUNTY </h1>
             </Link>
-            <div className='options'>
-                <Link className={`option ${headerColour}`} to='/contact'> CONTACT </Link>
-                <Link className={`option ${headerColour}`} to='/faqs'> FAQ'S </Link>
+            <div className={`options ${transparency}`}>
+                <Link className={`option ${headerColour} ${transparency}`} to='/contact'> CONTACT </Link>
+                <Link className={`option ${headerColour} ${transparency}`} to='/faqs'> FAQ'S </Link>
                 {context.user ?
-                    <Link className={`option ${headerColour}`} to='/account'>{context.user.username.toUpperCase()}</Link>
+                    <Link className={`option ${headerColour} ${transparency}`} to='/account'>{context.user.username.toUpperCase()}</Link>
                     :
-                    <div className={`option ${headerColour}`} onClick={() => closeSignUpOpenLogin()}>SIGN IN</div>
+                    <div className={`option ${headerColour} ${transparency}`} onClick={() => closeSignUpOpenLogin()}>SIGN IN</div>
                 }
                 {context.user ?
-                    <div className={`option ${headerColour}`} to='/signin' onClick={context.logout}> SIGN OUT </div>
+                    <div className={`option ${transparency} ${headerColour}`} to='/signin' onClick={context.logout}> SIGN OUT </div>
                     :
-                    <div className={`option ${headerColour}`} onClick={() => closeLoginOpenSignUp()}>SIGN UP</div>
+                    <div className={`option ${headerColour} ${transparency}`} onClick={() => closeLoginOpenSignUp()}>SIGN UP</div>
                 }
             </div>
         </div>
