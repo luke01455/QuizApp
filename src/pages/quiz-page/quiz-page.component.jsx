@@ -57,13 +57,18 @@ const QuizPage = (props) => {
 
     return (
         <div className='quiz-page-wrapper'>
+            <div className='quiz-page-circle-1'></div>
+            <div className='quiz-page-circle-2'></div>
+            <div className='quiz-page-circle-3'></div>
+            <div className='quiz-page-circle-4'></div>
+            <div className='quiz-page-circle-5'></div>
         <Header transparency='nontransparent'/>
         <div className='quiz-page-container'>
             
-            <div className='quiz-description'> Get all the questions right to win the Prize</div>
+            <div className='quiz-description'> GET YOUR QUESTIONS RIGHT TO EARN FREE TICKETS </div>
             {
-                loading ? <div> loading... </div> : <div> {thisQuiz.isActive === 'filling' ? 'The winner will be drawn once the quiz is full' : 
-                thisQuiz.isActive === 'filled' ? `the winner will be drawn in around 30 minutes` : `the winner is ${thisQuiz.winner}`} </div>
+                loading ? <div> loading... </div> : <div className='quiz-status'> {thisQuiz.isActive === 'filling' ? 'THE WINNER WILL BE DRAWN AFTER THE QUIZ IS FULL' : 
+                thisQuiz.isActive === 'filled' ? `THE WINNER WILL BE DRAW IN ~30 MINUTES` : `THE WINNER IS ${thisQuiz.winner}!`} </div>
             }
             
             <Table color={'orange'} inverted celled>

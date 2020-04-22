@@ -1,8 +1,27 @@
 .quiz-page-wrapper {
+        z-index: 1;
         display: flex;
         justify-content: center;
         background-color: #F7F8F9;
+
+        .quiz-description {
+                z-index: 1;
+                font-family: 'Roboto', sans-serif;
+                font-size: 2em;
+                font-weight: 700;
+        }
+        
+        .quiz-status {
+                z-index: 1;
+                margin-top: 25px;
+                margin-bottom: 15px;
+                font-family: 'Roboto', sans-serif;
+                font-size: 1.3em;
+                font-weight: 700;
+        }
+
         .quiz-page-container {
+                z-index: 1;
                 display: flex;
                 width: 80%;
                 //align-content: center;
@@ -14,6 +33,7 @@
                 }
         
                 .start-quiz-button {
+                        z-index: 1;
                         text-align: center;
                         font-size: 15px;
                         font-family: 'Roboto', sans-serif;
@@ -25,6 +45,63 @@
                         border: none;
                         border-radius: 25px;
                 }
+        }
+
+        .quiz-page-circle-1 {
+                z-index: 0;
+                position: absolute;
+                bottom: 100px;
+                left: 150px;
+                width: 200px;
+                height: 200px;
+                border-radius: 100px;
+                background: rgb(88,181,26);
+                background: linear-gradient(90deg, rgba(88,181,26,1) 0%, rgba(66,161,23,1) 50%, rgba(44,141,20,1) 100%);
+
+        }
+        .quiz-page-circle-2 {
+                z-index: 0;
+                position: absolute;
+                top: 100px;
+                left: 55px;
+                width: 135px;
+                height: 135px;
+                border-radius: 100px;
+                border: 12px solid rgba(66,161,23,1);
+        }
+        .quiz-page-circle-3 {
+                z-index: 0;
+                position: absolute;
+                bottom: 0px;
+                right: 55px;
+                width: 150px;
+                height: 75px;
+                border-top-left-radius: 110px;
+                border-top-right-radius: 110px; 
+                border: 12px solid rgba(66,161,23,1);
+                border-bottom: 0;
+        }
+        .quiz-page-circle-4 {
+                z-index: 0;
+                position: absolute;
+                top: 45%;
+                right: -50px;
+                width: 175px;
+                height: 175px;
+                border-radius: 100px;
+                background: rgb(88,181,26);
+                background: linear-gradient(90deg, rgba(88,181,26,1) 0%, rgba(66,161,23,1) 50%, rgba(44,141,20,1) 100%);
+
+        }
+        .quiz-page-circle-5 {
+                z-index: 0;
+                position: absolute;
+                top: 100px;
+                right: 200px;
+                width: 100px;
+                height: 100px;
+                border-radius: 100px;
+                border: 10px solid #FF9A34;
         }
 }
 
