@@ -8,9 +8,9 @@ import facebookIcon from '../../assets/icons/bxl-facebook.svg'
 import githubIcon from '../../assets/icons/bxl-github.svg'
 import instaIcon from '../../assets/icons/bxl-instagram-alt.svg'
 
-const Footer = () => {
+const Footer = ({position}) => {
     return (
-        <div className='footer-container'>
+        <div className={`footer-container ${position}`}>
             <div className='top-footer-section'>
                 <Link to='/faqs' className='footer-link'> FAQ's </Link>
                 <Link to='/' className='footer-link'> Newsletter </Link>

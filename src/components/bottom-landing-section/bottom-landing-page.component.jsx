@@ -5,7 +5,7 @@ import './bottom-landing-page.styles.scss';
 import { AuthContext } from '../../context/auth'
 
 import CTAButton from '../cta-button/cta-button.component'
-
+import Footer from '../footer/footer.component'
 const BottomLanding = () => {
 
     const context = useContext(AuthContext)
@@ -26,7 +26,7 @@ const BottomLanding = () => {
                     <div className='bottom-landing-cta'> <CTAButton> try it now </CTAButton> </div>
                 </Link>
             }
-            
+            {/* <Footer /> */}
         </div>
     )
 }

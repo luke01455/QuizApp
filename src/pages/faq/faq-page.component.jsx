@@ -23,6 +23,7 @@ const FaqPage = () => {
     }
 
     return (
+        <div>
         <SlideDown>
         <div className='faq-page-container'>
             <Header transparency='nontransparent' />
@@ -30,6 +31,7 @@ const FaqPage = () => {
                 <h1> FREQUENTLY ASKED QUESTIONS </h1>
 
                 <p>If you have any questions regarding how the raffle works you can find most of your questions are already answered within our FAQ’s below.</p>
+                
                 <div onClick={() => modalOpen(1)} className='faq-option'> <FontAwesomeIcon icon={faPlus} /> <h3 className='faq-question'> How many times can I enter? </h3> </div>
                 <div className={`transition-paragraph ${openQuestion === 1 ? 'show' : 'hide'}`}> 
                     You can enter each individual competition up to as many times as you want unless otherwise stated on the product page of each raffle.
@@ -49,8 +51,9 @@ const FaqPage = () => {
             </div>
             
         </div>
-        <Footer />
         </SlideDown>
+        <Footer position='absolute'/>
+        </div>
         
     )
 }

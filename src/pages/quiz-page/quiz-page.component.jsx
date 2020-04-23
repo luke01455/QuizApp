@@ -107,7 +107,7 @@ const QuizPage = (props) => {
 
             {
                 context.user ? (<button className='start-quiz-button' onClick={() => onStart()}> START QUIZ </button>) :
-                    (<Link className='start-quiz-button' to='/signin'> Start Quiz </Link>)
+                    (<button className='start-quiz-button' onClick={() => context.loginModalToggle()} > START QUIZ </button>)
             }
 
             {
