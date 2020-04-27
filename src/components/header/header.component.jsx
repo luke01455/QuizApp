@@ -7,34 +7,23 @@ import Login from '../../pages/login/login'
 
 import './header.styles.scss';
 
-const Header = ({ transparency }) => {
+const Header = ({ transparency, scrollLocation }) => {
     const context = useContext(AuthContext)
 
     const [headerColour, setHeaderColour] = useState('white')
 
     const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-    const [scrollTop, setScrollTop] = useState(0);
-
-    const onScroll = (e) => {
-        setScrollTop(e.target.documentElement.scrollTop);
-    }
-
-
     useEffect(() => {
-        window.addEventListener('scroll', onScroll);
-    }, []);
-
-    useEffect(() => {
-        if (scrollTop > vh - 50) {
+        if (scrollLocation > vh - 50) {
             setHeaderColour('black')
         } else {
             setHeaderColour('white')
         }
-    }, [scrollTop])
+    }, [scrollLocation])
 
     const [lastYPos, setLastYPos] = React.useState(0);
-    const [shouldShowActions, setShouldShowActions] = React.useState(false);
+    const [shouldShowActions, setShouldShowActions] = React.useState(true);
   
     React.useEffect(() => {
       function handleScroll() {
@@ -75,7 +64,7 @@ const Header = ({ transparency }) => {
         <div>
         <motion.div 
         className={`header ${transparency} ${headerColour}`}
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 1 }}
         animate={{ opacity: shouldShowActions ? 1 : 0 }}
         transition={{ opacity: { duration: 1} }}
         >

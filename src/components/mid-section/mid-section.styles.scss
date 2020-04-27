@@ -25,16 +25,21 @@
         border-radius: 100px;
     }
 
-
-    h2 {
-        font-family: 'Roboto', sans-serif;
-        color: #575757;
-        margin-top: 75px;
-        font-weight: bolder;
-        font-size: 3.5em;
+    .masking-border {
+        overflow: hidden;
+        h2 {
+            z-index: 1;
+            font-family: 'Roboto', sans-serif;
+            color: #575757;
+            margin-top: 75px;
+            font-weight: bolder;
+            font-size: 3.5em;
+        }
     }
 
+
     .instruction-container {
+        z-index: 2;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;

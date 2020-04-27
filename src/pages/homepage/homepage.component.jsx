@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './homepage.styles.scss'
-import { BrowserView } from 'react-device-detect'
+
+import Header from '../../components/header/header.component'
+import HomeScreen from '../../components/homescreen/homescreen.component'
+import MidSection from '../../components/mid-section/mid-section.component'
+import LowerMidSection from '../../components/lower-mid-section/lower-mid-section.component'
+import BottomLanding from '../../components/bottom-landing-section/bottom-landing-page.component'
 import Footer from '../../components/footer/footer.component'
 
 
@@ -20,32 +25,24 @@ const HomePage = () => {
     //     }
     // }, [data]);
 
+    const [scrollTop, setScrollTop] = useState(0);
+
+    const onScroll = (e) => {
+        setScrollTop(e.target.documentElement.scrollTop);
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', onScroll);
+    }, []);
+
+
     return (
         <div className='homepage-container'>
-            <BrowserView>
-            {/* <ControllCarousel /> */}
-            </BrowserView>
-            {/* <div className='prize-option-container'>
-                {loading ? 
-                (<Spinner />) :
-                 (
-                    quizzes &&
-                    quizzes.map(quiz => {
-                        return quiz.isActive === 'filling' &&
-                        ( 
-                        <PrizeOption 
-                        size='large' 
-                        key={quiz.id} 
-                        userCount={quiz.userCount} 
-                        maxUsers={quiz.maxUsers} id={quiz.id} 
-                        imageUrl={quiz.quizType === 'Music' ? midthird : topthird} 
-                        title={quiz.quizType === 'Music' ? 'Music' : 'Sport'}/>
-                        ) 
-                    })
-            )}
-    
-            </div> */}
-
+            <Header scrollLocation={scrollTop} />
+            <HomeScreen />
+            <MidSection scrollLocation={scrollTop} />
+            <LowerMidSection />
+            <BottomLanding />
             <Footer />
         </div>
     )
