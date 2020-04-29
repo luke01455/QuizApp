@@ -22,9 +22,9 @@ const BottomLanding = () => {
                     <div className='bottom-landing-cta'> <CTAButton> try it now </CTAButton> </div>
                 </Link>
                  :
-                <Link className='underline-remove' onClick={() => context.loginModalToggle()}>
+                <div className='underline-remove' onClick={() => context.loginModalToggle()}>
                     <div className='bottom-landing-cta'> <CTAButton> try it now </CTAButton> </div>
-                </Link>
+                </div>
             }
             {/* <Footer /> */}
         </div>

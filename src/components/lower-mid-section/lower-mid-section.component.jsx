@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { motion } from 'framer-motion'
 import { useQuery } from '@apollo/react-hooks'
 import { Link } from 'react-router-dom'
 import './lower-mid-section.styles.scss'
@@ -11,10 +12,21 @@ import QuizCard from '../quiz-card/quiz-card.component'
 import Spinner from '../spinner/spinner.component'
 import CTAButton from '../cta-button/cta-button.component'
 
-const LowerMidSection = () => {
+const LowerMidSection = ({ scrollLocation }) => {
     const context = useContext(AuthContext)
     const [quizzes, setQuizzes] = useState([]);
     const { loading, data } = useQuery(FETCH_QUIZZES_QUERY)
+
+    const [animationIsVisible, setAnimationVisible] = useState(false)
+
+    useEffect(() => {
+        if (scrollLocation >= 650 && scrollLocation <= 1700) {
+            setAnimationVisible(1)
+        } else {
+            setAnimationVisible(75 * 1.4)
+        }
+    }, [scrollLocation])
+
 
     useEffect(() => {
         if (data) {
@@ -24,7 +36,15 @@ const LowerMidSection = () => {
 
     return (
         <div className='lower-mid-container'>
-            <h2> Select a Quiz </h2>
+            <div className='masking-border'>
+            <motion.h2
+                initial={{ y: 75 * 1.4 }}
+                animate={{ y: animationIsVisible }}
+                exit={{ y: 75 * 1.4 }}
+                transition={{ y: { duration: 0.7 } }}
+            >
+                Select a Quiz </motion.h2>
+            </div>
             <div className='quiz-card-container'>
                 {loading ?
                     (<Spinner />) :
@@ -48,14 +68,14 @@ const LowerMidSection = () => {
                     )}
             </div>
             {
-                context.user ? 
-                <Link className='underline-remove' to='/quizselect'>
-                    <div className='lower-mid-cta'> <CTAButton> start now </CTAButton> </div>
-                </Link>
-                 :
-                <Link className='underline-remove' onClick={() => context.loginModalToggle()}>
-                    <div className='lower-mid-cta'> <CTAButton> start now </CTAButton> </div>
-                </Link>
+                context.user ?
+                    <Link className='underline-remove' to='/quizselect'>
+                        <div className='lower-mid-cta'> <CTAButton> start now </CTAButton> </div>
+                    </Link>
+                    :
+                    <div className='underline-remove' onClick={() => context.loginModalToggle()}>
+                        <div className='lower-mid-cta'> <CTAButton> start now </CTAButton> </div>
+                    </div>
             }
 
         </div>

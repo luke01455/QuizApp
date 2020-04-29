@@ -6,6 +6,7 @@ import InstructionCard from '../instruction-card/instruction-card.component'
 
 
 const MidSection = ( { scrollLocation }) => {
+    
     const [ animationIsVisible, setAnimationVisible ] = useState(false)
 
     useEffect(() => {
@@ -37,9 +38,9 @@ const MidSection = ( { scrollLocation }) => {
                     <h3> To enter, pick a quiz with a prize you'd like to win </h3>
                     <QuizCard size='example' />
                 </div> */}
-                <InstructionCard icon='trophy' number='1' instruction='To Enter, Pick A Prize Youd Like To Win'/>
-                <InstructionCard icon='check' number='2' instruction='Answer 5 Simple Questions'/>
-                <InstructionCard icon='dice' number='3' instruction='More Correct Answers More Chances To Win'/>
+                <InstructionCard beginAnimation={90} scrollLocation={scrollLocation} animationTime={0.5} icon='trophy' number='1' instruction='To Enter, Pick A Prize Youd Like To Win'/>
+                <InstructionCard beginAnimation={170} scrollLocation={scrollLocation} animationTime={0.6} icon='check' number='2' instruction='Answer 5 Simple Questions'/>
+                <InstructionCard beginAnimation={210} scrollLocation={scrollLocation} animationTime={0.7} icon='dice' number='3' instruction='More Correct Answers More Chances To Win'/>
             </div>
         </div>
     )

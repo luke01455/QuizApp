@@ -30,7 +30,7 @@ const HomeScreen = () => {
                 <div className='cta-container'>
                     {
                         user ? <Link className='underline-remove' to='/quizselect'><CTAButton> Start Playing </CTAButton></Link> :
-                        <Link className='underline-remove' onClick={() => context.loginModalToggle()}><CTAButton> PLAY NOW </CTAButton></Link>
+                        <div className='underline-remove' onClick={() => context.loginModalToggle()}><CTAButton> PLAY NOW </CTAButton></div>
                     }
                     
                     

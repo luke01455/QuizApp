@@ -41,7 +41,7 @@ const HomePage = () => {
             <Header scrollLocation={scrollTop} />
             <HomeScreen />
             <MidSection scrollLocation={scrollTop} />
-            <LowerMidSection />
+            <LowerMidSection scrollLocation={scrollTop}/>
             <BottomLanding />
             <Footer />
         </div>
