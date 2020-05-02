@@ -21,17 +21,9 @@
     .quiz-card-container {
         margin-top: 60px; 
         display: flex;
-        flex-direction: row;
         justify-content: space-around;
         margin: 0 auto;
-
-        @media (max-width: 1200px) {
-            flex-direction: column;
-            width: 90%;
-            align-items: center;
-            margin-bottom: 60px;
-        }
-        
+        flex-flow: row wrap;
     }
 
     .lower-mid-cta {
@@ -42,5 +34,11 @@
 
     .underline-remove {
         text-decoration: none;
+    }
+}
+
+.line-breaker {
+    @media (max-width: 1200px) {
+        width: 50%;
     }
 }
