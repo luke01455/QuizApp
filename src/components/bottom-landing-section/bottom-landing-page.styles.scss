@@ -9,6 +9,15 @@
         padding: 120px 0px 0px 350px;
         color: grey;
         text-align: left;
+
+        @media (max-width: 1400px) {
+            padding: 120px 0px 0px 200px;
+        }
+
+        @media (max-width: 1000px) {
+            padding: 120px 0px 0px 40px;
+        }
+
     }
 
         
@@ -27,6 +36,15 @@
         padding-top: 45px;
         width: 165px;
         margin-left: 350px;
+
+
+        @media (max-width: 1400px) {
+            margin-left: 200px;
+        }
+
+        @media (max-width: 1000px) {
+            margin-left: 40px;
+        }
     }
 
     .underline-remove {
