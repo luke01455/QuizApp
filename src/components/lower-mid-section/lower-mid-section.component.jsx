@@ -4,7 +4,6 @@ import { useQuery } from '@apollo/react-hooks'
 import { Link } from 'react-router-dom'
 import './lower-mid-section.styles.scss'
 
-
 import { FETCH_QUIZZES_QUERY } from '../../util/graphql'
 import { AuthContext } from '../../context/auth'
 

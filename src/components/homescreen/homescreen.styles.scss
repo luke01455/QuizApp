@@ -28,6 +28,11 @@
          padding: 50px;
          padding-top: 200px;
 
+         @media (max-width: 1000px) {
+            padding-left: 15px;
+        }
+        
+
          h1 {
              font-size: 5em;
              font-family: 'Roboto', sans-serif;

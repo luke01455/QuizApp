@@ -1,17 +1,4 @@
 
-
-
-
-  
-
-  
-
-
-
-  
-
-  
-  
   /*---------------------------------------------*/
   input {
       outline: none;
@@ -68,7 +55,9 @@
   
   /*//////////////////////////////////////////////////////////////////
   [ Contact 2 ]*/
+  
   .bg-contact2 {
+	z-index: -1;
     width: 100%;  
     background-repeat: no-repeat;
     background-position: center center;

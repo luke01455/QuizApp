@@ -18,8 +18,6 @@ const ContactPage = () => {
 					<span className="contact2-form-title">
 						Contact Us
 					</span>
-
-                    
 					<div className="wrap-input2 validate-input" data-validate="Name is required">
 						<input className="input2" type="text" name="name"></input>
 						<span className="focus-input2" data-placeholder="NAME"></span>
