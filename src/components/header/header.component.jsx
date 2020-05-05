@@ -15,6 +15,7 @@ const Header = ({ transparency, scrollLocation, history }) => {
 
     const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
+
     // useEffect(() => history.listen(() => {
     //     let mounted = true;
 
@@ -34,35 +35,41 @@ const Header = ({ transparency, scrollLocation, history }) => {
 
     
     useEffect(() => {
-                  setShouldShowActions(true)
+        if (document.URL.indexOf("Sport") > -1) { setShowHeaderConstantly(true) }
     }, [history.location.key])
   
 
     useEffect(() => {
+        // if(window.location.pathname.length == 1 || window.location.pathname.length == 0 || window.location.pathname === "/index.html" || window.location.pathname === "/index"){
+
+        // }
+
         if (scrollLocation > vh - 50) {
             setHeaderColour('black')
         } else {
             setHeaderColour('white')
         }
+
     }, [scrollLocation])
 
     const [lastYPos, setLastYPos] = React.useState(0);
     const [shouldShowActions, setShouldShowActions] = React.useState(true);
+    const [showingHeaderConstantly, setShowHeaderConstantly] = React.useState(false);
   
     React.useEffect(() => {
-      function handleScroll() {
-        const yPos = window.scrollY;
-        const isScrollingUp = yPos < lastYPos;
-  
-        setShouldShowActions(isScrollingUp);
-        setLastYPos(yPos);
-      }
-  
-      window.addEventListener("scroll", handleScroll, false);
-  
-      return () => {
-        window.removeEventListener("scroll", handleScroll, false);
-      };
+        function handleScroll() {
+            const yPos = window.scrollY;
+            const isScrollingUp = yPos < lastYPos;
+      
+            setShouldShowActions(isScrollingUp);
+            setLastYPos(yPos)
+          }
+      
+          window.addEventListener("scroll", handleScroll, false);
+      
+          return () => {
+            window.removeEventListener("scroll", handleScroll, false);
+          };
     }, [lastYPos]);
     
 
@@ -84,12 +91,13 @@ const Header = ({ transparency, scrollLocation, history }) => {
         
     }
 
+    
     return (
         <div>
         <motion.div 
         className={`header ${transparency} ${headerColour}`}
         initial={{ opacity: 1 }}
-        animate={{ opacity: shouldShowActions ? 1 : 0 }}
+        animate={{ opacity: showingHeaderConstantly ? 1 : shouldShowActions ? 1 : 0 }}
         transition={{ opacity: { duration: 1} }}
         >
             <Link className={`logo-container ${headerColour}`} to='/'>
