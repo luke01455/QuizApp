@@ -2,17 +2,41 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'
 import { AuthContext } from '../../context/auth'
+import { withRouter } from 'react-router-dom'
 import Register from '../../pages/register/register'
 import Login from '../../pages/login/login'
 
 import './header.styles.scss';
 
-const Header = ({ transparency, scrollLocation }) => {
+const Header = ({ transparency, scrollLocation, history }) => {
     const context = useContext(AuthContext)
 
     const [headerColour, setHeaderColour] = useState('white')
 
     const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+    // useEffect(() => history.listen(() => {
+    //     let mounted = true;
+
+    //     if(mounted) {
+    //         setShouldShowActions(false)
+    //         setLastYPos(0)
+    //         scrollLocation = 0
+    //         console.log(shouldShowActions)
+    //         console.log(lastYPos)
+    //     } else {
+    //         console.log('not mounted')
+    //     }
+
+    //     return () => mounted = false;
+
+    // }), [])
+
+    
+    useEffect(() => {
+                  setShouldShowActions(true)
+    }, [history.location.key])
+  
 
     useEffect(() => {
         if (scrollLocation > vh - 50) {
@@ -93,4 +117,4 @@ const Header = ({ transparency, scrollLocation }) => {
 
 
 }
-export default Header;
+export default withRouter(Header);
