@@ -43,6 +43,7 @@
       text-align: center;
 
   
+
       .option {
         margin-top: 75px;
         color: white;
@@ -51,12 +52,24 @@
         width: 110px;
         cursor: pointer;
 
+        @media (max-width: 900px) {
+          display: none;
+        }
+
+        
+
         .black{
           color: black;
+
+          @media (max-width: 900px) {
+            display: none;
+          }
+    
         }
         
 
       }
+
 
       .option:hover {
         letter-spacing: 1px;
@@ -67,6 +80,8 @@
         width: 150px;
       }
     }
+
+
   }
 
   .logo-container.black {
@@ -96,4 +111,19 @@
 
   .option.nontransparent {
     color: black !important; 
+  }
+
+
+  .burger-icon-container {
+    width: 75px;
+    height: 75px;
+
+    @media (min-width: 900px) {
+      display: none;
+    }
+
+    .burger-icon-img {
+      max-height: 100%;
+      max-width: 100%;
+    }
   }

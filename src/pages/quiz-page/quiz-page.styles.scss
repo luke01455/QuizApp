@@ -45,6 +45,14 @@
                         border: none;
                         border-radius: 25px;
                 }
+
+                
+                .start-quiz-button:hover {
+                        font-weight: bold;
+                        color: black;    
+                        border: 1px solid black;
+                        background-color: white;
+                }
         }
 
         .quiz-page-circle-1 {

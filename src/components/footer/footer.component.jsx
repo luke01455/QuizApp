@@ -8,6 +8,7 @@ import facebookIcon from '../../assets/icons/bxl-facebook.svg'
 import githubIcon from '../../assets/icons/bxl-github.svg'
 import instaIcon from '../../assets/icons/bxl-instagram-alt.svg'
 
+
 const Footer = ({position}) => {
     return (
         <div className={`footer-container ${position}`}>

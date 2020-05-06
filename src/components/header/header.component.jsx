@@ -6,6 +6,9 @@ import { withRouter } from 'react-router-dom'
 import Register from '../../pages/register/register'
 import Login from '../../pages/login/login'
 
+import burgerIcon from '../../assets/icons/PinClipart.com_hamburger-clip-art-black_1751649.png'
+
+
 import './header.styles.scss';
 
 const Header = ({ transparency, scrollLocation, history }) => {
@@ -35,6 +38,8 @@ const Header = ({ transparency, scrollLocation, history }) => {
 
     
     useEffect(() => {
+
+        // checks to see if url contains sport, if it does sets show header constantly to true, which in turn sets the animation to never go to 0, pretty hacky and shit
         if (document.URL.indexOf("Sport") > -1) { setShowHeaderConstantly(true) }
     }, [history.location.key])
   
@@ -117,6 +122,7 @@ const Header = ({ transparency, scrollLocation, history }) => {
                     <div className={`option ${headerColour} ${transparency}`} onClick={() => closeLoginOpenSignUp()}>SIGN UP</div>
                 }
             </div>
+            <div className='burger-icon-container'> <img className='burger-icon-img' src={burgerIcon}></img></div>
         </motion.div>
         {context.registerModal && <Register /> }
         {context.loginModal && <Login /> }
