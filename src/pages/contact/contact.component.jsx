@@ -34,12 +34,12 @@ const ContactPage = () => {
 					</div>
 
 					<div className="container-contact2-form-btn">
-						<div className="wrap-contact2-form-btn">
 							<div className="contact2-form-bgbtn"></div>
-							<button className="contact2-form-btn">
-								Send Your Message
+							<div className='testbground'>
+			<button className="button15">
+								<a>Send Your Message</a>
 							</button>
-						</div>
+							</div>
 					</div>
 				</form>
                     </div>
@@ -47,6 +47,7 @@ const ContactPage = () => {
             </div>
 
             <Footer />
+
         </div>
     )
 
