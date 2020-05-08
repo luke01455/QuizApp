@@ -24,6 +24,11 @@ const FaqPage = () => {
 
     return (
         <div>
+            <div className='faq-page-circle-1'></div>
+            <div className='faq-page-circle-2'></div>
+            <div className='faq-page-circle-3'></div>
+            <div className='faq-page-circle-4'></div>
+            <div className='faq-page-circle-5'></div>
         <SlideDown>
         <div className='faq-page-container'>
             <Header transparency='nontransparent' />
