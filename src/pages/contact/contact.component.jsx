@@ -9,6 +9,11 @@ const ContactPage = () => {
 
     return (
         <div>
+			<div className='contact-page-circle-1'></div>
+            <div className='contact-page-circle-2'></div>
+            <div className='contact-page-circle-3'></div>
+            <div className='contact-page-circle-4'></div>
+            <div className='contact-page-circle-5'></div>
             <Header transparency='nontransparent' />
 
             <div className="bg-contact2">
