@@ -1,4 +1,4 @@
-$color: #0cf;
+$color: #80ff80;
 
 .faq-page-container {
     z-index: 1;
@@ -121,11 +121,12 @@ $color: #0cf;
 .faq-option {
 	display: inline-block;
 	padding: .75rem 1.25rem;
-	color: #fff;
-	text-transform: uppercase;
+	color: black;
+	// text-transform: uppercase;
 	font-size: 1rem;
 	letter-spacing: .15rem;
-	transition: all .3s;
+    //transition: all .3s;
+    transition: all .5s;
 	position: relative;
 	overflow: hidden;
 	z-index: 1;
@@ -146,7 +147,8 @@ $color: #0cf;
 		left: 0;
 		width: 0%;
 		height: 100%;
-		background-color: darken($color, 15%);
+        // background-color: darken($color, 15%);
+        background-color: darken($color, 45%);
 		transition: all .3s;
 		z-index: -1;
 	}

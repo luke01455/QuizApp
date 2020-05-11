@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './faq-page.styles.scss';
 
-import {SlideDown} from 'react-slidedown'
-import 'react-slidedown/lib/slidedown.css'
+import { motion } from 'framer-motion'
+
+// import {SlideDown} from 'react-slidedown'
+// import 'react-slidedown/lib/slidedown.css'
 
 import Footer from '../../components/footer/footer.component'
 
@@ -22,6 +24,13 @@ const FaqPage = () => {
         }
     }
 
+    const spring = {
+        type: "spring",
+        damping: 20,
+        stiffness: 300,
+        mass: 2,
+      }
+      
     return (
         <div>
             <div className='faq-page-circle-1'></div>
@@ -29,10 +38,11 @@ const FaqPage = () => {
             <div className='faq-page-circle-3'></div>
             <div className='faq-page-circle-4'></div>
             <div className='faq-page-circle-5'></div>
-        <SlideDown>
+        {/* <SlideDown> */}
         <div className='faq-page-container'>
             <Header transparency='nontransparent' />
-            <div className='faq-page-wrapper'>
+            <div
+            className='faq-page-wrapper'>
                 <h1> FREQUENTLY ASKED QUESTIONS </h1>
 
                 <p>If you have any questions regarding how the raffle works you can find most of your questions are already answered within our FAQ’s below.</p>
@@ -45,18 +55,23 @@ const FaqPage = () => {
 
                     This process allows you to watch the live draw with your corresponding raffle number(s) in hand. 
                 </div>
-                <div onClick={() => modalOpen(2)} className={`faq-option`}> <FontAwesomeIcon icon={faPlus} /> <h3> How will a winner be selected? </h3> </div>
+                <motion.div
+                positionTransition={spring}
+                  onClick={() => modalOpen(2)} className={`faq-option`}> <FontAwesomeIcon icon={faPlus} /> <h3> How will a winner be selected? </h3> 
+                </motion.div>
                 <div className={`transition-paragraph ${openQuestion === 2 ? 'show' : 'hide'}`}> SportBounty's random number generator will be used to choose a winner, the name linking to the winning number chosen, will be the winner, this is all done automatically using algorithms with no human interferance or bias involved. </div>
-                <div onClick={() => modalOpen(3)} className={`faq-option`}> <FontAwesomeIcon icon={faPlus} /> <h3> When does the competition close? </h3> </div>
+                <motion.div
+                positionTransition={spring} onClick={() => modalOpen(3)} className={`faq-option`}> <FontAwesomeIcon icon={faPlus} /> <h3> When does the competition close? </h3> </motion.div>
                 <div className={`transition-paragraph ${openQuestion === 3 ? 'show' : 'hide'}`}> Each prize raffle will be drawn around 30 minutes after the last person has entered. Information relating to the draw date of each raffle is visible on each quizzes page. </div>
-                <SlideDown>
-                <div onClick={() => modalOpen(4)} className={`faq-option`}> <FontAwesomeIcon icon={faPlus} /> <h3> If I win how do i collect my prize? </h3> </div>
-                </SlideDown>
+                {/* <SlideDown> */}
+                <motion.div
+                positionTransition={spring} onClick={() => modalOpen(4)} className={`faq-option`}> <FontAwesomeIcon icon={faPlus} /> <h3> If I win how do i collect my prize? </h3> </motion.div>
+                {/* </SlideDown> */}
                 <div className={`transition-paragraph ${openQuestion === 4 ? 'show' : 'hide'}`}>  All prizes will be sent via post once the competition has closed. Expect your prize within 7 working days! </div>
             </div>
             
         </div>
-        </SlideDown>
+        {/* </SlideDown> */}
         <Footer position='absolute'/>
         </div>
         
