@@ -14,18 +14,17 @@ $color: #80ff80;
 
 
     .faq-option {
+        z-index: 0;
         border: 1px solid black;
         display: flex;
         align-items: center;
-        width: 70%;
+        width: 100%;
         padding: 10px;
         padding-left: 40px;
         cursor: pointer;
-        
     }
 
     .faq-option:hover {
-        background-color: grey;
         border-bottom: none;
     }
     
@@ -39,10 +38,12 @@ $color: #80ff80;
         font-size: 1.2em;
     }
 
-    // .transition-paragraph {
-    //     margin-bottom: 30px;
-    //     border: 1px solid black;
-    // }
+    .transition-paragraph {
+        padding: 10px;
+        padding-left: 40px;
+        width: 100%;
+        border: 1px solid black;
+    }
     .transition-paragraph.hide {
         display: none;
     }
@@ -118,9 +119,10 @@ $color: #80ff80;
     border: 10px solid #FF9A34;
 }
 
-.faq-option {
+.option-wrapper {
+    z-index: 3;
 	display: inline-block;
-	padding: .75rem 1.25rem;
+	//padding: .75rem 1.25rem;
 	color: black;
 	// text-transform: uppercase;
 	font-size: 1rem;
@@ -128,7 +130,8 @@ $color: #80ff80;
     //transition: all .3s;
     transition: all .5s;
 	position: relative;
-	overflow: hidden;
+    overflow: hidden;
+    width: 70%;
 	z-index: 1;
 	&:after {
 		content: '';
@@ -137,7 +140,7 @@ $color: #80ff80;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: $color;
+		background-color: $color !important;
 		z-index: -2;
 	}
 	&:before {
