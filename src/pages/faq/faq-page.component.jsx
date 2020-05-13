@@ -47,7 +47,7 @@ const FaqPage = () => {
 
                 <p>If you have any questions regarding how the raffle works you can find most of your questions are already answered within our FAQ’s below.</p>
                 <div className='option-wrapper'>
-                <div onClick={() => modalOpen(1)} className='faq-option'> <FontAwesomeIcon icon={faPlus} /> <h3 className='faq-question'> How many times can I enter? </h3> </div>
+                <div onClick={() => modalOpen(1)} className={`faq-option ${openQuestion === 1 ? 'show' : 'hide'}`}> <FontAwesomeIcon icon={faPlus} /> <h3 className='faq-question'> How many times can I enter? </h3> </div>
                 <div className={`transition-paragraph ${openQuestion === 1 ? 'show' : 'hide'}`}> 
                     You can enter each individual competition up to as many times as you want unless otherwise stated on the product page of each raffle.
 
@@ -59,19 +59,19 @@ const FaqPage = () => {
                 <div className='option-wrapper'>
                 <motion.div
                 positionTransition={spring}
-                  onClick={() => modalOpen(2)} className={`faq-option`}> <FontAwesomeIcon icon={faPlus} /> <h3> How will a winner be selected? </h3> 
+                  onClick={() => modalOpen(2)} className={`faq-option ${openQuestion === 2 ? 'show' : 'hide'}`}> <FontAwesomeIcon icon={faPlus} /> <h3> How will a winner be selected? </h3> 
                 </motion.div>
                 <div className={`transition-paragraph ${openQuestion === 2 ? 'show' : 'hide'}`}> SportBounty's random number generator will be used to choose a winner, the name linking to the winning number chosen, will be the winner, this is all done automatically using algorithms with no human interferance or bias involved. </div>
                 </div>
                 <div className='option-wrapper'>
                 <motion.div
-                positionTransition={spring} onClick={() => modalOpen(3)} className={`faq-option`}> <FontAwesomeIcon icon={faPlus} /> <h3> When does the competition close? </h3> </motion.div>
+                positionTransition={spring} onClick={() => modalOpen(3)} className={`faq-option ${openQuestion === 3 ? 'show' : 'hide'}`}> <FontAwesomeIcon icon={faPlus} /> <h3> When does the competition close? </h3> </motion.div>
                 <div className={`transition-paragraph ${openQuestion === 3 ? 'show' : 'hide'}`}> Each prize raffle will be drawn around 30 minutes after the last person has entered. Information relating to the draw date of each raffle is visible on each quizzes page. </div>
                 {/* <SlideDown> */}
                 </div>
                 <div className='option-wrapper'>
                 <motion.div
-                positionTransition={spring} onClick={() => modalOpen(4)} className={`faq-option`}> <FontAwesomeIcon icon={faPlus} /> <h3> If I win how do i collect my prize? </h3> </motion.div>
+                positionTransition={spring} onClick={() => modalOpen(4)} className={`faq-option ${openQuestion === 4 ? 'show' : 'hide'}`}> <FontAwesomeIcon icon={faPlus} /> <h3> If I win how do i collect my prize? </h3> </motion.div>
                 {/* </SlideDown> */}
                 <div className={`transition-paragraph ${openQuestion === 4 ? 'show' : 'hide'}`}>  All prizes will be sent via post once the competition has closed. Expect your prize within 7 working days! </div>
                 </div>
