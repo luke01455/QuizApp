@@ -43,7 +43,7 @@ const FaqPage = () => {
             <Header transparency='nontransparent' />
             <div
             className='faq-page-wrapper'>
-                <h1> FREQUENTLY ASKED QUESTIONS </h1>
+                <h1> FREQUENTLY ASKED <br /> QUESTIONS </h1>
 
                 <p>If you have any questions regarding how the raffle works you can find most of your questions are already answered within our FAQ’s below.</p>
                 <div className='option-wrapper'>

@@ -1,7 +1,8 @@
-import React, { useRef, useContext } from 'react';
+import React, { useContext } from 'react';
 import './homescreen.styles.scss';
 
 import { Link } from 'react-router-dom'
+import { Link as LinkScroll, animateScroll as scroll } from "react-scroll";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { AuthContext } from '../../context/auth'
@@ -10,11 +11,7 @@ import CTAButton from '../cta-button/cta-button.component'
 
 const HomeScreen = () => {
     const { user } = useContext(AuthContext)
-    const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
     const context = useContext(AuthContext)
-
-    const myRef = useRef(null)
-    const executeScroll = () => scrollToRef(myRef)
 
     return (
         <div>
@@ -35,10 +32,14 @@ const HomeScreen = () => {
                     
                     
                 </div>
-                
-                <button   className='page-down-btn' onClick={executeScroll}> <FontAwesomeIcon icon={faChevronDown} /> </button>
+                <LinkScroll activeClass="active" 
+                to="section1"                 
+                smooth={true}
+                duration={500}
+                className='page-down-btn'
+                > <FontAwesomeIcon icon={faChevronDown} /> 
+                </LinkScroll>
             </div>
-            <div ref={myRef}/>
         </div>
     )
 }

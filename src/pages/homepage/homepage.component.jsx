@@ -40,7 +40,7 @@ const HomePage = () => {
         <div className='homepage-container'>
             <Header scrollLocation={scrollTop} />
             <HomeScreen />
-            <MidSection scrollLocation={scrollTop} />
+            <MidSection scrollLocation={scrollTop} id="section1" />
             <LowerMidSection scrollLocation={scrollTop}/>
             <BottomLanding />
             <Footer />

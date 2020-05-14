@@ -5,7 +5,7 @@ import './mid-section.styles.scss';
 import InstructionCard from '../instruction-card/instruction-card.component'
 
 
-const MidSection = ( { scrollLocation }) => {
+const MidSection = ( { scrollLocation, id }) => {
     
     const [ animationIsVisible, setAnimationVisible ] = useState(false)
 
@@ -19,7 +19,7 @@ const MidSection = ( { scrollLocation }) => {
 
 
     return (
-        <div className='mid-section-container'>
+        <div className='mid-section-container' id={id}>
             <div className='circle-decoration'></div>
             {/* <h2> All of those days sitting on the couch watching BT Sport can finally be put to use. </h2> */}
             <div className='masking-border'>
@@ -32,7 +32,7 @@ const MidSection = ( { scrollLocation }) => {
             Follow these steps: 
             </motion.h2>
             </div>
-            <div className='instruction-container'>
+            <div className='instruction-container' >
                 {/* <div className='instruction-section'>
                     <h1> 1 </h1>
                     <h3> To enter, pick a quiz with a prize you'd like to win </h3>
