@@ -3344,21 +3344,24 @@
 	width: 200px;
 	height: 50px;
 	color: rgba(255,255,255,1);
+	font-weight: bold;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
 	position: relative;
-	border: 1px solid rgba(255,255,255,0.5);
+	border-radius: 100px;
 	overflow: hidden;
+	background-color: #FF9A34;
 }
 .button15 a{
-	color: rgba(51,51,51,1);
 	text-decoration: none;
 	display: block;
+	border-radius: 100px;
 }
 .button15::before, .button15::after{
 	content: '';
+	color: black !important;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -3374,19 +3377,29 @@
 	transform: translate(0,-100%);
 	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	border-radius: 100px;
 }
 .button15::after{
+	color: black !important;
 	-webkit-transition-delay: 0.2s; /* Safari */
-    transition-delay: 0.2s;
+	transition-delay: 0.2s;
+	border-radius: 100px;
 }
 .button15:hover::before, .button15:hover::after{
+	color: black !important;
 	-webkit-transform: translate(0,0);
 	transform: translate(0,0);
+	border-radius: 100px;
+}
+.button15:hover {
+	border: 1px solid black;
+	color: black;
 }
 
-.testbground {
-	background-color: red;
-}
+/* .testbground {
+	border-radius: 100px;
+	
+} */
 
 .contact-page-circle-1 {
     z-index: 0;

@@ -42,7 +42,7 @@ const ContactPage = () => {
 							<div className="contact2-form-bgbtn"></div>
 							<div className='testbground'>
 			<button className="button15">
-								<a>Send Your Message</a>
+								<a>SEND YOUR MESSAGE</a>
 							</button>
 							</div>
 					</div>
