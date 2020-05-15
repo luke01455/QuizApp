@@ -25,11 +25,17 @@ const AccountPage = () => {
 
     return (
         <div className='account-page-container'>
+            <div className='account-page-circle-1'></div>
+            <div className='account-page-circle-2'></div>
+            <div className='account-page-circle-3'></div>
+            <div className='account-page-circle-4'></div>
+            <div className='account-page-circle-5'></div>
             <div className='account-page-wrapper'>
                 <Header transparency='nontransparent' />
                 <p className='username-display'> {user.username.toUpperCase()}</p>
                 <h1> My Quizzes </h1>
-                <Table celled className="ui inverted table">
+                {/* <Table celled className="ui inverted table"> */}
+                <Table color={'orange'} inverted celled>
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell>Quiz Id</Table.HeaderCell>
@@ -50,7 +56,7 @@ const AccountPage = () => {
                                 myScores &&
                                 myScores.map(userScore => (
                                     (
-                                        <Table.Row key={userScore.id}>
+                                        <Table.Row active color={'white'} key={userScore.id}>
                                             <Table.Cell className='selectable'><Link to={`quiz/${userScore.quizType}/${userScore.quiz}`}>{userScore.quiz}</Link></Table.Cell>
                                             <Table.Cell >{userScore.quizType}</Table.Cell>
                                             <Table.Cell>{userScore.price}</Table.Cell>
