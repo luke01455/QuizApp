@@ -19,11 +19,11 @@ const BottomLanding = () => {
             {
                 context.user ? 
                 <Link className='underline-remove' to='/quizselect'>
-                    <div className='bottom-landing-cta'> <CTAButton> try it now </CTAButton> </div>
+                    <div className='bottom-landing-cta'> <CTAButton> TRY IT NOW </CTAButton> </div>
                 </Link>
                  :
                 <div className='underline-remove' onClick={() => context.loginModalToggle()}>
-                    <div className='bottom-landing-cta'> <CTAButton> try it now </CTAButton> </div>
+                    <div className='bottom-landing-cta'> <CTAButton> TRY IT NOW </CTAButton> </div>
                 </div>
             }
             {/* <Footer /> */}

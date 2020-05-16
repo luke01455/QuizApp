@@ -71,11 +71,11 @@ const LowerMidSection = ({ scrollLocation }) => {
             {
                 context.user ?
                     <Link className='underline-remove' to='/quizselect'>
-                        <div className='lower-mid-cta'> <CTAButton> start now </CTAButton> </div>
+                        <div className='lower-mid-cta'> <CTAButton> START NOW </CTAButton> </div>
                     </Link>
                     :
                     <div className='underline-remove' onClick={() => context.loginModalToggle()}>
-                        <div className='lower-mid-cta'> <CTAButton> start now </CTAButton> </div>
+                        <div className='lower-mid-cta'> <CTAButton> START NOW </CTAButton> </div>
                     </div>
             }
 
