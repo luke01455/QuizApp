@@ -37,10 +37,10 @@ const LowerMidSection = ({ scrollLocation }) => {
         <div className='lower-mid-container'>
             <div className='masking-border'>
             <motion.h2
-                initial={{ y: 75 * 1.4 }}
-                animate={{ y: animationIsVisible }}
-                exit={{ y: 75 * 1.4 }}
-                transition={{ y: { duration: 0.7 } }}
+                // initial={{ y: 75 * 1.4 }}
+                // animate={{ y: animationIsVisible }}
+                // exit={{ y: 75 * 1.4 }}
+                // transition={{ y: { duration: 0.7 } }}
             >
                 Select a Quiz </motion.h2>
             </div>

@@ -24,10 +24,10 @@ const MidSection = ( { scrollLocation, id }) => {
             {/* <h2> All of those days sitting on the couch watching BT Sport can finally be put to use. </h2> */}
             <div className='masking-border'>
             <motion.h2   
-            initial={{ y: 75 * 1.2 }}
-            animate={{ y: animationIsVisible }}
-            exit={{ y: 75 * 1.2 }}
-            transition={{ y: { duration: 0.5} }}
+            // initial={{ y: 75 * 1.2 }}
+            // animate={{ y: animationIsVisible }}
+            // exit={{ y: 75 * 1.2 }}
+            // transition={{ y: { duration: 0.5} }}
             >
             Follow these steps: 
             </motion.h2>

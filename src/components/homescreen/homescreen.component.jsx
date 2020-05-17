@@ -26,7 +26,7 @@ const HomeScreen = () => {
                 {/* <button className=''> Find out more </button> */}
                 <div className='cta-container'>
                     {
-                        user ? <Link className='underline-remove' to='/quizselect'><CTAButton> Start Playing </CTAButton></Link> :
+                        user ? <Link className='underline-remove' to='/quizselect'><CTAButton> START PLAYING </CTAButton></Link> :
                         <div className='underline-remove' onClick={() => context.loginModalToggle()}><CTAButton> PLAY NOW </CTAButton></div>
                     }
                     

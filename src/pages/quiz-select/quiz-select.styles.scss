@@ -1,6 +1,6 @@
 .quiz-select-container{
     height: auto;
-    background-color: black;
+    background-color: #268E13;
 
     .quiz-select-title {
         height: 200px;
@@ -13,10 +13,11 @@
 
 
     .quiz-selection-carousel {
-        height: 700px;
+        height: 500px;
         padding-top: 100px;
         display: flex;
         align-content: center;
+        margin-bottom: 100px;
     }
 
 }
