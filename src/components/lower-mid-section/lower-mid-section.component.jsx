@@ -52,7 +52,7 @@ const LowerMidSection = ({ scrollLocation }) => {
                         quizzes.map(quiz => {
                             return quiz.isActive === 'filling' &&
                                 (
-                                    <div className='line-breaker'>
+                                    <div className='line-breaker' key={quiz.id}>
                                     <QuizCard
                                         size='large'
                                         key={quiz.id}

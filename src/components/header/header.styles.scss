@@ -23,6 +23,10 @@
       text-decoration: none;
       color: white;
 
+      @media (max-width: 583px) { 
+        padding-top: 13px;
+      }
+
       .header-logo {
         font-size: 1.5em;
         font-weight: 600;
@@ -115,9 +119,12 @@
 
 
   .burger-icon-container {
-    width: 75px;
-    height: 75px;
-
+    width: 55px;
+    height: 55px;
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    
     @media (min-width: 900px) {
       display: none;
     }
