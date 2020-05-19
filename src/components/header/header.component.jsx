@@ -11,7 +11,7 @@ import burgerIcon from '../../assets/icons/PinClipart.com_hamburger-clip-art-bla
 
 import './header.styles.scss';
 
-const Header = ({ transparency, scrollLocation, history }) => {
+const Header = ({ transparency, scrollLocation, history, color }) => {
     const context = useContext(AuthContext)
 
     const [headerColour, setHeaderColour] = useState('white')
@@ -100,26 +100,26 @@ const Header = ({ transparency, scrollLocation, history }) => {
     return (
         <div>
         <motion.div 
-        className={`header ${transparency} ${headerColour}`}
+        className={`header ${transparency} ${headerColour} ${color}`}
         initial={{ opacity: 1 }}
         animate={{ opacity: showingHeaderConstantly ? 1 : shouldShowActions ? 1 : 0 }}
         transition={{ opacity: { duration: 1} }}
         >
             <Link className={`logo-container ${headerColour}`} to='/'>
-                <h1 className={`header-logo ${transparency}`}> SPORT BOUNTY </h1>
+                <h1 className={`header-logo ${transparency} ${color}`}> SPORT BOUNTY </h1>
             </Link>
             <div className={`options ${transparency}`}>
-                <Link className={`option ${headerColour} ${transparency}`} to='/contact'> CONTACT </Link>
-                <Link className={`option ${headerColour} ${transparency}`} to='/faqs'> FAQ'S </Link>
+                <Link className={`option ${headerColour} ${transparency} ${color}`} to='/contact'> CONTACT </Link>
+                <Link className={`option ${headerColour} ${transparency} ${color}`} to='/faqs'> FAQ'S </Link>
                 {context.user ?
-                    <Link className={`option ${headerColour} ${transparency}`} to='/account'>{context.user.username.toUpperCase()}</Link>
+                    <Link className={`option ${headerColour} ${transparency} ${color}`} to='/account'>{context.user.username.toUpperCase()}</Link>
                     :
-                    <div className={`option ${headerColour} ${transparency}`} onClick={() => closeSignUpOpenLogin()}>SIGN IN</div>
+                    <div className={`option ${headerColour} ${transparency} ${color}`} onClick={() => closeSignUpOpenLogin()}>SIGN IN</div>
                 }
                 {context.user ?
-                    <div className={`option ${transparency} ${headerColour}`} to='/signin' onClick={context.logout}> SIGN OUT </div>
+                    <div className={`option ${transparency} ${headerColour} ${color}`} to='/signin' onClick={context.logout}> SIGN OUT </div>
                     :
-                    <div className={`option ${headerColour} ${transparency}`} onClick={() => closeLoginOpenSignUp()}>SIGN UP</div>
+                    <div className={`option ${headerColour} ${transparency} ${color}`} onClick={() => closeLoginOpenSignUp()}>SIGN UP</div>
                 }
             </div>
             <div className='burger-icon-container'> <img className='burger-icon-img' src={burgerIcon}></img></div>

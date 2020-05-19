@@ -1,13 +1,15 @@
 .quiz-select-container{
     height: auto;
-    background-color: #268E13;
+    background-color: #F7F7F7;
 
     .quiz-select-title {
         height: 200px;
         h1 {
-            font-family: 'Russo One', sans-serif;
+            font-family: 'Roboto', sans-serif;
             padding-top: 150px;
-            color: white;
+            color: black;
+            font-weight: bold;
+            font-size: 3.5em;
         }
     }
 

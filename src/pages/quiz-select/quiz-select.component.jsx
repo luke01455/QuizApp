@@ -25,7 +25,7 @@ const QuizSelect = () => {
 
     return (
         <div className='quiz-select-container'>
-            <Header transparency='nontransparent' />
+            <Header transparency='nontransparent' color='green' />
         <div className='quiz-select-title'> <h1> Select a Quiz </h1></div>
             <div className='quiz-selection-carousel'>
                 {loading ?
