@@ -124,15 +124,22 @@
     margin-top: 10px;
     margin-right: 10px;
     cursor: pointer;
-    
+
     @media (min-width: 900px) {
       display: none;
     }
 
     .burger-icon-img {
+      max-height: 95%;
+      max-width: 95%;
+      filter: invert(99%) sepia(1%) saturate(3207%) hue-rotate(50deg) brightness(100%) contrast(100%);
+    }
+
+    .burger-icon-img:hover {
       max-height: 100%;
       max-width: 100%;
     }
+
   }
 
   .header.green {
