@@ -5,7 +5,8 @@ const initialState = {
     user: null,
     modal: false,
     loginModal: false,
-    registerModal: false
+    registerModal: false,
+    menuModal: false
 }
 
 if(localStorage.getItem('jwtToken')){
@@ -40,6 +41,11 @@ const registerModalContext = createContext({
     registerModalToggle: () => {}
 })
 
+const menuModalContext = createContext({
+    menuModal: false,
+    menuModalToggle: () => {}
+})
+
 function authReducer(state, action){
     switch(action.type){
         case 'LOGIN':
@@ -66,6 +72,11 @@ function authReducer(state, action){
             return{
                 ...state,
                 registerModal: !state.registerModal
+            }
+        case 'MENU_MODAL_TOGGLE':
+            return{
+                ...state,
+                menuModal: !state.menuModal
             }
         default: 
             return state
@@ -104,17 +115,23 @@ function AuthProvider(props){
         console.log(state.registerModal)
     }
 
+    const menuModalToggle = () => {
+        dispatch({ type: 'MENU_MODAL_TOGGLE'})
+        console.log(state.menuModal)
+    }
+
     return (
         <AuthContext.Provider
             value={{ 
                 user: state.user, login, logout,
                 modal: state.modal, modalToggle,
                 loginModal: state.loginModal, loginModalToggle,
-                registerModal: state.registerModal, registerModalToggle
+                registerModal: state.registerModal, registerModalToggle,
+                menuModal: state.menuModal, menuModalToggle
             }}
             {...props}
             />
     )
 }
 
-export { AuthContext, AuthProvider, modalContext, loginModalContext, registerModalContext }
+export { AuthContext, AuthProvider, modalContext, loginModalContext, registerModalContext, menuModalContext }

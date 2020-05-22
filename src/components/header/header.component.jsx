@@ -122,7 +122,7 @@ const Header = ({ transparency, scrollLocation, history, color }) => {
                     <div className={`option ${headerColour} ${transparency} ${color}`} onClick={() => closeLoginOpenSignUp()}>SIGN UP</div>
                 }
             </div>
-            <div className='burger-icon-container'> <img className='burger-icon-img' src={burgerIcon}></img></div>
+            <div className='burger-icon-container' onClick={() => context.menuModalToggle()}> <img className='burger-icon-img' src={burgerIcon}></img></div>
         </motion.div>
         {context.registerModal && <Register /> }
         {context.loginModal && <Login /> }
