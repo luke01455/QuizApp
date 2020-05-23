@@ -16,6 +16,7 @@ import FaqPage from './pages/faq/faq-page.component'
 import ContactPage from './pages/contact/contact.component'
 import AccountPage from './pages/account/account-page.component'
 import Spinner from './components/spinner/spinner.component'
+import MenuModal from './components/menu-modal/menu-modal.component'
 
 
 
@@ -28,6 +29,7 @@ const App = () => {
         <Switch>
           <Suspense fallback={<Spinner />}>
             <Route exact path="/" component={HomePage} />
+            <Route exact path="/" component={MenuModal} />
             <Route path="/quiz" component={QuizPage} />
             <Route path="/quizselect" component={QuizSelect} />
             <Route exact path="/signin" component={Login} />

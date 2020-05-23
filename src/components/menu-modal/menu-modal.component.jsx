@@ -1,42 +1,39 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
-
-import MenuButton from '../menu-button/menu-button-component';
+import { AuthContext } from '../../context/auth'
 
 // import { useOnClickOutside } from '../../hooks/hooks';
 
 import './menu-modal.styles.scss';
 
-const MenuModal = () => {
+const MenuModal = ({}) => {
 
-//   const node = useRef();
+  const context = useContext(AuthContext)
+  const node = useRef();
 //   useOnClickOutside(node, () => turnSideMenuOff());
 
 //   const startModalToggleMenu = () => {
 //     toggleModalAccount();
 //     toggleSideMenuHidden();
 //   }
+  const hidden = context.menuModal
 
   return (
     <div ref={node} className={`styled-menu ${hidden ? 'closed' : ''}`}>
       <div className='modal-menu-button'>
-      <MenuButton modalMenu={true} />
       </div>
         <div className='a-container'>
-          <Link className="menu-link" onClick={} to="/contact">
+          <Link className="menu-link" to="/contact">
             CONTACT
         </Link>
-          {currentUser ?
-            <Link className="menu-link" onClick={} to="/account">ACCOUNT</Link> :
-            <div onClick={startModalToggleMenu} className="menu-link"> ACCOUNT </div>
-          }
-          <Link className="menu-link" onClick={} to="/faqs">
+            <Link className="menu-link" to="/account">ACCOUNT</Link>
+          <Link className="menu-link" to="/faqs">
             FAQS
         </Link>
-          <Link className="menu-link" onClick={}>
+          <Link className="menu-link">
             SIGN IN
         </Link>
-          <Link className="menu-link" onClick={}>
+          <Link className="menu-link">
             SIGN UP
         </Link>
         </div>
