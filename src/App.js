@@ -29,7 +29,7 @@ const App = () => {
         <Switch>
           <Suspense fallback={<Spinner />}>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/" component={MenuModal} />
+            <Route path="/" component={MenuModal} />
             <Route path="/quiz" component={QuizPage} />
             <Route path="/quizselect" component={QuizSelect} />
             <Route exact path="/signin" component={Login} />

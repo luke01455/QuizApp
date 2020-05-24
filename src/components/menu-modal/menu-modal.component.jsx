@@ -19,11 +19,11 @@ const MenuModal = ({}) => {
   const hidden = context.menuModal
 
   return (
-    <div ref={node} className={`styled-menu ${hidden ? 'closed' : ''}`}>
+    <div ref={node} className={`styled-menu ${hidden ? 'closed-menu' : 'open'}`}>
       <div className='modal-menu-button'>
       </div>
         <div className='a-container'>
-          <Link className="menu-link" to="/contact">
+          <Link className="menu-link" onClick={() => context.menuModalToggle()} to="/contact">
             CONTACT
         </Link>
             <Link className="menu-link" to="/account">ACCOUNT</Link>

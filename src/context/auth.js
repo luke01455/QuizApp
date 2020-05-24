@@ -6,7 +6,7 @@ const initialState = {
     modal: false,
     loginModal: false,
     registerModal: false,
-    menuModal: false
+    menuModal: true
 }
 
 if(localStorage.getItem('jwtToken')){
