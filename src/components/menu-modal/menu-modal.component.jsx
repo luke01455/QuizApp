@@ -2,6 +2,8 @@ import React, { useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/auth'
 
+import MenuButton from '../menu-button/menu-button.component'
+
 // import { useOnClickOutside } from '../../hooks/hooks';
 
 import './menu-modal.styles.scss';
@@ -21,7 +23,7 @@ const MenuModal = ({}) => {
   return (
     <div ref={node} className={`styled-menu ${hidden ? 'closed-menu' : 'open'}`}>
       <div className='modal-menu-button' onClick={() => context.menuModalToggle()}>
-        <div> X </div>
+        <MenuButton></MenuButton>
       </div>
         <div className='a-container'>
           <Link className="menu-link" onClick={() => context.menuModalToggle()} to="/contact">

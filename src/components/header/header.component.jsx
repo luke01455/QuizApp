@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom'
 import Register from '../../pages/register/register'
 import Login from '../../pages/login/login'
 
+import MenuButton from '../menu-button/menu-button.component'
 import burgerIcon from '../../assets/icons/PinClipart.com_hamburger-clip-art-black_1751649.png'
 
 
@@ -18,28 +19,8 @@ const Header = ({ transparency, scrollLocation, history, color }) => {
     const [headerColour, setHeaderColour] = useState('white')
 
     const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-
-
-    // useEffect(() => history.listen(() => {
-    //     let mounted = true;
-
-    //     if(mounted) {
-    //         setShouldShowActions(false)
-    //         setLastYPos(0)
-    //         scrollLocation = 0
-    //         console.log(shouldShowActions)
-    //         console.log(lastYPos)
-    //     } else {
-    //         console.log('not mounted')
-    //     }
-
-    //     return () => mounted = false;
-
-    // }), [])
-
     
     useEffect(() => {
-
         // checks to see if url contains sport, if it does sets show header constantly to true, which in turn sets the animation to never go to 0, pretty hacky and shit
         if (document.URL.indexOf("Sport") > -1) { setShowHeaderConstantly(true) }
     }, [history.location.key])
@@ -49,7 +30,6 @@ const Header = ({ transparency, scrollLocation, history, color }) => {
         // if(window.location.pathname.length == 1 || window.location.pathname.length == 0 || window.location.pathname === "/index.html" || window.location.pathname === "/index"){
 
         // }
-
         if (scrollLocation > vh - 50) {
             setHeaderColour('black')
         } else {
@@ -123,7 +103,7 @@ const Header = ({ transparency, scrollLocation, history, color }) => {
                     <div className={`option ${headerColour} ${transparency} ${color}`} onClick={() => closeLoginOpenSignUp()}>SIGN UP</div>
                 }
             </div>
-            <div className='burger-icon-container' onClick={() => context.menuModalToggle()}> <img className='burger-icon-img' src={burgerIcon}></img></div>
+            <div className='burger-icon-container' onClick={() => context.menuModalToggle()}> <MenuButton/> </div>
         </motion.div>
         {context.registerModal && <Register /> }
         {context.loginModal && <Login /> }

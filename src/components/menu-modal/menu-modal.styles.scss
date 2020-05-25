@@ -1,8 +1,6 @@
 .styled-menu {
     z-index: 8;
-    background: #ad5389; 
-    background: -webkit-linear-gradient(to right, #3c1053, #ad5389); 
-    background: linear-gradient(to right, #3c1053, #ad5389); 
+    background: black; 
     height: 100%;
     text-align: left;
     position: fixed;
@@ -16,7 +14,6 @@
 
     @media (max-height: 740px) { 
     height: 99.6%;
-        
 
       }
       &.closed-menu {
@@ -29,6 +26,7 @@
           flex-direction: column;
           justify-content: top;
           margin-top: 100px;
+          text-align: center;
      
             .menu-link {
                 font-size: 15px;
@@ -47,12 +45,15 @@
             .modal-menu-button {
               position: fixed;
               text-align: center;
+              display: flex;
+              align-items: center;
+              justify-content: center;
               right: 0;
               top: 0;
               font-size: 5em;
-              background-color: white;
-              width: 100px;
-              height: 100px;
+              background-color: black;
+              width: 35px;
+              height: 35px;
               cursor: pointer;
              }
     }
