@@ -1,15 +1,16 @@
 .styled-menu {
-
+    z-index: 8;
     background: #ad5389; 
     background: -webkit-linear-gradient(to right, #3c1053, #ad5389); 
     background: linear-gradient(to right, #3c1053, #ad5389); 
-    height: 99.8%;
+    height: 100%;
     text-align: left;
-    position: absolute;
+    position: fixed;
     padding: 0px 6em 0px 6em;
+    width: 100%;
     top: 0;
     left: 0;
-    transition: transform 0.7s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     border: 1px solid black;
     z-index: 8;
 
@@ -44,7 +45,14 @@
               }
             }
             .modal-menu-button {
-              margin-left: -85px;
-              margin-top: 10px;
+              position: fixed;
+              text-align: center;
+              right: 0;
+              top: 0;
+              font-size: 5em;
+              background-color: white;
+              width: 100px;
+              height: 100px;
+              cursor: pointer;
              }
     }

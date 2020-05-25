@@ -12,6 +12,7 @@ import burgerIcon from '../../assets/icons/PinClipart.com_hamburger-clip-art-bla
 import './header.styles.scss';
 
 const Header = ({ transparency, scrollLocation, history, color }) => {
+
     const context = useContext(AuthContext)
 
     const [headerColour, setHeaderColour] = useState('white')
