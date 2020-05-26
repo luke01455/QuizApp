@@ -16,7 +16,6 @@
     }
 
     .logo-container {
-      
       height: 100%;
       padding-top: 24px;
       padding-left: 50px;
@@ -121,8 +120,8 @@
   .burger-icon-container {
     width: 55px;
     height: 55px;
-    margin-top: 10px;
-    margin-right: 10px;
+    margin-bottom: 2px;
+    padding-right: 77px;
     cursor: pointer;
 
     @media (min-width: 900px) {

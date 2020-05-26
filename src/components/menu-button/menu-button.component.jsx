@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../context/auth'
 import './menu-button.styles.css';
 
 const MenuButton = () => {
-    const hidden = false
+    const context = useContext(AuthContext)
+    const hidden = context.menuModal
     return(
   <div 
 //   onClick={modalMenu ? turnSideMenuOff : turnSideMenuOn} 
