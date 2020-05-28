@@ -25,6 +25,9 @@ const MenuModal = ({}) => {
       <div className='modal-menu-button' onClick={() => context.menuModalToggle()}>
         <MenuButton></MenuButton>
       </div>
+      <div className='menu-title-container'>
+        <h1 className='menu-title'> Sport Bounty </h1>
+      </div>
         <div className='a-container'>
           <Link className="menu-link" onClick={() => context.menuModalToggle()} to="/contact">
             CONTACT
