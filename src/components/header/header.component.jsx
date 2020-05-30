@@ -7,7 +7,6 @@ import Register from '../../pages/register/register'
 import Login from '../../pages/login/login'
 
 import MenuButton from '../menu-button/menu-button.component'
-import burgerIcon from '../../assets/icons/PinClipart.com_hamburger-clip-art-black_1751649.png'
 
 
 import './header.styles.scss';
@@ -103,7 +102,7 @@ const Header = ({ transparency, scrollLocation, history, color }) => {
                     <div className={`option ${headerColour} ${transparency} ${color}`} onClick={() => closeLoginOpenSignUp()}>SIGN UP</div>
                 }
             </div>
-            <div className='burger-icon-container' onClick={() => context.menuModalToggle()}> <MenuButton/> </div>
+            <div className='burger-icon-container' onClick={() => context.menuModalToggle()}> <MenuButton /> </div>
         </motion.div>
         {context.registerModal && <Register /> }
         {context.loginModal && <Login /> }
