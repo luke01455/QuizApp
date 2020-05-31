@@ -8,16 +8,16 @@ import MenuButton from '../menu-button/menu-button.component'
 
 import './menu-modal.styles.scss';
 
-const MenuModal = ({}) => {
+const MenuModal = ({ }) => {
 
   const context = useContext(AuthContext)
   const node = useRef();
-//   useOnClickOutside(node, () => turnSideMenuOff());
+  //   useOnClickOutside(node, () => turnSideMenuOff());
 
-//   const startModalToggleMenu = () => {
-//     toggleModalAccount();
-//     toggleSideMenuHidden();
-//   }
+  //   const startModalToggleMenu = () => {
+  //     toggleModalAccount();
+  //     toggleSideMenuHidden();
+  //   }
   const hidden = context.menuModal
 
   return (
@@ -28,22 +28,24 @@ const MenuModal = ({}) => {
       <div className='menu-title-container'>
         <h1 className='menu-title'> SPORT BOUNTY </h1>
       </div>
-        <div className='a-container'>
-          <Link className="menu-link" onClick={() => context.menuModalToggle()} to="/contact">
-            CONTACT
+      <div className='a-container'>
+        <Link className="menu-link" onClick={() => context.menuModalToggle()} to="/contact">
+          CONTACT
         </Link>
-            <Link className="menu-link" to="/account">ACCOUNT</Link>
-          <Link className="menu-link" to="/faqs">
-            FAQS
+        <Link className="menu-link" onClick={() => context.menuModalToggle()} to="/account">
+          ACCOUNT
         </Link>
-          <Link className="menu-link">
-            SIGN IN
+        <Link className="menu-link" onClick={() => context.menuModalToggle()} to="/faqs">
+          FAQS
         </Link>
-          <Link className="menu-link">
-            SIGN UP
+        <Link className="menu-link">
+          SIGN IN
         </Link>
-        </div>
-      
+        <Link className="menu-link">
+          SIGN UP
+        </Link>
+      </div>
+
     </div>
   )
 }

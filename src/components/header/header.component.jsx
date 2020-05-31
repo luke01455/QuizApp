@@ -18,6 +18,9 @@ const Header = ({ transparency, scrollLocation, history, color }) => {
     const [headerColour, setHeaderColour] = useState('white')
 
     const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+    const isRoot = window.location.pathname == "/";
+
     
     useEffect(() => {
         // checks to see if url contains sport, if it does sets show header constantly to true, which in turn sets the animation to never go to 0, pretty hacky and shit
@@ -102,7 +105,7 @@ const Header = ({ transparency, scrollLocation, history, color }) => {
                     <div className={`option ${headerColour} ${transparency} ${color}`} onClick={() => closeLoginOpenSignUp()}>SIGN UP</div>
                 }
             </div>
-            <div className='burger-icon-container' onClick={() => context.menuModalToggle()}> <MenuButton /> </div>
+            <div className='burger-icon-container' onClick={() => context.menuModalToggle()}> <MenuButton buttonColor={ isRoot ? 'black' : 'white' }/> </div>
         </motion.div>
         {context.registerModal && <Register /> }
         {context.loginModal && <Login /> }

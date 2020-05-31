@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../context/auth'
 import './menu-button.styles.css';
 
-const MenuButton = () => {
+const MenuButton = ({buttonColor}) => {
     const context = useContext(AuthContext)
     const hidden = context.menuModal
     return(
