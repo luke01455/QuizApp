@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../context/auth'
 import './menu-button.styles.css';
 
-const MenuButton = ({buttonColor}) => {
+const MenuButton = () => {
     const context = useContext(AuthContext)
     const hidden = context.menuModal
     return(
@@ -11,7 +11,7 @@ const MenuButton = ({buttonColor}) => {
   className={`MenuButtonContainer ${!hidden ? 'is-active' : ''}`}>
     <button className={`hamburger hamburger--3dy ${!hidden ? 'is-active' : ''}`} type="button">
       <span className="hamburger-box">
-        <span className="hamburger-inner"></span>
+        <span className={`hamburger-inner`}></span>
       </span>
     </button>
   </div>

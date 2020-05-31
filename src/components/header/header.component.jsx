@@ -7,6 +7,7 @@ import Register from '../../pages/register/register'
 import Login from '../../pages/login/login'
 
 import MenuButton from '../menu-button/menu-button.component'
+import MenuButton2 from '../menu-button/menu-button2.component'
 
 
 import './header.styles.scss';
@@ -21,6 +22,7 @@ const Header = ({ transparency, scrollLocation, history, color }) => {
 
     const isRoot = window.location.pathname == "/";
 
+    console.log(isRoot)
     
     useEffect(() => {
         // checks to see if url contains sport, if it does sets show header constantly to true, which in turn sets the animation to never go to 0, pretty hacky and shit
@@ -105,7 +107,7 @@ const Header = ({ transparency, scrollLocation, history, color }) => {
                     <div className={`option ${headerColour} ${transparency} ${color}`} onClick={() => closeLoginOpenSignUp()}>SIGN UP</div>
                 }
             </div>
-            <div className='burger-icon-container' onClick={() => context.menuModalToggle()}> <MenuButton buttonColor={ isRoot ? 'black' : 'white' }/> </div>
+            <div className='burger-icon-container' onClick={() => context.menuModalToggle()}> { isRoot ? <MenuButton /> : <MenuButton2 />} </div>
         </motion.div>
         {context.registerModal && <Register /> }
         {context.loginModal && <Login /> }

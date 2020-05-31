@@ -23,7 +23,7 @@ const MenuModal = ({ }) => {
   return (
     <div ref={node} className={`styled-menu ${hidden ? 'closed-menu' : 'open'}`}>
       <div className='modal-menu-button' onClick={() => context.menuModalToggle()}>
-        <MenuButton></MenuButton>
+        <MenuButton />
       </div>
       <div className='menu-title-container'>
         <h1 className='menu-title'> SPORT BOUNTY </h1>

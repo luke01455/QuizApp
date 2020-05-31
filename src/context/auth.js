@@ -107,17 +107,14 @@ function AuthProvider(props){
 
     const loginModalToggle = () => {
         dispatch({ type: 'LOGIN_MODAL_TOGGLE'})
-        console.log(state.loginModal)
     }
 
     const registerModalToggle = () => {
         dispatch({ type: 'REGISTER_MODAL_TOGGLE'})
-        console.log(state.registerModal)
     }
 
     const menuModalToggle = () => {
         dispatch({ type: 'MENU_MODAL_TOGGLE'})
-        console.log(state.menuModal)
     }
 
     return (
