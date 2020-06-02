@@ -20,6 +20,25 @@ const MenuModal = ({ }) => {
   //   }
   const hidden = context.menuModal
 
+  const closeSignUpOpenLogin = () => {
+    context.loginModalToggle()
+
+    if (context.registerModal) {
+        context.registerModalToggle()
+    }
+
+}
+
+const closeLoginOpenSignUp = () => {
+    context.registerModalToggle()
+
+    if(context.loginModal) {
+        context.loginModalToggle()
+    }
+    
+}
+
+
   return (
     <div ref={node} className={`styled-menu ${hidden ? 'closed-menu' : 'open'}`}>
       <div className='modal-menu-button' onClick={() => context.menuModalToggle()}>
@@ -38,12 +57,16 @@ const MenuModal = ({ }) => {
         <Link className="menu-link" onClick={() => context.menuModalToggle()} to="/faqs">
           FAQS
         </Link>
-        <Link className="menu-link">
-          SIGN IN
-        </Link>
-        <Link className="menu-link">
-          SIGN UP
-        </Link>
+        {context.user ?
+                    <Link className={`menu-link`} to='/account'>{context.user.username.toUpperCase()}</Link>
+                    :
+                    <div className={`menu-link`} onClick={() => closeSignUpOpenLogin()}>SIGN IN</div>
+                }
+                {context.user ?
+                    <div className={`menu-link`} to='/signin' onClick={context.logout}> SIGN OUT </div>
+                    :
+                    <div className={`menu-link`} onClick={() => closeLoginOpenSignUp()}>SIGN UP</div>
+                }
       </div>
 
     </div>
