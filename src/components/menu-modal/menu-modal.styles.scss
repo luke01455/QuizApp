@@ -33,12 +33,14 @@
                 color: white;
                 text-decoration: none;
                 transition: color 0.3s linear;
-    
+                
                 &:hover {
-                  color: white;
+                  letter-spacing: 1px;
+                  cursor: pointer;
                 }
               }
             }
+
             .modal-menu-button {
               position: fixed;
               text-align: center;

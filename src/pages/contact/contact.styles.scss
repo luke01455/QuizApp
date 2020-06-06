@@ -3412,6 +3412,10 @@
     background: rgb(88,181,26);
     background: linear-gradient(90deg, rgba(88,181,26,1) 0%, rgba(66,161,23,1) 50%, rgba(44,141,20,1) 100%);
 
+	@media (max-width: 630px) {
+        display: none;
+	  }
+	  
 }
 .contact-page-circle-2 {
     z-index: 0;
@@ -3421,7 +3425,12 @@
     width: 135px;
     height: 135px;
     border-radius: 100px;
-    border: 12px solid rgba(66,161,23,1);
+	border: 12px solid rgba(66,161,23,1);
+	
+	@media (max-width: 800px) {
+        display: none;
+	  }
+	  
 }
 .contact-page-circle-3 {
     z-index: 0;
@@ -3433,7 +3442,8 @@
     border-top-left-radius: 110px;
     border-top-right-radius: 110px; 
     border: 12px solid rgba(66,161,23,1);
-    border-bottom: 0;
+	border-bottom: 0;
+
 }
 .contact-page-circle-4 {
     z-index: 0;
@@ -3446,6 +3456,11 @@
     background: rgb(88,181,26);
     background: linear-gradient(90deg, rgba(88,181,26,1) 0%, rgba(66,161,23,1) 50%, rgba(44,141,20,1) 100%);
 
+		
+	@media (max-width: 1200px) {
+        display: none;
+	  }
+	  
 }
 .contact-page-circle-5 {
     z-index: 0;
@@ -3455,7 +3470,12 @@
     width: 100px;
     height: 100px;
     border-radius: 100px;
-    border: 10px solid #FF9A34;
+	border: 10px solid #FF9A34;
+	
+	@media (max-width: 550px) {
+        display: none;
+	  }
+	  
 }
 
 
