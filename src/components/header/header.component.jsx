@@ -94,12 +94,15 @@ const Header = ({ transparency, scrollLocation, history, color }) => {
                 <h1 className={`header-logo ${transparency} ${color}`}> SPORT BOUNTY </h1>
             </Link>
             <div className={`options ${transparency}`}>
+                <Link className={`option ${headerColour} ${transparency} ${color}`} to='/shop'> SHOP </Link>
                 <Link className={`option ${headerColour} ${transparency} ${color}`} to='/contact'> CONTACT </Link>
                 <Link className={`option ${headerColour} ${transparency} ${color}`} to='/faqs'> FAQ'S </Link>
                 {context.user ?
                     <Link className={`option ${headerColour} ${transparency} ${color}`} to='/account'>{context.user.username.toUpperCase()}</Link>
                     :
                     <div className={`option ${headerColour} ${transparency} ${color}`} onClick={() => closeSignUpOpenLogin()}>SIGN IN</div>
+                }
+                {context.user && <div className={`option ${headerColour} ${transparency} ${color}`} to='/shop'>{context.user.coins}</div>
                 }
                 {context.user ?
                     <div className={`option ${transparency} ${headerColour} ${color}`} to='/signin' onClick={context.logout}> SIGN OUT </div>
