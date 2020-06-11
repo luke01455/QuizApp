@@ -12,16 +12,16 @@ const ShopPage = () => {
                 <Header transparency='nontransparent' color='green' />
             <div className='shop-select-title'> <h1> Shop </h1></div>
                 <div className='shop-selection-carousel'>
-                    <ShopItem>1000</ShopItem>
-                    <ShopItem>2500</ShopItem>
-                    <ShopItem>5000</ShopItem>
-                    <ShopItem>10000</ShopItem>
+                    <ShopItem item='1000 coins' price='£5.99'/>
+                    <ShopItem item='2500 coins' price='£12.99'/>
+                    <ShopItem item='5000 coins' price='£23.99'/>
+                    <ShopItem item='10000 coins' price='£45.99'/>
                 </div>
                 <div className='shop-selection-carousel'>
-                    <ShopItem>Amazon gift certificate - £50</ShopItem>
-                    <ShopItem>Amazon gift certificate - £250</ShopItem>
-                    <ShopItem>Rolex</ShopItem>
-                    <ShopItem>New Car</ShopItem>
+                    <ShopItem item='Amazon gift certificate - £50'  price='12000 coins'/>
+                    <ShopItem item='Amazon gift certificate - £250'  price='50000 coins'/>
+                    <ShopItem item='Rolex'  price='£7.99' price='175000 coins'/>
+                    <ShopItem item='New Car'  price='£7.99'  price='1000000 coins'/>
                 </div>
                 <Footer />
             </div>
