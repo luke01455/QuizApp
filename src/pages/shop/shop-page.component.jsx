@@ -1,28 +1,30 @@
 import React from 'react';
 import './shop-page.styles.scss'
 
+import ShopItem from '../../components/shop-item/shop-item.component'
 import Header from '../../components/header/header.component'
+import Footer from '../../components/footer/footer.component'
 
 const ShopPage = () => {
 
     return (
-        <div className='shop-page-container'>
-            <Header transparency='nontransparent'/>
-            <h1 className='shop-page-title'> Shop </h1>
-            <div className='buy-coins-options'>
-                <div className='buy-coins-option'>1000</div>
-                <div className='buy-coins-option'>2500</div>
-                <div className='buy-coins-option'>5000</div>
-                <div className='buy-coins-option'>10000</div>
+                <div className='shop-select-container'>
+                <Header transparency='nontransparent' color='green' />
+            <div className='shop-select-title'> <h1> Shop </h1></div>
+                <div className='shop-selection-carousel'>
+                    <ShopItem>1000</ShopItem>
+                    <ShopItem>2500</ShopItem>
+                    <ShopItem>5000</ShopItem>
+                    <ShopItem>10000</ShopItem>
+                </div>
+                <div className='shop-selection-carousel'>
+                    <ShopItem>Amazon gift certificate - £50</ShopItem>
+                    <ShopItem>Amazon gift certificate - £250</ShopItem>
+                    <ShopItem>Rolex</ShopItem>
+                    <ShopItem>New Car</ShopItem>
+                </div>
+                <Footer />
             </div>
-            <div className='buy-prizes-options'>
-                <div className='buy-prize-option'>Amazon gift certificate - £50</div>
-                <div className='buy-prize-option'>Amazon gift certificate - £250</div>
-                <div className='buy-prize-option'>Rolex</div>
-                <div className='buy-prize-option'>New Car</div>
-
-            </div>
-        </div>
     )
 }
 
