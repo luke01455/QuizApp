@@ -7,10 +7,7 @@ import coinimg from '../../assets/icons/pngbarn.png'
 const ShopItem = ({ size, title, userCount, maxUsers, price, id, item, history, isBuying }) => {
 
     return (
-        <div className={`card-container ${size}`} >
-           {/* <div className='prize-picture-container'>
-               <div className='quiz-prize-name'> {prize ? prize : 'unknown'}  </div>
-           </div> */}
+        <div className={`shop-item-container ${size}`} >
            <div className='info-container'>
                 <h3 className='top-text-container'> {item} </h3>
                 <div className='prize-picture-container'>
