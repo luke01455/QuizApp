@@ -4,14 +4,14 @@ import './shop-item.styles.scss';
 
 import coinimg from '../../assets/icons/pngbarn.png'
 
-const ShopItem = ({ size, title, userCount, maxUsers, price, id, item, history, isBuying }) => {
+const ShopItem = ({ cardSize, pictureSize, title, price, id, item, history, isBuying, itemImg }) => {
 
     return (
-        <div className={`shop-item-container ${size}`} >
+        <div className={`shop-item-container ${cardSize}`} >
            <div className='info-container'>
                 <h3 className='top-text-container'> {item} </h3>
-                <div className='prize-picture-container'>
-                        <img className='prize-picture' src={coinimg}></img>
+                <div className={`prize-picture-container ${pictureSize}`}>
+                        <img className='prize-picture' src={ itemImg ? itemImg : coinimg}></img>
                     </div>
                 <div className='lower-text-container'>
 
