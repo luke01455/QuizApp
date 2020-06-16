@@ -10,6 +10,7 @@
     min-width: 200px;
     width: 17%;
     @media (max-width: 1200px) {
+        margin: 0 auto;
     }
 
 
@@ -89,6 +90,7 @@
 }
 
 .largeBig {
+    min-width: 350px;
     width: 22%;
 }
 
