@@ -34,6 +34,12 @@
             height: 1000px;
         }
 
+        @media (max-width: 650px) {
+            height: 1000px;
+            flex-direction: column;
+        }
+
+
 
         .shop-section-divider {
             width: 50%;
@@ -44,6 +50,12 @@
             @media (max-width: 1200px) {
                 flex-direction: column;
                 justify-content: space-around;
+            }
+
+            @media (max-width: 650px) {
+                margin: 0 auto;
+                height: 600px;
+                flex-direction: column;
             }
 
         }
