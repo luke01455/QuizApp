@@ -9,7 +9,7 @@ const ShopPage = () => {
 
     return (
         <div className='shop-select-container'>
-            <Header transparency='nontransparent' color='green' />
+            <Header transparency='nontransparent' />
             <div className='shop-select-title'> <h1> Shop </h1></div>
             <h1 className='shop-carousel-title'> Buy coins </h1>
             <div className='shop-selection-carousel'>
