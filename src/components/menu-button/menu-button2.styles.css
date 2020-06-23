@@ -85,7 +85,7 @@
     .hamburger--3dy2.is-active2 .hamburger-inner2::before {
       background-color: black;
       transform: translate3d(0, 10px, 0) rotate(45deg); }
-    .hamburger--3dy.is-active2 .hamburger-inner2::after {
+    .hamburger--3dy2.is-active2 .hamburger-inner2::after {
       background-color: black;
       transform: translate3d(0, -10px, 0) rotate(-45deg); }
 

@@ -81,6 +81,7 @@
     .info-container {
         display: flex;
         flex-direction: column;
+        width: 100%;
 
         @media (max-width: 650px) {
              flex-direction: row;
@@ -116,16 +117,17 @@
         }
 
         .top-text-container { 
-            margin-top: 10px;
             font-family: 'Roboto', sans-serif;
             font-size: 1.8em;
             border-bottom: 1px solid #edf0ee;
             width: 100%;
             //@extend: 5px 25px 15px 25px;
             color: #777777;
+            height: 75px;
+            margin-top: 30px;
 
             @media (max-width: 650px) {
-                width: 26%;
+                width: 20%;
             }
 
 
@@ -141,7 +143,7 @@
             margin-bottom: 10px;
 
             @media (max-width: 650px) {
-                width: 31%;
+                width: 55%;
             }
 
 

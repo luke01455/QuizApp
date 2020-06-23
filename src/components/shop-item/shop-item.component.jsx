@@ -9,7 +9,7 @@ const ShopItem = ({ cardSize, pictureSize, title, price, id, item, history, isBu
     return (
         <div className={`shop-item-container ${cardSize}`} >
            <div className='info-container'>
-           <div className={`prize-picture-container-mobile ${pictureSize}`}>
+                <div className={`prize-picture-container-mobile ${pictureSize}`}>
                         <img className='prize-picture-mobile' src={ itemImg ? itemImg : coinimg}></img>
                 </div>
                 <h3 className='top-text-container'> {item} </h3>
@@ -18,6 +18,7 @@ const ShopItem = ({ cardSize, pictureSize, title, price, id, item, history, isBu
                 </div>
                 <div className='lower-text-container'>
                     <p> {price} </p>
+                    <Link className='enter-quiz-button-mobile' to={`quiz/${title}/${id}`}> { isBuying ? 'Buy Now' : 'Redeem Now'} </Link>
                 </div>
                 <Link className='enter-quiz-button' to={`quiz/${title}/${id}`}> { isBuying ? 'Buy Now' : 'Redeem Now'} </Link>
            </div>
