@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './quiz-card.styles.scss';
+import coinimg from '../../assets/icons/pngbarn.png'
 
 const QuizCard = ({ size, title, userCount, maxUsers, price, id, prize, history }) => {
 
@@ -12,7 +13,7 @@ const QuizCard = ({ size, title, userCount, maxUsers, price, id, prize, history 
            <div className='info-container'>
                 <h3 className='top-text-container'> {prize ? prize : 'unknown'} </h3>
                 <div className='prize-picture-container'>
-                        <img className='prize-picture' src="https://static.bigspark.com/shrine/8928/original-63aed47219.jpg"></img>
+                        <img className='prize-picture' src={coinimg}></img>
                     </div>
                 <div className='lower-text-container'>
 
