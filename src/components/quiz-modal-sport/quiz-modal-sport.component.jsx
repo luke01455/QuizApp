@@ -228,17 +228,17 @@ React.useEffect(() => {
   return () => clearInterval(timer);
 }, [counter]);
 
-if (counter <= 0) {
-    if (count === 5) {
-        endQuiz()
-        setCounter(5)
-    }
-    else {
-        nextQuestion()
-        setCounter(5)
-    }
+// if (counter <= 0) {
+//     if (count === 5) {
+//         endQuiz()
+//         setCounter(5)
+//     }
+//     else {
+//         nextQuestion()
+//         setCounter(5)
+//     }
 
-}
+// }
         
 ///////////////////////////// timer ^^ ////////////////////////////////////////////
 
@@ -261,10 +261,12 @@ const nextQuestionClicked = () => {
                     ) :
                     (
                         <div className='modal-container'>
+                            <div className='modal-container-top'>
                             <div>Countdown: {counter}</div>
                             <div className='question-header'> WHO IS THIS SPORTSPERSON? </div>
-                            <div className='modal-question'> {question}
+                            <div className='modal-question'> {question}</div>
                             </div>
+                            <div className='modal-container-bottom'>
                             <div className='modal-section-wrapper'>
                                 <div className='radio-answer'>
                                     <input className="radio-input" type="radio" value="1" onChange={() => setCheckedRadio("1")} checked={isRadioChecked === '1'} />
@@ -282,9 +284,9 @@ const nextQuestionClicked = () => {
                                     <input className="radio-input" type="radio" value="4" onChange={() => setCheckedRadio("4")} checked={isRadioChecked === '4'} />
                                     {answerLocation === 4 ? correctAnswer : incorrectAnswer4}
                                 </div>
-
                             </div>
                             <button onClick={() => nextQuestionClicked()} className='next-button'> Next Question </button>
+                            </div>
                         </div>
                     )
             }
