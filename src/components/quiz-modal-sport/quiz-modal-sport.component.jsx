@@ -253,6 +253,7 @@ const nextQuestionClicked = () => {
     }
 }
     return (
+        <div className='styled-modal-container'>
         <div className='styled-modal'>
             {
                 (questionIsLoading && answerIsLoading) ?
@@ -262,12 +263,16 @@ const nextQuestionClicked = () => {
                     (
                         <div className='modal-container'>
                             <div className='modal-container-top'>
-                            <div>Countdown: {counter}</div>
-                            <div className='question-header'> WHO IS THIS SPORTSPERSON? </div>
+                            
+                            
                             <div className='modal-question'> {question}</div>
+                            <div>Countdown: {counter}</div>
+                            <button onClick={() => nextQuestionClicked()} className='next-button'> Next Question </button>
+                            
                             </div>
                             <div className='modal-container-bottom'>
                             <div className='modal-section-wrapper'>
+                            <div className='question-header'> WHO IS THIS SPORTSPERSON? </div>
                                 <div className='radio-answer'>
                                     <input className="radio-input" type="radio" value="1" onChange={() => setCheckedRadio("1")} checked={isRadioChecked === '1'} />
                                     {answerLocation === 1 ? correctAnswer : incorrectAnswer1}
@@ -285,11 +290,12 @@ const nextQuestionClicked = () => {
                                     {answerLocation === 4 ? correctAnswer : incorrectAnswer4}
                                 </div>
                             </div>
-                            <button onClick={() => nextQuestionClicked()} className='next-button'> Next Question </button>
+                            
                             </div>
                         </div>
                     )
             }
+        </div>
         </div>
     )
 }
